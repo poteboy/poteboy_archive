@@ -1,0 +1,77 @@
+@font-face {
+    font-family: dock11;
+    src:url(src/assets/heavy_dock11.otf);
+}
+
+.home {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: #050d21;
+    .logo {
+        @keyframes beat {
+          0% {
+            transform: scale(1, 1, 1);
+            text-shadow: 0px 0px 100px rgba(11,124,199,0.5);
+          }
+          11% {
+            transform: scale(1.03, 1.03);
+          }
+          22% {
+            transform: scale(1, 1);
+          }
+          33% {
+            transform: scale(1.05, 1.05);
+          }
+          44% {
+            transform: scale(1, 1);
+            text-shadow: 0px 0px 100px rgba(199,96,11,0.5);
+          }
+          100% {
+            transform: scale(1, 1);
+            text-shadow: 0px 0px 100px rgba(11,124,199,0.5);
+          }
+        }
+        @keyframes cycle {
+            0% { text-shadow: 0px 0px 100px rgba(11,124,199,0.5);}
+            20% { text-shadow: 0px 0px 100px rgba(168,11,199,0.5);}
+            40% { text-shadow: 0px 0px 100px rgba(11,199,96,0.5);}
+            60% { text-shadow: 0px 0px 100px rgba(199,11,11,0.5);}
+            80% { text-shadow: 0px 0px 100px rgba(199,96,11,0.5);}
+        }
+
+        .myname {
+            font-family: dock11;
+            color:rgb(207,207,207);
+            letter-spacing: 3px;
+            font-size: 80px;
+            transition: all linear 0.20s;
+            position: relative;
+            text-shadow: 
+            0px 0px 1px rgb(167,167,167),
+            0px 1px 1px rgb(167,167,167),
+            0px 2px 1px rgb(167,167,167),
+
+            1px 1px 1px rgb(167,167,167),
+            1px 2px 1px rgb(167,167,167),
+            1px 3px 1px rgb(167,167,167),
+
+            2px 2px 1px rgb(167,167,167),
+            2px 3px 1px rgb(167,167,167),
+            2px 4px 1px rgb(167,167,167);
+            animation: beat 1.24s infinite, cycle 5s linear infinite;;
+
+            .description {
+                font-size: 15px;
+                // 下２つで何故か<P> within <div>が真ん中になった
+                text-align: center;
+                line-height: 100px;
+                margin: 0 auto;
+                white-space: nowrap
+            }
+        }
+    }
+}
