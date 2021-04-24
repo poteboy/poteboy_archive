@@ -5,10 +5,15 @@ import { StaticImage } from "gatsby-plugin-image"
 
 const IndexPage = () => {
   return (
-    <div>
-      <div>hello</div>
-      <Link to="practice/count">go Count</Link>
-    </div>
+    <>
+      <div className="home">
+        <div className="logo">
+          <div className="myname">KEITA FURUSE
+            <p className="description"><Link to="practice/count">FRONT-END WEB DEVELOPER</Link></p>
+          </div>
+        </div>
+      </div>
+    </>
   )
 }
 
