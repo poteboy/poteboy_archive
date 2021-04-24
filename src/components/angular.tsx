@@ -7,7 +7,7 @@ const Angular = (props: any) => {
         <div className={style.home}>
         <div className={style.logo}>
           <div className={style.myname}>KEITA FURUSE
-            <p className={style.description}><Link to="practice/blog">FRONT-END WEB DEVELOPER</Link></p>
+            <p className={style.description}>WEB APPLICATION DEVELOPER</p>
           </div>
         </div>
       </div>
