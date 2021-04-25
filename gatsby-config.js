@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
+    title: `poteboy`,
     pathPrefix: `/poteboy`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    author: `Keita Furuse`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -13,6 +13,13 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/assets/images`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `posts`,
+        path: `${__dirname}/src/assets/posts`,
       },
     },
     `gatsby-transformer-sharp`,
@@ -42,6 +49,6 @@ module.exports = {
       }
     },
     `gatsby-plugin-sass`,
-
+    `gatsby-transformer-remark`,
   ],
 }
