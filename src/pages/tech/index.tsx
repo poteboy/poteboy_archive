@@ -4,7 +4,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 const style = require("../../styles/blog-index.module.scss");
 
 
-const TechBlog = () => {
+const Tech = () => {
 
     const posts = useStaticQuery(graphql`
     query {
@@ -42,4 +42,4 @@ const TechBlog = () => {
 
 }
 
-export default TechBlog
+export default Tech

@@ -4,7 +4,12 @@ header {
     padding: 1rem 0 3rem;
 }
 
+.sp {
+    display: none;
+}
+
 .nav-list {
+    padding-top: 10px;
     display: flex;
     list-style-type: none;
     margin: 0;
@@ -12,8 +17,8 @@ header {
 
 .nav-item {
     color: #999999;
-    font-size: .9rem;
-    margin-right: 1.3rem;
+    font-size: 1.2rem;
+    margin-right: 2rem;
     text-decoration: none;
 }
 
@@ -24,3 +29,107 @@ header {
 .active-nav-item {
     color: #333333;
 }
+
+@media screen and (max-width: 640px) {
+    .pc {
+        display: none;
+    }
+
+    .ham {
+        position: relative;
+        display: block;
+        width: 35px;
+        height: 25px;
+        margin-top: 5px;
+        margin-left: 30px;
+
+        span {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: $base-font-color;
+            transform: translateY(-50%);
+        }
+    }
+
+    .ham::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: $base-font-color;
+     }
+
+     .ham::after {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: $base-font-color;
+     }
+
+
+    .sp {
+        z-index: 1;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        display: block;
+        width: 100%;
+        background: rgba(0, 0, 0, .8);
+        transition: all .2s ease-in-out;
+     }
+
+    .sp ul {
+        list-style-type: none;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+
+    li {
+        margin: 0;
+        margin-top: 15px;
+        padding: 0;
+        font-size: 1.2rem;
+        margin-right: 2rem;
+        color: white;
+
+        span {
+            margin: 0;
+            padding: 0;
+            display: block;
+            padding: 20px 0;
+        }
+    }
+
+    .toggle {
+        transform: translateY(0);
+        opacity: 1;
+     }
+
+    .sp-nav {
+        color: white;
+        text-decoration: none;
+    }
+    
+    .sp-nav:hover {
+        color: $base-font-color;
+    }
+
+}
+
