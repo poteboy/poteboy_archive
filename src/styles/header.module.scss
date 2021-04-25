@@ -108,8 +108,10 @@ header {
         font-size: 1.2rem;
         margin-right: 2rem;
         color: white;
+        margin-bottom: 10px;
 
         span {
+            font-family: demilight;
             margin: 0;
             padding: 0;
             display: block;
@@ -123,6 +125,7 @@ header {
      }
 
     .sp-nav {
+        font-family: demilight;
         color: white;
         text-decoration: none;
     }
