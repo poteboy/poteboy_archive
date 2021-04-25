@@ -1,12 +1,33 @@
-$dark: #08090e;
-
+@import "variable.scss";
 
 @font-face {
     font-family: dock11;
-    src:url("../assets/heavy_dock11.otf");
+    src:url("../assets/fonts/heavy_dock11.otf");
+}
+
+@font-face {
+    font-family: demilight;
+    src: url("../assets/fonts/NotoSansCJKjp-DemiLight.otf");
+}
+
+@font-face {
+    font-family: phenomena-bold;
+    src: url("../assets//fonts/Phenomena-Bold.otf");
+}
+
+@font-face {
+    font-family: phenomena-regular;
+    src: url("../assets//fonts/Phenomena-Regular.otf");
 }
 
 body {
     overflow: hidden;
     margin: auto;
+    background: $base-color;
+}
+
+#wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }

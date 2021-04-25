@@ -1,12 +1,13 @@
 import * as React from "react"
 import { Link } from "gatsby"
 import '../styles/index.scss';
-import Angular from '../components/angular'
+import Layout from '../components/layout'
 
 
 const IndexPage = () => {
   return (
-    <Angular></Angular>
+    <Layout>
+    </Layout>
   )
 }
 

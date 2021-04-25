@@ -1,0 +1,60 @@
+@import "variable.scss";
+
+
+@keyframes beat {
+    0% {
+      transform: scale(1, 1, 1);
+      text-shadow: 0px 0px 100px;
+    }
+    11% {
+      transform: scale(1.03, 1.03);
+    }
+    22% {
+      transform: scale(1, 1);
+    }
+    33% {
+      transform: scale(1.05, 1.05);
+    }
+    44% {
+      transform: scale(1, 1);
+      text-shadow: 0px 0px 100px;
+    }
+    100% {
+      transform: scale(1, 1);
+      text-shadow: 0px 0px 100px;
+    }
+  }
+  @keyframes cycle {
+      0% { text-shadow: 0px 0px 100px rgba(11,124,199,2);}
+      20% { text-shadow: 0px 0px 100px rgba(168,11,199,2);}
+      40% { text-shadow: 0px 0px 100px rgba(11,199,96,2);}
+      60% { text-shadow: 0px 0px 100px rgba(199,11,11,2);}
+      80% { text-shadow: 0px 0px 100px rgba(199,96,11,2);}
+  }
+
+.profile {
+    margin: 0 auto;
+    margin-top: auto;
+    padding-bottom: 10rem;
+    text-align: center;
+    color: rgb(143, 143, 143);
+
+    .icon {
+        width: 140px;
+        height: 140px;
+        border-radius: 80px;
+        box-shadow: 0 2px 2px 0px rgb(0 0 0 / 20%);
+        animation: beat 1.24s infinite, cycle 8s linear infinite;
+    }
+
+    .name {
+        font-size: xx-large;
+        font-family: phenomena-bold;
+        text-align: center;
+    }
+
+    .description {
+        font-size: larger;
+        font-family: phenomena-bold;
+    }
+}

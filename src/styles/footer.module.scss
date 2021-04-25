@@ -1,0 +1,14 @@
+@import "variable.scss";
+
+footer {
+    height: 15vh;
+    margin-top: auto;
+    background: linear-gradient(to right, $cool-blue, $cool-pink);
+
+    p {
+        font-family: demilight;
+        color: white;
+        text-align: center;
+        margin-top: 3rem;
+    }
+}
