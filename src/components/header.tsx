@@ -10,6 +10,7 @@ const Header = () => {
                     <li>
                         <Link 
                             className={style.navItem}
+                            activeClassName={style.activeNavItem}
                             to="/">
                             HOME
                         </Link>
@@ -17,14 +18,16 @@ const Header = () => {
                     <li>
                         <Link 
                             className={style.navItem}
-                            to="/">
+                            activeClassName={style.activeNavItem}
+                            to="/about">
                             ABOUT
                         </Link>
                     </li>
                     <li>
                         <Link 
                             className={style.navItem}
-                            to="/">
+                            activeClassName={style.activeNavItem}
+                            to="/tech-blog">
                             TECH BLOG
                         </Link>
                     </li>

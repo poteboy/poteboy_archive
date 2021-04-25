@@ -1,0 +1,48 @@
+@import "variable.scss";
+
+@keyframes fadeIn{
+	0%{
+		opacity: 0;
+        transform: translateY(40px);
+	}
+	100%{
+		opacity: 1;
+        transform: translateY(0px);
+	}
+}
+
+.table {
+    color: $base-font-color;
+    font-family: demilight;
+    margin: 0 auto;
+
+    .content {
+        animation: fadeIn 0.5s linear;
+        margin-bottom: 5em;
+
+        .me {
+            margin-left: 2em;
+            height: 200px;
+            border-color: white; 
+            border-width: thick;
+            border-radius: 10px;
+        }
+
+        h3 {
+            text-align: center;
+            border-bottom: 3px solid $cool-blue
+        }
+
+        p {
+            text-indent: -2em;
+        }
+
+        em {
+            margin-left: 2em;
+            font-weight: bold;
+            margin-right: 1em;
+        }
+
+    }
+
+}
