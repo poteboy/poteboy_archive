@@ -20,6 +20,7 @@ const Tech = () => {
             title
             publishedDate(formatString: "MMMM Do, YYYY")
             slug
+            description
           }
         }
       }

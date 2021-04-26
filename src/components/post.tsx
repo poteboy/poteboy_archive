@@ -18,16 +18,6 @@ export const query = graphql`
   }
     `
 
-// `query($slug: String!) {
-//         ContentfulTech(slug: { eq: $slug} ) {
-//             title
-//             publishedDate
-//             description
-//             body
-//         }
-//     }
-// `
-
 const Post = (props: {data : { contentfulTech: any}}) => {
     const body = JSON.parse(props.data.contentfulTech.body.raw)
     return(
