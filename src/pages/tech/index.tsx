@@ -9,36 +9,36 @@ const Tech = () => {
 
     const posts = useStaticQuery(graphql`
     query {
-      allMarkdownRemark {
-      edges {
+      allContentfulTech (
+        sort: {
+          fields: publishedDate
+          order: DESC
+        }
+      ) {
+        edges {
           node {
-            frontmatter {
-              title
-              data
-              desc
-            }
-          fields {
-              slug
-              }
+            title
+            publishedDate(formatString: "MMMM Do, YYYY")
+            slug
           }
+        }
       }
-      }
-  }
+    }
     `);
 
     return(
       <Blog>
           <ol className={style.content}>
-          {posts.allMarkdownRemark.edges.map( (edge: {node: any}) => {
+          {posts.allContentfulTech.edges.map( (edge: {node: any}) => {
               return(
                   <li className={style.list}>
                       <div className={style.post}>
-                          <Link to={`${edge.node.fields.slug}`}
+                          <Link to={`${edge.node.slug}`}
                           className={style.link}
                           >
-                            <h3>{edge.node.frontmatter.title}</h3>
-                            <p>{edge.node.frontmatter.data}</p>
-                            <p className={style.desc}>{edge.node.frontmatter.desc}</p>
+                            <h3>{edge.node.title}</h3>
+                            <p>{edge.node.publishedDate}</p>
+                            <p className={style.desc}>{edge.node.description}</p>
                           </Link>
                       </div>
                   </li>

@@ -1,13 +1,23 @@
 
 
 .all {
-    margin: auto;
-    background-color: white;
+    box-sizing: border-box;
+    margin: 0;
+    min-width: 0;
+    width: 100%;
+    max-width: 1140px;
 }
 
 .content {
-    
-    width: 90%;
-    height: 90%;
-    
+    box-sizing: border-box;
+    margin: 0;
+    min-width: 0;
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 1px 1px 5px 0 rgb(1 1 1 / 5%);
+    padding: 2rem;
+
+    .post {
+        color: black;
+    }
 }
