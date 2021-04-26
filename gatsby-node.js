@@ -14,8 +14,17 @@ module.exports.createPages = async ({ graphql, actions }) => {
             }
           }
         }
+        allContentfulPoem {
+          edges {
+            node {
+              slug
+            }
+          }
+        }
       }
     `)
+
+
 
     res.data.allContentfulTech.edges.forEach((edge) => {
         createPage({
@@ -25,5 +34,16 @@ module.exports.createPages = async ({ graphql, actions }) => {
                 slug: edge.node.slug,
             }
         })
-    })
+    });
+
+    res.data.allContentfulPoem.edges.forEach((edge) => {
+        createPage({
+            component: blogPath,
+            path: `/poem/${edge.node.slug}`,
+            context: {
+                slug: edge.node.slug,
+            }
+        })
+    });
+
 }

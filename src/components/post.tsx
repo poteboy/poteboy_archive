@@ -15,19 +15,38 @@ export const query = graphql`
             raw
         }
     }
+    contentfulPoem(slug: {eq: $slug}) {
+        title
+        publishedDate(formatString: "MMMM Do, YYYY")
+        description
+        body {
+            raw
+        }
+    }
   }
     `
 
-const Post = (props: {data : { contentfulTech: any}}) => {
-    const body = JSON.parse(props.data.contentfulTech.body.raw)
+const Post = (props: {data : any}) => {
+
+    let thema = null;
+    
+    if (props.data.contentfulTech === null) {
+        thema = props.data.contentfulPoem;
+    } else {
+        thema = props.data.contentfulTech;
+    };
+
+    console.log(thema)
+
+    const body = JSON.parse(thema.body.raw)
     return(
         <Blog>
             <div className={style.all}>
                 <div className={style.content}>
                     <div className={style.post}>
-                    <h1>{props.data.contentfulTech.title}</h1>
+                    <h1>{thema.title}</h1>
                         <div>
-                            {props.data.contentfulTech.publishedDate}
+                            {thema.publishedDate}
                             {documentToReactComponents(body)}
                         </div>
                     </div>

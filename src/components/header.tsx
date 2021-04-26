@@ -47,6 +47,14 @@ const Header = () => {
                             TECH
                         </Link>
                     </li>
+                    <li>
+                        <Link 
+                            className={style.navItem}
+                            activeClassName={style.activeNavItem}
+                            to="/poem">
+                            POEM
+                        </Link>
+                    </li>
                 </ul>
             </nav>
             <nav className={style.sp} style={{
@@ -76,6 +84,14 @@ const Header = () => {
                             onClick={() => {setBool(false)}}
                             to="/tech">
                             TECH
+                        </Link>
+                    </li>
+                    <li>
+                        <Link 
+                            className={style.spNav}
+                            onClick={() => {setBool(false)}}
+                            to="/peom">
+                            POEM
                         </Link>
                     </li>
                     <li className={style.close}><span onClick={() => {setBool(false)}}>CLOSE</span></li>
