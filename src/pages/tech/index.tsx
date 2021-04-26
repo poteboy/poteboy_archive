@@ -23,9 +23,6 @@ const Tech = () => {
           }
       }
       }
-      file(name: { eq: "poteicon" }) {
-        publicURL
-    }
   }
     `);
 

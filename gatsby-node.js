@@ -17,7 +17,7 @@ module.exports.onCreateNode = ({ node, actions }) => {
 module.exports.createPages = async ({ graphql, actions }) => {
 
     const { createPage } = actions;
-    const blogPath = path.resolve('./src/components/blog.tsx');
+    const blogPath = path.resolve('./src/components/post.tsx');
 
     const res = await graphql(`
         query {
