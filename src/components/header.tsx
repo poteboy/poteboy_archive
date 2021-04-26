@@ -90,7 +90,7 @@ const Header = () => {
                         <Link 
                             className={style.spNav}
                             onClick={() => {setBool(false)}}
-                            to="/peom">
+                            to="/poem">
                             POEM
                         </Link>
                     </li>
