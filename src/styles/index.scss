@@ -25,11 +25,11 @@ body {
     margin: auto;
     background: $base-color;
     overflow: scroll;
+    // -webkit-font-smoothing: antialiased;
 }
 
 #wrapper {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    overflow: scroll;
 }

@@ -14,7 +14,9 @@
 .table {
     color: $base-font-color;
     font-family: demilight;
-    margin: 0 auto;
+
+    margin-left: auto;
+    margin-right: auto;
 
     .content {
         animation: fadeIn 0.5s linear;
@@ -34,7 +36,13 @@
         }
 
         p {
+            text-align: left;
             text-indent: -2em;
+            overflow-wrap: break-word;
+
+            span {
+                padding-left: 3vh;
+            }
         }
 
         em {

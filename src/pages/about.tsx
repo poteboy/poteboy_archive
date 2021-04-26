@@ -34,7 +34,11 @@ const About = () => {
                     </p>
                     <br/>
                     <h3>Profile</h3>
-                    TypeScript、筋トレ、お絵かきが好きです
+                    <p>
+                        <span style={style.profle}>
+                    TypeScript、筋トレ、お絵かきが好きです。
+                    </span>
+                    </p>
                 </section>
             </div>
         </Layout>

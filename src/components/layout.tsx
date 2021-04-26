@@ -6,7 +6,7 @@ import Meta from './meta';
 const Layout = (props: {children: any}) => {
     return(
         <div id="wrapper">
-            <Meta></Meta>
+            <Meta />
             <Header/>
                 {props.children}
             <Footer />
