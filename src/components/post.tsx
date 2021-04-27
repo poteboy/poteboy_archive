@@ -12,16 +12,20 @@ export const query = graphql`
         publishedDate(formatString: "MMMM Do, YYYY")
         description
         body {
-            raw
-        }
+            childMarkdownRemark {
+                html
+            }
+          }
     }
     contentfulPoem(slug: {eq: $slug}) {
         title
         publishedDate(formatString: "MMMM Do, YYYY")
         description
         body {
-            raw
-        }
+            childMarkdownRemark {
+                html
+            }
+          }
     }
   }
     `
@@ -29,14 +33,17 @@ export const query = graphql`
 const Post = (props: {data : any}) => {
 
     let thema = null;
+    let body = null;
     
     if (props.data.contentfulTech === null) {
         thema = props.data.contentfulPoem;
+        body = thema.body.childMarkdownRemark.html
+
     } else {
         thema = props.data.contentfulTech;
+        body = thema.body.childMarkdownRemark.html
     };
-
-    const body = JSON.parse(thema.body.raw)
+ 
     return(
         <Blog>
             <div className={style.all}>
@@ -45,7 +52,7 @@ const Post = (props: {data : any}) => {
                     <h1>{thema.title}</h1>
                         <div>
                             {thema.publishedDate}
-                            {documentToReactComponents(body)}
+                            <div dangerouslySetInnerHTML={{ __html: body }} />
                         </div>
                     </div>
                 </div>
