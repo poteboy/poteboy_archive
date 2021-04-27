@@ -36,8 +36,6 @@ const Post = (props: {data : any}) => {
         thema = props.data.contentfulTech;
     };
 
-    console.log(thema)
-
     const body = JSON.parse(thema.body.raw)
     return(
         <Blog>
