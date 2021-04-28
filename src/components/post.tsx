@@ -2,7 +2,7 @@ import React from 'react';
 import Blog from './blog';
 import { graphql } from 'gatsby';
 import { documentToReactComponents} from '@contentful/rich-text-react-renderer';
-const style = require("../styles/post.module.scss")
+const style = require("../styles/post.module.scss");
 
 
 export const query = graphql`

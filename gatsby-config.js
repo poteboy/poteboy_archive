@@ -51,7 +51,22 @@ module.exports = {
       }
     },
     `gatsby-plugin-sass`,
-    `gatsby-transformer-remark`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-katex`,
+            options: {
+              strict: `ignore`
+            }
+          },
+          {
+            resolve: `gatsby-remark-prismjs`,
+          },
+        ],
+      },
+    },
     {
       resolve: `gatsby-source-contentful`,
       options: {
