@@ -110,6 +110,10 @@
     }
     }
 
+    .content {
+        padding-right: 5vh;
+    }
+
     aside {
 
         padding-top: 5vh;
@@ -122,5 +126,12 @@
         .my-name {
             display: none;
         }
+    }
+}
+
+
+@media screen and (max-width: $phone-size) {
+    .content {
+        padding-right: 0vh;
     }
 }
