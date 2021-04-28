@@ -88,7 +88,7 @@
 
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: $tablet-size) {
     .main {
      display: block;
      margin: 0;
@@ -113,8 +113,11 @@
     aside {
 
         padding-top: 5vh;
-        margin-left: 25%;
-        // margin-right: 15%;
+        margin: auto;
+
+        .icon-table {
+            margin-left: -4vh;
+        }
         
         .my-name {
             display: none;

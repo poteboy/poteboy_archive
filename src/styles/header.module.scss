@@ -31,7 +31,7 @@ header {
     color: #333333;
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: $phone-size) {
     .pc {
         display: none;
     }

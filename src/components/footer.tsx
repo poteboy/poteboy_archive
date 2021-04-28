@@ -5,19 +5,19 @@ const style = require('../styles/footer.module.scss');
 
 const Footer = () => {
 
-    const myName = useStaticQuery(graphql`
+    const title = useStaticQuery(graphql`
     query {
         site {
             siteMetadata {
-                author
+                title
         }
       }
     }
-    `).site.siteMetadata.author
+    `).site.siteMetadata.title
 
     return(
         <footer>
-            <p>© 2021 {myName}.</p>
+            <p>© 2021 {title}</p>
         </footer>
     )
 }
