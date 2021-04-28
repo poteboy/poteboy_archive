@@ -1,1 +1,1 @@
-{"data":{"allContentfulTech":{"edges":[{"node":{"title":"【Python】フィボナッチ数列を行列式で解く","publishedDate":"April 26th, 2021","slug":"fibonacci-matrx-python","description":"フィボナッチ数列をO( log n )で解いてみようみたいな事を書く"}}]}}}
+{"data":{"allContentfulTech":{"edges":[{"node":{"title":"【Python】行列を使ってフィボナッチ数を対数時間で解く","publishedDate":"April 28th, 2021","slug":"fibonacci-matrx-python","description":"フィボナッチ数列のN項目を計算量O(log N)で解く方法の解説"}}]}}}
