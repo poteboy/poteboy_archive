@@ -14,20 +14,29 @@
 .table {
     color: $base-font-color;
     font-family: demilight;
-
-    margin-left: auto;
-    margin-right: auto;
+    text-align: center;
+    width: 65%;
 
     .content {
         animation: fadeIn 0.5s linear;
         margin-bottom: 5em;
+        margin-left: 20vh;
+        margin-right: 20vh;
+        line-height: 7vh;
 
-        .me {
-            margin-left: 2em;
-            height: 200px;
-            border-color: white; 
-            border-width: thick;
-            border-radius: 10px;
+        // .me {
+        //     margin-left: 2em;
+        //     height: 200px;
+        //     border-color: white; 
+        //     border-width: thick;
+        //     border-radius: 10px;
+        // }
+
+        .bio {
+            line-height: 5vh;
+            p {
+                text-indent: -2em;
+            }
         }
 
         h3 {
@@ -37,12 +46,8 @@
 
         p {
             text-align: left;
-            text-indent: -2em;
             overflow-wrap: break-word;
 
-            span {
-                padding-left: 3vh;
-            }
         }
 
         em {
@@ -51,6 +56,20 @@
             margin-right: 1em;
         }
 
+        span {
+            text-align: left;
+        }
     }
+}
 
+
+@media screen and (max-width: $tablet-size) {
+    .table {
+        width: auto;
+
+        .content {
+            margin-left: 5vh;
+            margin-right: 5vh;
+        }
+    }
 }

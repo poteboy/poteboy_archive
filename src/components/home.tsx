@@ -1,6 +1,7 @@
 import React from 'react';
 import { useStaticQuery, graphql, Link } from 'gatsby';
 const style = require('../styles/home.module.scss');
+import { StaticImage } from "gatsby-plugin-image"
 import Layout from './layout';
 
 const Home = () => {
