@@ -7,6 +7,10 @@ const BlogPage = () => {
             <p>posts will show up here later on</p>
             <Link to='/practice/count'>count</Link>
             <div><Link to='/'>home</Link></div>
+            <div><Link to='/practice'>/practice</Link></div>
+            <div><Link to='practice'>practice</Link></div>
+            <div><Link to='/tech'>/tech</Link></div>
+            <div><Link to='tech'>tech</Link></div>
         </div>
     )
 }
