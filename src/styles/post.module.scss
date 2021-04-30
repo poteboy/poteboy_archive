@@ -1,9 +1,10 @@
+@import "variable.scss";
 
 .all {
     box-sizing: border-box;
     margin: 0;
     min-width: 0;
-    width: 100%;
+    width: 80%;
     max-width: 1140px;
 }
 
@@ -15,9 +16,23 @@
     border-radius: 1rem;
     box-shadow: 1px 1px 5px 0 rgb(1 1 1 / 5%);
     padding: 2rem;
+    line-height: 5vh;
 
     .post {
         color: black;
         font-family: demilight;
     }
+}
+
+@media screen and (max-width: $tablet-size) {
+    .all {
+        width: 100%;
+    }
+
+    ol {
+        li {
+            word-break: break-all;
+        }
+    }
+    
 }

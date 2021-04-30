@@ -62,8 +62,20 @@ module.exports = {
             }
           },
           {
+            resolve: 'gatsby-remark-code-titles',
+            options: {
+              className: 'your-custom-class-name',
+            },
+          },
+          {
             resolve: `gatsby-remark-prismjs`,
           },
+          {
+            resolve: `gatsby-remark-images-contentful`,
+            options: {
+              maxWidth: 590,
+            },
+          }
         ],
       },
     },
