@@ -1,2 +1,0 @@
-(self.webpackChunkgatsby_starter_default=self.webpackChunkgatsby_starter_default||[]).push([[589],{4088:function(e,t,n){"use strict";n.r(t);var l=n(7294),a=n(5444);t.default=function(){return l.createElement("div",null,l.createElement("p",null,"posts will show up here later on"),l.createElement(a.Link,{to:"/practice/count"},"count"),l.createElement("div",null,l.createElement(a.Link,{to:"/"},"home")))}}}]);
-//# sourceMappingURL=component---src-pages-practice-blog-tsx-44400cfb4af6f895ff00.js.map
