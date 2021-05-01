@@ -23,6 +23,16 @@
         margin-right: 20vh;
         line-height: 7vh;
 
+        .young-me {
+            margin: 0 auto;
+            width: 90%;
+
+            img {
+                border-width: 16px;
+                border-radius: 20px;
+            }
+        }
+
         .bio {
             line-height: 5vh;
             p {
@@ -61,6 +71,11 @@
         .content {
             margin-left: 5vh;
             margin-right: 5vh;
+
+            .young-me {
+                margin: 0 auto;
+                max-width: 80%;
+            }
         }
     }
 }

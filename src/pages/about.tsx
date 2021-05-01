@@ -2,6 +2,7 @@ import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import Layout from '../components/layout';
 import Blog from '../components/blog';
+import { StaticImage } from "gatsby-plugin-image";
 const style = require("../styles/about.module.scss")
 
 const About = () => {
@@ -10,7 +11,14 @@ const About = () => {
         <Blog>
             <div className={style.table}>
                 <section className={style.content}>
-                    <div className={style.bio}>
+                    <div className={style.youngMe}>
+                        <StaticImage
+                            src="../assets/images/youngme.jpg"
+                            alt="young poteboy"
+                            imgClassName="img-me"
+                        />
+                    </div>
+                    {/* <div className={style.bio}>
                         <h3>Bio</h3>
                         <p>
                             <em>1997</em>
@@ -29,13 +37,13 @@ const About = () => {
                             Micin.Inc ソフトウェアディベロッパー 正社員
                         </p>
                     </div>
-                    <br/>
+                    <br/> */}
                     <div style={style.profile}>
                     <h3>Profile</h3>
                             <p>
-                                TypeScriptが好きな新卒Webディベロッパーです。仕事ではReactやAngular、Ruby on Rails周りをぽちぽち書いてます。大学の卒論ではPythonを使って機械学習したりしてました。
+                                TypeScriptが好きな新卒のソフトウェアディベロッパーです。仕事ではReactやAngular、Ruby on Rails周りをぽちぽち書いてます。大学の卒論ではPythonを使って機械学習したりしてました。
                                 <br/>
-                                プログラムを書いたり、絵を描いたり、ベンチプレスしたりすることが好きです。最近は料理やアルゴリズムのお勉強も嗜んでます。
+                                プログラムを書いたり、絵を描いたり、ベンチプレスすることが好きです。最近は料理やアルゴリズムのお勉強も嗜んでます。
                                 <br/>
                                 アイコンは会社のデザイナーさんに作って頂いたもので、とても気に入っているので社内外問わず愛用しています。金髪でクロムハーツを好んでつけていることからこのデザインになりました。
                             </p>
