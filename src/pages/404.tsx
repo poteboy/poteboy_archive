@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from 'react';
+import Layout from '../components/layout'
 
 const Error = () => {
 
     return(
-        <>
-        it is an error page
-        </>
+        <Layout>
+        存在しないページだよ
+        </Layout>
     )
 }
 
