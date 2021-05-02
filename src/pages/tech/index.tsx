@@ -32,7 +32,7 @@ const Tech = () => {
       <Blog>
           <Meta
             title="ぽてログ TECH"
-            description="現役ソフトウェアエンジニア(新卒)がプログラミングやIT技術について情報発信しています。"
+            description="新卒ソフトウェアエンジニアがプログラミングやIT技術について情報発信しています。"
           />
           <ol className={style.content}>
           {posts.allContentfulTech.edges.map( (edge: {node: any}) => {

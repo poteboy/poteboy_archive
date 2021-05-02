@@ -4,7 +4,7 @@ module.exports = {
   siteMetadata: {
     title: `ぽてログ`,
     pathPrefix: `/poteboy`,
-    description: `現役ソフトウェアエンジニアが気ままに運営する個人サイト。プログラミングやIT関連の技術について情報発信したり、技術ポエムや日常の出来事に対してお気持ち表明しています。`,
+    description: `新卒ソフトウェアエンジニアが気ままに運営する個人サイト。プログラミングやIT関連の技術について情報発信したり、技術ポエムや日常の出来事に対してお気持ち表明しています。`,
     author: `Keita Furuse`,
     siteUrl: `https://poteboy.com`,
   },

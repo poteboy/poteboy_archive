@@ -32,7 +32,7 @@ const Poem = () => {
       <Blog>
           <Meta
             title="ぽてログ POEM"
-            description="現役ソフトウェアエンジニア(新卒)が技術ポエム、もしくは日常の出来事に対してお気持ち表目するページ"
+            description="新卒ソフトウェアエンジニアが技術ポエム、もしくは日常の出来事に対してお気持ち表目するページ"
           />
           <ol className={style.content}>
           {posts.allContentfulPoem.edges.map( (edge: {node: any}) => {
