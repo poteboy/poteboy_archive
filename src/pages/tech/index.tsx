@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from '../../components/layout';
 import Blog from '../../components/blog';
+import Meta from '../../components/meta';
 import { Link, graphql, useStaticQuery } from 'gatsby';
 const style = require("../../styles/blog-index.module.scss");
 
@@ -29,6 +30,10 @@ const Tech = () => {
 
     return(
       <Blog>
+          <Meta
+            title="ぽてログ TECH"
+            description="現役ソフトウェアエンジニア(新卒)がプログラミングやIT技術について情報発信しています。"
+          />
           <ol className={style.content}>
           {posts.allContentfulTech.edges.map( (edge: {node: any}) => {
               return(

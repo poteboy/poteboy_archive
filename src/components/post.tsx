@@ -1,7 +1,9 @@
 import React from 'react';
 import Blog from './blog';
+import Meta from './meta';
 import { graphql } from 'gatsby';
 import { documentToReactComponents} from '@contentful/rich-text-react-renderer';
+import { sumarrize } from '../func/sumarrize';
 const style = require("../styles/post.module.scss");
 
 
@@ -46,6 +48,10 @@ const Post = (props: {data : any}) => {
  
     return(
         <Blog>
+            <Meta
+                title={thema.title}
+                description={sumarrize(body, thema.description)}
+            />
             <div className={style.all}>
                 <div className={style.content}>
                     <div className={style.post}>

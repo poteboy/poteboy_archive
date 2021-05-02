@@ -1,32 +1,42 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { graphql, useStaticQuery} from 'gatsby';
+import PropTypes from "prop-types"
 
-const Meta = () => {
+const Meta = ({title, description }: metaProps) => {
 
-    const title = useStaticQuery(graphql`
+    const siteMetadata = useStaticQuery(graphql`
     query {
         site {
             siteMetadata {
                 title
+                description
         }
       }
     }    
-    `).site.siteMetadata.title
+    `).site.siteMetadata
 
-    const desc = `現役ソフトウェアエンジニアが気ままに運営する個人サイト。プログラミングやIT関連の技術ポエムを語ったり、絵も描いて載せたりします。`
+    const seo = {
+        title: title || siteMetadata.title,
+        description: description || siteMetadata.description
+    }
 
     return(
         <>
             <Helmet>
                 <meta charSet="utf-8" />
-                <title>{title}</title>
-                <meta property="og:title" content={title} />
-                <meta property="og:description" content={desc} />
+                <title>{seo.title}</title>
+                <meta property="og:title" content={seo.title} />
+                <meta property="og:description" content={seo.description} />
                 <meta name="google-site-verification" content="ThCy6ZbcWv-YFbvd_QEWvYQfBtArkhVqnutTomqPaUs" />
             </Helmet>
         </>
     )
+}
+
+interface metaProps {
+    title?: string,
+    description?: string,
 }
 
 export default Meta

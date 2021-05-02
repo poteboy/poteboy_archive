@@ -2,6 +2,7 @@ import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import Layout from '../components/layout';
 import Blog from '../components/blog';
+import Meta from '../components/meta';
 import { StaticImage } from "gatsby-plugin-image";
 const style = require("../styles/about.module.scss")
 
@@ -9,6 +10,10 @@ const About = () => {
 
     return(
         <Blog>
+            <Meta 
+                title="ぽてログ ABOUT"
+                description="TypeScriptが好きな新卒のソフトウェアディベロッパーです。仕事ではReactやAngular、Ruby on Rails周りをぽちぽち書いてます。大学の卒論ではPythonを使って機械学習したりしてました。"
+            />
             <div className={style.table}>
                 <section className={style.content}>
                     <div className={style.youngMe}>

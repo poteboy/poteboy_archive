@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from '../../components/layout';
 import Blog from '../../components/blog';
+import Meta from '../../components/meta';
 import { Link, graphql, useStaticQuery } from 'gatsby';
 const style = require("../../styles/blog-index.module.scss");
 
@@ -29,6 +30,10 @@ const Poem = () => {
 
     return(
       <Blog>
+          <Meta
+            title="ぽてログ POEM"
+            description="現役ソフトウェアエンジニア(新卒)が技術ポエム、もしくは日常の出来事に対してお気持ち表目するページ"
+          />
           <ol className={style.content}>
           {posts.allContentfulPoem.edges.map( (edge: {node: any}) => {
               return(
