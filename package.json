@@ -19,6 +19,7 @@
     "gatsby-plugin-react-helmet": "^4.3.0",
     "gatsby-plugin-sass": "^4.3.0",
     "gatsby-plugin-sharp": "^3.4.0",
+    "gatsby-plugin-sitemap": "^4.0.0",
     "gatsby-remark-images-contentful": "^4.1.0",
     "gatsby-remark-katex": "^5.1.0",
     "gatsby-remark-prismjs": "^5.1.0",

@@ -6,6 +6,7 @@ module.exports = {
     pathPrefix: `/poteboy`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `Keita Furuse`,
+    siteUrl: `https://poteboy.com`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -98,5 +99,6 @@ module.exports = {
         publisherId: `ca-pub-7302857299919167`
       },
     },
+    `gatsby-plugin-sitemap`,
   ],
 }
