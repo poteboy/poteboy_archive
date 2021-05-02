@@ -70,6 +70,12 @@ module.exports = {
           },
           {
             resolve: `gatsby-remark-prismjs`,
+            options: {
+              aliases: {
+                sh: "bash",
+                es6: "javascript"
+              }
+            }
           },
           {
             resolve: `gatsby-remark-images-contentful`,
