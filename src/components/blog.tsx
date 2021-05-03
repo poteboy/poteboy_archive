@@ -24,9 +24,11 @@ const Blog = (props: {children: any}) => {
                     {props.children}
               <aside>
                  <div className={style.iconTable}>
+                     <div className={style.itsMe}>
                      <Link to="/">
                         <img src={image.file.publicURL} alt="icon" className={style.icon}></img>
                     </Link>
+                    </div>
                     <div className={style.myName}>Keita Furuse</div>
                     <div className={style.sns}>
                         <div className={style.icons}>
