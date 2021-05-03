@@ -34,11 +34,35 @@
             }
 
             .my-name {
-                padding-top: 1vh;
+                padding-top: 2vh;
                 font-weight: normal;
-                font-size: 1.3em;
+                font-size: 1.5em;
                 font-family: phenomena-regular;
                 color: #525252;
+                letter-spacing: 0.3vh;
+            }
+
+            .sns {
+                display: flex;
+                justify-content: center;
+
+                a {
+                    color: $base-font-color;
+                }
+
+                .icons:hover {
+                    text-decoration: none;
+                    border-bottom: 3px solid #21ce99;
+                }
+
+                .icons {
+                    padding-top: 3vh;
+                    margin-right: 1vh;
+                    margin-left: 1vh;
+                    color: $base-font-color;
+                    transform: scale(0.9);
+                    padding-bottom: 0.3em;
+                }
             }
         }
     }
@@ -126,6 +150,12 @@
         
         .my-name {
             display: none;
+        }
+
+        .sns {
+            .icons {
+                display: none;
+            }
         }
     }
 }

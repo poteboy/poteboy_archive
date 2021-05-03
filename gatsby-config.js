@@ -122,5 +122,6 @@ module.exports = {
         stripQueryString: true,
       },
     },
+    `gatsby-plugin-fontawesome-css`,
   ],
 }
