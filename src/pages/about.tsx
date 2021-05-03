@@ -59,9 +59,11 @@ const About = () => {
                     <br/>
                     <h3>About</h3>
                         <p>
-                            このサイトはGatsbyという静的サイトジェネレーターを使って作りました。
+                            このサイトはGatsbyという静的サイトジェネレーターを使って作りました。言語にはTypeScript、スタイルにはSCSSを使用しています。
                             <br/>
                             起動には少し時間がかかりますが、一度サイトをロードし終えたらまるでネイティブアプリのように高速に使えるかと思いますので、是非色々なページを徘徊してみてください。
+                            <br/>
+                            このサイトのソースコードは<a href='https://github.com/poteboy/poteboy' target="_blank" rel="noopener">こちらのリンク</a>からご覧になる事ができます。
                             <br/>
                             なお、このサイトは私個人が完全に趣味で運営しており、ここでの発言は所属組織の見解を代表するものではありません。
                         </p>
@@ -69,7 +71,7 @@ const About = () => {
                     <div style={style.contact}>
                         <h3>Contact</h3>
                         <p>
-                            ・<a href="https://github.com/poteboy"　target="_blank">GitHub</a>
+                            ・<a href="mailto:keitatkins4@gmail.com">Email</a>
                         </p>
                     </div>
                     <br/>

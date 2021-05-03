@@ -26,20 +26,20 @@ const Blog = (props: {children: any}) => {
                  <div className={style.iconTable}>
                      <div className={style.itsMe}>
                      <Link to="/">
-                        <img src={image.file.publicURL} alt="icon" className={style.icon}></img>
+                        <img src={image.file.publicURL} alt="keita furuse aka poteboy's icon" className={style.icon}></img>
                     </Link>
                     </div>
                     <div className={style.myName}>Keita Furuse</div>
                     <div className={style.sns}>
                         <div className={style.icons}>
-                            <a href="https://github.com/poteboy" title="GitHub">
+                            <a href="https://github.com/poteboy" title="GitHub" target="_blank" rel="noopener">
                             <FontAwesomeIcon icon={faGithub}
                             size="2x"
                              />
                              </a>
                         </div>
                         <div className={style.icons}>
-                            <a href="https://www.linkedin.com/in/keitafuruse/" title="LinkedIn">
+                            <a href="https://www.linkedin.com/in/keitafuruse/" title="LinkedIn" target="_blank" rel="noopener">
                             <FontAwesomeIcon icon={faLinkedin} 
                             size="2x"
                             />
