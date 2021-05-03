@@ -107,5 +107,13 @@ module.exports = {
     },
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-catch-links`,
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'https://poteboy.com',
+        sitemap: 'https://poteboy.com/sitemap/sitemap-0.xml',
+        policy: [{ userAgent: '*', allow: '/' }]
+      }
+    },
   ],
 }
