@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://poteboy.com/sitemap/sitemap-0.xml
+Host: https://poteboy.com
