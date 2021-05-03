@@ -148,20 +148,22 @@
         }
         
         .my-name {
-            // display: none;
         }
 
         .sns {
             .icons {
-                // display: none;
             }
         }
     }
 }
 
 
-@media screen and (max-width: $phone-size) {
+@media screen and (max-width: 414px) {
     .content {
         padding-right: 0vh;
+    }
+
+    .its-me {
+        margin-left: -3vh;;
     }
 }
