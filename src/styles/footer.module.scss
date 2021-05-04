@@ -5,10 +5,21 @@ footer {
     margin-top: auto;
     background: linear-gradient(to right, $cool-blue, $cool-pink);
 
+    .footer {
+        display: flex;
+        justify-content: center;
+    }
+
     p {
         font-family: demilight;
         color: white;
         text-align: center;
         margin-top: 3rem;
+        margin-left: 2vh;
+
+        .link {
+            text-decoration: none;
+            color: white;
+        }
     }
 }
