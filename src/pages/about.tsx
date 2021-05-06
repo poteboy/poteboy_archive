@@ -26,26 +26,6 @@ const About = () => {
                             imgClassName="img-me"
                         />
                     </div>
-                    {/* <div className={style.bio}>
-                        <h3>Bio</h3>
-                        <p>
-                            <em>1997</em>
-                            生まれる
-                        </p>
-                        <p>
-                            <em>2020</em>
-                            Micin.Inc ソフトウェアディベロッパー インターン
-                        </p>
-                        <p>
-                            <em>2021</em>
-                            早稲田大学 卒業
-                        </p>
-                        <p>
-                            <em>2021</em>
-                            Micin.Inc ソフトウェアディベロッパー 正社員
-                        </p>
-                    </div>
-                    <br/> */}
                     <div style={style.profile}>
                     <h3>Profile</h3>
                             <p>
