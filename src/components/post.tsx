@@ -1,6 +1,7 @@
 import React from 'react';
 import Blog from './blog';
 import Meta from './meta';
+import PrevNext from './prev-next';
 import { graphql } from 'gatsby';
 import { documentToReactComponents} from '@contentful/rich-text-react-renderer';
 import { sumarrize } from '../func/sumarrize';
@@ -32,7 +33,7 @@ export const query = graphql`
   }
     `
 
-const Post = (props: {data : any}) => {
+const Post = (props: {data : any, pageContext: PageContext}) => {
 
     let thema = null;
     let body = null;
@@ -45,6 +46,8 @@ const Post = (props: {data : any}) => {
         thema = props.data.contentfulTech;
         body = thema.body.childMarkdownRemark.html
     };
+
+    console.log(props.pageContext)
  
     return(
         <Blog>
@@ -61,9 +64,16 @@ const Post = (props: {data : any}) => {
                             <div dangerouslySetInnerHTML={{ __html: body }} />
                         </div>
                     </div>
+                    <PrevNext prev={props.pageContext.prev} next={props.pageContext.next}/>
                 </div>
             </div>
         </Blog>
     )
 }
 export default Post
+
+interface PageContext {
+    slug: string,
+    next: {slug: string, title: string} | null,
+    prev: {slug: string, title: string} | null,
+}

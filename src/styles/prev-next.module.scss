@@ -1,0 +1,42 @@
+@import "variable.scss";
+
+.prev-next {
+    display: flex;
+    justify-content: center;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    height: 10vh;
+
+    .prev {
+        background-image: url(https://www.webcreatorbox.com/sample/images/arrow-prev.svg);
+        background-repeat: no-repeat;
+        background-size: 3em 3em;
+        background-position: 0%;
+        width: 48%;
+        text-align: center;
+        margin: auto;
+        text-decoration: none;
+        p {
+            padding-left: 12%;
+            color: $base-font-color;
+        }
+    }
+    .next {
+        background-image: url(http://www.webcreatorbox.com/sample/images/arrow-next.svg);
+        background-repeat: no-repeat;
+        background-size: 3em 3em;
+        background-position: 100%;
+        width: 48%;
+        text-align: center;
+        margin: auto;
+        text-decoration: none;
+        p {
+            padding-right: 12%;
+            color: $base-font-color;
+        }
+    }
+}
+
+@media screen {
+    
+}

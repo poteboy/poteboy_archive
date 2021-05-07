@@ -11,6 +11,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
           edges {
             node {
               slug
+              title
             }
           }
         }
@@ -18,6 +19,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
           edges {
             node {
               slug
+              title
             }
           }
         }
@@ -26,22 +28,32 @@ module.exports.createPages = async ({ graphql, actions }) => {
 
 
 
-    res.data.allContentfulTech.edges.forEach((edge) => {
+    res.data.allContentfulTech.edges.forEach(({node}, index) => {
+      const pages = res.data.allContentfulTech.edges
+      const next = index === 0 ? null : pages[index-1].node
+      const prev = index === pages.length - 1 ? null : pages[index+1].node
         createPage({
             component: blogPath,
-            path: `/tech/${edge.node.slug}`,
+            path: `/tech/${node.slug}`,
             context: {
-                slug: edge.node.slug,
+                slug: node.slug,
+                prev,
+                next
             }
         })
     });
 
-    res.data.allContentfulPoem.edges.forEach((edge) => {
+    res.data.allContentfulPoem.edges.forEach(({node}, index) => {
+      const pages = res.data.allContentfulPoem.edges
+      const next = index === 0 ? null : pages[index-1].node
+      const prev = index === pages.length - 1 ? null : pages[index+1].node
         createPage({
             component: blogPath,
-            path: `/poem/${edge.node.slug}`,
+            path: `/poem/${node.slug}`,
             context: {
-                slug: edge.node.slug,
+                slug: node.slug,
+                prev,
+                next
             }
         })
     });
