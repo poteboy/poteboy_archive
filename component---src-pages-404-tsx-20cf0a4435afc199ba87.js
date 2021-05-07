@@ -1,2 +1,0 @@
-(self.webpackChunkgatsby_starter_default=self.webpackChunkgatsby_starter_default||[]).push([[218],{938:function(t,e,a){"use strict";a.r(e);var u=a(7294),r=a(3160);e.default=function(){return u.createElement(r.Z,null,"存在しないページだよ")}}}]);
-//# sourceMappingURL=component---src-pages-404-tsx-20cf0a4435afc199ba87.js.map
