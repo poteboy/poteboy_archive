@@ -1,6 +1,7 @@
 import React from 'react';
 import Blog from '../components/blog';
 import Meta from '../components/meta';
+import AdHorizontal from '../components/ads/adhorizontal'
 const style = require("../styles/post.module.scss");
 
 
@@ -21,6 +22,7 @@ const PrivacyPolicy = () => {
                         <p>お客様はGoogleアカウントの<a href="https://adssettings.google.com/u/0/authenticated" target="_blank" rel="noopener">広告設定ページ</a>で、パーソナライズ広告を無効にできます。また aboutads.info のページにアクセスして頂き、パーソナライズ広告掲載に使用される第三者配信事業者のCookieを無効にできます。</p>
                         <p>その他、Googleの広告におけるCookieの取り扱い詳細については、Googleのポリシーと<a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">規約ページ</a>をご覧ください。</p>
                     </div>
+                    <AdHorizontal/>
                 </div>
             </div>
         </Blog>

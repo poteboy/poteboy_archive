@@ -1,0 +1,12 @@
+@import "variable.scss";
+
+
+.adsbygoogle {
+
+}
+
+@media screen and (max-width: $tablet-size) {
+    .adsbygoogle {
+        display: none;
+    }
+}

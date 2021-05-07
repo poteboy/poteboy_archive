@@ -21,8 +21,8 @@ const About = () => {
                 <section className={style.content}>
                     <div className={style.youngMe}>
                         <StaticImage
-                            src="../assets/images/youngme.jpg"
-                            alt="young poteboy"
+                            src="../assets/images/youngerme.jpg"
+                            alt="young keita furuse aka poteboy"
                             imgClassName="img-me"
                         />
                     </div>
