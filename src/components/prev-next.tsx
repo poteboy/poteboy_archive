@@ -1,13 +1,17 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { Link, graphql, useStaticQuery } from 'gatsby';
 import { chosePath, PathType} from '../func';
 import { query } from './post';
 const style = require("../styles/prev-next.module.scss");
 
 const PrevNext = ({prev,next}: PrevNextProps) => {
-    
-    const path = window.location.pathname.slice(1,5) as PathType;
-    const contentfulType: string = chosePath(path)
+
+
+    const [path, setPathName] = useState('')
+
+    useEffect(() => {
+        setPathName(window.location.pathname.slice(1,5))
+    })
 
     return(
         <>
