@@ -34,6 +34,10 @@ h3 {
     .post {
         color: black;
         font-family: demilight;
+
+        a {
+            color: $link-color;
+        }
     }
 }
 

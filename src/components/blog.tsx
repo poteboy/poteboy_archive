@@ -1,6 +1,6 @@
 import React from 'react';
 import Layout from './layout';
-import AdSidebar from './adsidebar';
+import AdSidebar from './ads/adsidebar';
 import { Link, graphql, useStaticQuery } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin, } from '@fortawesome/free-brands-svg-icons';

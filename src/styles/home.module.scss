@@ -70,9 +70,8 @@
           margin-bottom: 0.3em;
       }
 
-        .icons:hover {
-          text-decoration: none;
-          border-bottom: 4px solid #21ce99;
+      svg:hover {
+        color: $cool-blue;
       }
         .icons {
           display: inline-block;
