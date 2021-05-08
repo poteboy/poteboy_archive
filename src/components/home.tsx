@@ -1,7 +1,7 @@
 import React from 'react';
 import { useStaticQuery, graphql, Link } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub, faLinkedin, } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
 const style = require('../styles/home.module.scss');
 
 const Home = () => {
@@ -32,6 +32,13 @@ const Home = () => {
                         <div className={style.icons}>
                             <a href="https://www.linkedin.com/in/keitafuruse/" title="LinkedIn" target="_blank" rel="noopener">
                             <FontAwesomeIcon icon={faLinkedin} 
+                            size="2x"
+                            />
+                            </a>
+                        </div>
+                        <div className={style.icons}>
+                            <a href="https://twitter.com/_poteboy_" title="Twitter" target="_blank" rel="noopener">
+                            <FontAwesomeIcon icon={faTwitter} 
                             size="2x"
                             />
                             </a>
