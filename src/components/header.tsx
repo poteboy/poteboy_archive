@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'gatsby';
 const style = require("../styles/header.module.scss")
 
@@ -16,6 +16,27 @@ const Header = () => {
         transform: "translateY(0)",
         opacity: 1,
     }
+
+    const [onTop, setOnTop] = useState(true)
+
+    function onScroll() {
+      const offset =
+        window.pageYOffset ||
+        (document.documentElement && document.documentElement.scrollTop) ||
+        document.body.scrollTop
+  
+      if (offset >= 20 && !onTop) return false
+      if (offset >= 20 && onTop) {
+        setOnTop(false)
+        return false
+      }
+      setOnTop(true)
+    }
+    
+    useEffect(() => {
+      document.addEventListener('scroll', onScroll)
+      return () => document.removeEventListener('scroll', onScroll)
+    })
 
     
 
