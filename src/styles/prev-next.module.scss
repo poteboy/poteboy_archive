@@ -21,6 +21,9 @@
             color: black;
         }
     }
+    .prev:hover{
+        opacity: 0.5;
+    }
     .next {
         width: 48%;
         text-align: center;
@@ -34,5 +37,8 @@
             padding-right: 12%;
             color: black;
         }
+    }
+    .next:hover{
+        opacity: 0.5;
     }
 }
