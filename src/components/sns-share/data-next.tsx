@@ -25,13 +25,13 @@ const SNSDataNext = (props: {title: string}) => {
     return(
       <>
         <div className={style.icons}>
-          <TwitterShareButton title={props.title} url={siteUrl + path} className={style.sns}>
+          <TwitterShareButton title={props.title + ' - ぽてログ'} url={siteUrl + path} className={style.sns}>
               <TwitterIcon round size={32}/>
           </TwitterShareButton>
-          <LineShareButton title={props.title} url={siteUrl + path} className={style.sns}>
+          <LineShareButton title={props.title + ' - ぽてログ'} url={siteUrl + path} className={style.sns}>
               <LineIcon round size={32}/>
           </LineShareButton>
-          <HatenaShareButton title={props.title} url={siteUrl + path} className={style.sns}>
+          <HatenaShareButton title={props.title + ' - ぽてログ'} url={siteUrl + path} className={style.sns}>
               <HatenaIcon round size={32}/>
           </HatenaShareButton>
         </div>

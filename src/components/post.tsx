@@ -51,7 +51,7 @@ const Post = (props: {data : any, pageContext: PageContext}) => {
     return(
         <Blog>
             <Meta
-                title={thema.title}
+                title={thema.title + ' - ぽてログ'}
                 description={sumarrize(body, thema.description)}
             />
             <div className={style.all}>
