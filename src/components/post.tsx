@@ -1,6 +1,7 @@
 import React from 'react';
 import Blog from './blog';
 import Meta from './meta';
+import SNSDataNext from './sns-share/data-next';
 import PrevNext from './prev-next';
 import { graphql } from 'gatsby';
 import { documentToReactComponents} from '@contentful/rich-text-react-renderer';
@@ -46,8 +47,6 @@ const Post = (props: {data : any, pageContext: PageContext}) => {
         thema = props.data.contentfulTech;
         body = thema.body.childMarkdownRemark.html
     };
-
-    console.log(props.pageContext)
  
     return(
         <Blog>
@@ -60,9 +59,15 @@ const Post = (props: {data : any, pageContext: PageContext}) => {
                     <div className={style.post}>
                     <h1>{thema.title}</h1>
                         <div>
+                            <div className={style.data}>
                             {thema.publishedDate}
+                            <SNSDataNext title={thema.title}/>
+                            </div>
                             <div dangerouslySetInnerHTML={{ __html: body }} />
                         </div>
+                    </div>
+                    <div className={style.sns}>
+                    <SNSDataNext title={thema.title}/>
                     </div>
                     <PrevNext prev={props.pageContext.prev} next={props.pageContext.next}/>
                 </div>

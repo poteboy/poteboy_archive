@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-const style = require("../../styles/adsidebar.module.scss")
+const style = require("./adsidebar.module.scss")
 
 const AdSidebar = () => {
     return(

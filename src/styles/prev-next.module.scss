@@ -8,28 +8,28 @@
     height: 10vh;
 
     .prev {
-        background-image: url(https://www.webcreatorbox.com/sample/images/arrow-prev.svg);
-        background-repeat: no-repeat;
-        background-size: 3em 3em;
-        background-position: 0%;
         width: 48%;
         text-align: center;
         margin: auto;
         text-decoration: none;
+        display: flex;
+        img {
+            width: 10%;
+        }
         p {
             padding-left: 12%;
             color: black;
         }
     }
     .next {
-        background-image: url(http://www.webcreatorbox.com/sample/images/arrow-next.svg);
-        background-repeat: no-repeat;
-        background-size: 3em 3em;
-        background-position: 100%;
         width: 48%;
         text-align: center;
         margin: auto;
         text-decoration: none;
+        display: flex;
+        img {
+            width: 10%;
+        }
         p {
             padding-right: 12%;
             color: black;

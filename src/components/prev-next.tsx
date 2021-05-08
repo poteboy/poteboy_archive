@@ -21,7 +21,8 @@ const PrevNext = ({prev,next}: PrevNextProps) => {
             className={style.prev}
             to={'/' + path + '/' + prev?.slug as string}
             style={{ display: prev ? '' : 'none'}}
-            >
+            >  
+                <img src="https://www.webcreatorbox.com/sample/images/arrow-prev.svg" alt="previous page"/>
                 <p>{prev?.title}</p>
             </Link>
             <Link
@@ -30,6 +31,7 @@ const PrevNext = ({prev,next}: PrevNextProps) => {
             style={{ display: next ? '' : 'none'}}
             >
                 <p>{next?.title}</p>
+                <img src="http://www.webcreatorbox.com/sample/images/arrow-next.svg" alt="next page"/>   
             </Link>
         </div>
         </>

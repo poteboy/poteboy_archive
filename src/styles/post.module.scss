@@ -38,8 +38,19 @@ h3 {
         a {
             color: $link-color;
         }
+
+        .data {
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    .sns {
+        margin-top: 1em;
+        text-align: center;
     }
 }
+
 
 @media screen and (max-width: $tablet-size) {
     h2 {
