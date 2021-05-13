@@ -29,28 +29,32 @@ const About = () => {
                     <div style={style.profile}>
                     <h3>Profile</h3>
                             <p>
-                                Web系スタートアップでソフトウェア開発者をやっています。
+                                MedTech系スタートアップでソフトウェア開発者をやっています。
                                 <br/>
-                                2021年新卒入社で、業務では<code className={'language-text'}>Angular</code>、<code className={'language-text'}>Ruby on Rails</code>などを用いたWebアプリケーションの開発を担当しています。
+                                2021年新卒入社で、業務では<code className={'language-text'}>Angular</code>、<code className={'language-text'}>Ruby on Rails</code>などを用いたアプリケーションの開発を担当しています。
                                 <br/>
-                                大学時代からインターンとして実務開発業務に携わり、WEBフロントエンド開発とREST APIサーバー開発の経験を積みました。
+                                大学時代からインターンとして実務開発業務に携わり、Webフロントエンド開発とREST APIサーバー開発の経験を積みました。
                                 <br/>
                                 また、大学の卒業論文では<code className={'language-text'}>Python</code>を使って機械学習したりしました。
                                 <br/>
                                 フロントエンド開発と<code className={'language-text'}>TypeScript</code>が好物です。技術とサービス、両方に対して真摯な開発者でありたいと思って日々勉強しています。
-                                <br/>
-                                アイコンは会社のデザイナーさんに作って頂いたもので、とても気に入っているので社内外問わず愛用しています。金髪でクロムハーツを好んでつけていることからこのデザインになりました。
                             </p>
                     </div>
                     
+                    <div style={style.profile}>
                     <h3>About</h3>
                         <p>
-                            このサイトでは、自分の勉強も兼ねてプログラミングやIT技術に関して情報発信をしています。基本的には、Web開発やアルゴリズム関連の話題が多めです。
+                            このサイトでは自分の勉強も兼ねてプログラミングやIT技術に関して情報発信をしています。
                             <br/>
-                            このサイトのソースコードは<a href='https://github.com/poteboy/poteboy' target="_blank" rel="noopener">GitHub上のリンク</a>からご覧になる事ができます。
+                            基本的にはWeb開発やアルゴリズム関連の話題が多めですが、コンピューターサイエンスからWebデザインまで幅広くカバーしていきたいです。
                             <br/>
-                            なお、このサイトは私個人が完全に趣味で運営しており、ここでの発言は所属組織の見解を代表するものではありません。
+                            アイコンは会社のデザイナーさんに作って頂いたもので、とても気に入っているので社内外問わず愛用しています。金髪でクロムハーツを好んでつけていることからこのデザインになりました。
+                            <br/>
+                            このサイトは私個人が完全に趣味で運営しており、ここでの発言は所属組織の見解を代表するものではありません。
+                            <br/>
+                            なお、このサイトのソースコードは<a href='https://github.com/poteboy/poteboy' target="_blank" rel="noopener">GitHub上のリンク</a>からご覧になる事ができます。
                         </p>
+                    </div>
                     
                     <div style={style.contact}>
                         <h3>Contact</h3>
