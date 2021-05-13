@@ -12,19 +12,22 @@
 }
 
 .table {
-    color: $base-font-color;
+    color: #34495e;
     font-family: demilight;
     text-align: center;
     width: 65%;
+    background-color: white;
+    border-radius: 1rem;
+    animation: fadeIn 0.5s linear;
 
     .content {
-        animation: fadeIn 0.5s linear;
-        margin-left: 17vh;
-        margin-right: 17vh;
-        line-height: 7vh;
+        margin-left: 13vh;
+        margin-right: 13vh;
+        line-height: 6vh;
 
         .young-me {
             margin: 0 auto;
+            margin-top: 5vh;
             width: 90%;
 
             img {
@@ -42,7 +45,7 @@
 
         h3 {
             text-align: center;
-            border-bottom: 3px solid $cool-blue
+            border-bottom: 3px solid $cool-blue;
         }
 
         p {
@@ -79,6 +82,10 @@
             .young-me {
                 margin: 0 auto;
                 max-width: 80%;
+                
+                img {
+                    margin-top: 5vh;
+                }
             }
         }
     }
