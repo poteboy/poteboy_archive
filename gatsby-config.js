@@ -30,19 +30,24 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `ぽてログ`,
+        short_name: `ぽてログ`,
         start_url: `/`,
-        background_color: `#663399`,
+        background_color: `rgb(253, 250, 247)`,
         theme_color: `#663399`,
-        display: `minimal-ui`,
+        display: `standalone`,
         icon: `src/assets/images/icon.png`, // This path is relative to the root of the site.
       },
     },
     `gatsby-plugin-gatsby-cloud`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-plugin-offline`,
+      options: {
+        precachePages: [`/assets/*`],
+      },
+    },
     {
       resolve: `gatsby-plugin-typescript`,
       options: {
