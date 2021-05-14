@@ -8,3 +8,7 @@
 
 require('./themes/prism-vsc-dark-plus.css');
 require(`katex/dist/katex.min.css`);
+
+exports.onServiceWorkerUpdateFound = () => {
+    window.location.reload(true);
+};

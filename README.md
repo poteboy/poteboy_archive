@@ -1,1 +1,12 @@
 # poteboy is here!
+
+[![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=poteboy)](https://github-readme-stats.vercel.app/api?username=poteboy&count_private=true&theme=synthwave&show_icons=true)
+
+
+```ts
+let doNothing = true;
+
+while(doNothing) {
+    getRich()
+}
+```
