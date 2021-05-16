@@ -47,7 +47,12 @@ blockquote {
         font-family: demilight;
 
         a {
+            text-decoration: none;
             color: $link-color;
+        }
+
+        a:hover {
+            text-decoration: underline;
         }
 
         .data {

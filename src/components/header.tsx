@@ -17,6 +17,7 @@ const Header = () => {
         opacity: 1,
     }
 
+    // 初期状態では一番上にいるが、ページをスクロールしたらfalseに変わる
     const [onTop, setOnTop] = useState(true)
 
     function onScroll() {
@@ -41,7 +42,7 @@ const Header = () => {
     
 
     return(
-        <header className={style.header}>
+        <header className={style.header} style={{paddingBottom: onTop ? '3rem' : '1rem' }}>
             <nav className={style.pc}>
                 <ul className={style.navList}>
                     <li>

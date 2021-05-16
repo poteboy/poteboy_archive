@@ -1,17 +1,13 @@
 @import "variable.scss";
 
 header {
-    // padding-top: 1rem;
-    // padding-bottom: 1rem;
-    // margin-bottom: 4vh;
-    // font-family: demilight;
-    // position: sticky;
-    // top: 0;
-    // z-index: 100;
-    // background-color: $base-color;
-    // ↓ 元々
     padding: 1rem 0 3rem;
     font-family: demilight;
+    background: transparent;
+    backdrop-filter: blur(20px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .sp {
@@ -45,7 +41,8 @@ header {
     header {
         position: sticky;
         top: 0;
-        z-index: 100;
+        z-index: 1000;
+        padding-bottom: 1.7rem !important;
     }
 
     .pc {

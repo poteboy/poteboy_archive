@@ -25,8 +25,9 @@
         .icon-table {
             text-align: center;
             position: sticky;
-            top: 5vh;
+            top: 2vh;
             transform: scale(0.9);
+            z-index: 102;
 
             .icon {
                 width: 180px;
