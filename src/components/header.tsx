@@ -17,7 +17,6 @@ const Header = () => {
         opacity: 1,
     }
 
-    // 初期状態では一番上にいるが、ページをスクロールしたらfalseに変わる
     const [onTop, setOnTop] = useState(true)
 
     function onScroll() {

@@ -28,6 +28,7 @@ const Meta = ({title, description }: metaProps) => {
                 <title>{seo.title}</title>
                 <meta property="og:title" content={seo.title} />
                 <meta property="og:description" content={seo.description} />
+                <meta property="og:type" content="website"/>
                 <meta name="google-site-verification" content="ThCy6ZbcWv-YFbvd_QEWvYQfBtArkhVqnutTomqPaUs" />
                 <meta name="twitter:card" content="summary" />
                 <meta name="twitter:image" content="https://poteboy.com/static/6bdbf18104cab1d4ec7d3d23f03949a9/poteicon.png" />

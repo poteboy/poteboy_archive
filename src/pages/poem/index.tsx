@@ -2,8 +2,10 @@ import React from 'react';
 import Layout from '../../components/layout';
 import Blog from '../../components/blog';
 import Meta from '../../components/meta';
+import { Node, Edge} from '../../entity'
 import { Link, graphql, useStaticQuery } from 'gatsby';
 const style = require("../../styles/blog-index.module.scss");
+const _ = require("lodash");
 
 
 const Poem = () => {
@@ -25,8 +27,35 @@ const Poem = () => {
           }
         }
       }
+      allContentfulTech (
+        sort: {
+          fields: publishedDate
+          order: DESC
+        }
+      ) {
+        edges {
+          node {
+            title
+            publishedDate(formatString: "MMMM Do, YYYY")
+            slug
+            description
+          }
+        }
+      }
     }
     `);
+
+    const techs: Edge[] = posts.allContentfulTech.edges;
+    const poems: Edge[] = posts.allContentfulPoem.edges
+    const allPost: Edge[] = _.concat(techs, poems)
+
+    console.log(
+      allPost.sort(function (a, b) {
+        var dateA = new Date(a.node.publishedDate).getTime();
+        var dateB = new Date(b.node.publishedDate).getTime();
+        return dateA - dateB;
+      })
+    )
 
     return(
       <Blog>
