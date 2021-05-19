@@ -1,0 +1,27 @@
+
+@import "../../styles/variable.scss";
+
+.tech {
+    background: $cool-green;
+    width: 7vh;
+    text-align: center;
+    border-radius: 5px;
+    margin-right: 3vh;
+    p {
+        color: white !important;
+        margin: 0;
+    }
+    
+}
+
+.poem {
+    background: $cool-pinker;
+    width: 7vh;
+    text-align: center;
+    border-radius: 5px;
+    margin-right: 3vh;
+    p {
+        color: white !important;
+        margin: 0;
+    }
+}

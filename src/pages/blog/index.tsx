@@ -2,13 +2,13 @@ import React from 'react';
 import Layout from '../../components/layout';
 import Blog from '../../components/blog';
 import Meta from '../../components/meta';
-import { Node, Edge} from '../../entity'
+import { Edge} from '../../entity'
+import Topic from '../../components/topic/topic';
 import { Link, graphql, useStaticQuery } from 'gatsby';
-import { func } from 'prop-types';
 const style = require("../../styles/blog-index.module.scss");
 const _ = require("lodash");
 
-const Tech = () => {
+const BlogList = () => {
 
   const posts = useStaticQuery(graphql`
   query {
@@ -55,7 +55,6 @@ const Tech = () => {
     allPost = allPost.sort(function (a, b) {
       var dateA = new Date(a.node.publishedDate).getTime();
       var dateB = new Date(b.node.publishedDate).getTime();
-      console.log(dateA, dateB)
       return dateA - dateB;
     }).reverse()
 
@@ -74,15 +73,19 @@ const Tech = () => {
           {allPost.map( (edge: Edge) => {
               return(
                   <li className={style.list}>
+                    <Link to={`${edge.node.slug}`}
+                          className={style.link}>
                       <div className={style.post}>
-                          <Link to={`${edge.node.slug}`}
-                          className={style.link}
-                          >
+                          
                             <h3>{edge.node.title}</h3>
-                            <p>{convertTime(edge.node.publishedDate)}</p>
+                            <div className={style.sub}>
+                              <Topic topic={edge.__typename}/>
+                              <p style={{margin: "0"}}>{convertTime(edge.node.publishedDate)}</p>
+                            </div>
                             <p className={style.desc}>{edge.node.description}</p>
-                          </Link>
+                          
                       </div>
+                    </Link>
                   </li>
               )
           })}
@@ -92,4 +95,4 @@ const Tech = () => {
 
 }
 
-export default Tech
+export default BlogList

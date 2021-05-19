@@ -3,8 +3,8 @@ import Blog from './blog';
 import Meta from './meta';
 import SNSDataNext from './sns-share/data-next';
 import PrevNext from './prev-next';
+import Topic from './topic/topic';
 import { graphql } from 'gatsby';
-import { documentToReactComponents} from '@contentful/rich-text-react-renderer';
 import { sumarrize } from '../func/sumarrize';
 const style = require("../styles/post.module.scss");
 
@@ -38,14 +38,17 @@ const Post = (props: {data : any, pageContext: PageContext}) => {
 
     let thema = null;
     let body = null;
+    let topic = null
     
     if (props.data.contentfulTech === null) {
         thema = props.data.contentfulPoem;
-        body = thema.body.childMarkdownRemark.html
+        body = thema.body.childMarkdownRemark.html;
+        topic = 'ContentfulPoemEdge';
 
     } else {
         thema = props.data.contentfulTech;
         body = thema.body.childMarkdownRemark.html
+        topic = 'ContentfulTechEdge';
     };
  
     return(
@@ -60,8 +63,9 @@ const Post = (props: {data : any, pageContext: PageContext}) => {
                     <h1>{thema.title}</h1>
                         <div>
                             <div className={style.data}>
-                            {thema.publishedDate}
-                            <SNSDataNext title={thema.title}/>
+                                <Topic topic={topic}/>
+                                {thema.publishedDate}
+                                <SNSDataNext title={thema.title}/>
                             </div>
                             <div dangerouslySetInnerHTML={{ __html: body }} />
                         </div>

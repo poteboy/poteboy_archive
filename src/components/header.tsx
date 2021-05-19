@@ -64,16 +64,8 @@ const Header = () => {
                         <Link 
                             className={style.navItem}
                             activeClassName={style.activeNavItem}
-                            to="/tech">
-                            TECH
-                        </Link>
-                    </li>
-                    <li>
-                        <Link 
-                            className={style.navItem}
-                            activeClassName={style.activeNavItem}
-                            to="/poem">
-                            POEM
+                            to="/blog">
+                            BLOG
                         </Link>
                     </li>
                 </ul>
@@ -103,16 +95,8 @@ const Header = () => {
                         <Link 
                             className={style.spNav}
                             onClick={() => {setBool(false)}}
-                            to="/tech">
-                            TECH
-                        </Link>
-                    </li>
-                    <li>
-                        <Link 
-                            className={style.spNav}
-                            onClick={() => {setBool(false)}}
-                            to="/poem">
-                            POEM
+                            to="/blog">
+                            BLOG
                         </Link>
                     </li>
                     <li className={style.close}><span onClick={() => {setBool(false)}}>CLOSE</span></li>
