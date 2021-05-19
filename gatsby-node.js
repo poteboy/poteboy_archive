@@ -1,4 +1,5 @@
 const path = require('path')
+const _ = require("lodash")
 
 module.exports.createPages = async ({ graphql, actions }) => {
 
@@ -18,7 +19,9 @@ module.exports.createPages = async ({ graphql, actions }) => {
             node {
               slug
               title
+              publishedDate
             }
+            __typename
           }
         }
         allContentfulPoem (
@@ -32,42 +35,31 @@ module.exports.createPages = async ({ graphql, actions }) => {
             node {
               slug
               title
+              publishedDate
             }
+            __typename
           }
         }
       }
     `)
 
+      const allPost = _.concat(res.data.allContentfulPoem.edges, res.data.allContentfulTech.edges).sort(function (a, b) {
+        var dateA = new Date(a.node.publishedDate).getTime();
+        var dateB = new Date(b.node.publishedDate).getTime();
+        return dateA - dateB;
+      }).reverse()
 
-
-    res.data.allContentfulTech.edges.forEach(({node}, index) => {
-      const pages = res.data.allContentfulTech.edges
-      const prev = index === 0 ? null : pages[index-1].node
-      const next = index === pages.length - 1 ? null : pages[index+1].node
-        createPage({
-            component: blogPath,
-            path: `/blog/${node.slug}`,
-            context: {
-                slug: node.slug,
-                prev,
-                next
-            }
-        })
-    });
-
-    res.data.allContentfulPoem.edges.forEach(({node}, index) => {
-      const pages = res.data.allContentfulPoem.edges
-      const prev = index === 0 ? null : pages[index-1].node
-      const next = index === pages.length - 1 ? null : pages[index+1].node
-        createPage({
-            component: blogPath,
-            path: `/blog/${node.slug}`,
-            context: {
-                slug: node.slug,
-                prev,
-                next
-            }
-        })
-    });
-
+      allPost.forEach(({node}, index) => {
+        const prev = index === 0 ? null : allPost[index-1].node
+        const next = index === allPost.length - 1 ? null : allPost[index+1].node
+          createPage({
+              component: blogPath,
+              path: `/blog/${node.slug}`,
+              context: {
+                  slug: node.slug,
+                  prev,
+                  next
+              }
+          })
+      });
 }

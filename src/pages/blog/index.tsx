@@ -66,8 +66,8 @@ const BlogList = () => {
     return(
       <Blog>
           <Meta
-            title="ぽてログ TECH"
-            description="新卒ソフトウェアエンジニアがプログラミングやIT技術について情報発信しています。"
+            title="ぽてログ BLOG"
+            description="新卒ソフトウェアエンジニアがプログラミングやIT技術について情報発信したり、お気持ち表明ポエムをしたりしています。"
           />
           <ol className={style.content}>
           {allPost.map( (edge: Edge) => {

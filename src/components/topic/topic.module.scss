@@ -2,7 +2,8 @@
 @import "../../styles/variable.scss";
 
 .tech {
-    background: $cool-green;
+    // background: linear-gradient(to right, #1CD8D2, #93EDC7);
+    background: rgba(18,255,182,.71);;
     width: 7vh;
     text-align: center;
     border-radius: 5px;
@@ -15,7 +16,8 @@
 }
 
 .poem {
-    background: $cool-pinker;
+    // background: linear-gradient(to right, #DE6262, #FFB88C);
+    background: rgba(241,167,231,.68);
     width: 7vh;
     text-align: center;
     border-radius: 5px;
