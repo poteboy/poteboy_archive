@@ -1,10 +1,11 @@
 import React from 'react';
+import { TypeName } from '../../entity'
 const style = require("./topic.module.scss")
 
 
-const Topic = (props: {topic: string}) => {
+const Topic = (props: {topic: TypeName}) => {
 
-    function topicName (topic: string) {
+    function topicName (topic: TypeName) {
         if (topic === 'ContentfulTechEdge') {
             return 'TECH'
         } else if (topic === 'ContentfulPoemEdge'){

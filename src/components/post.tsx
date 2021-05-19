@@ -6,6 +6,7 @@ import PrevNext from './prev-next';
 import Topic from './topic/topic';
 import { graphql } from 'gatsby';
 import { sumarrize } from '../func/sumarrize';
+import { TypeName, Node, PostData } from '../entity';
 const style = require("../styles/post.module.scss");
 
 
@@ -34,20 +35,20 @@ export const query = graphql`
   }
     `
 
-const Post = (props: {data : any, pageContext: PageContext}) => {
+const Post = (props: {data : PostData, pageContext: PageContext}) => {
 
-    let thema = null;
-    let body = null;
-    let topic = null
+    let thema: Node;
+    let html: string;
+    let topic: TypeName;
     
     if (props.data.contentfulTech === null) {
         thema = props.data.contentfulPoem;
-        body = thema.body.childMarkdownRemark.html;
+        html = thema.body.childMarkdownRemark.html;
         topic = 'ContentfulPoemEdge';
 
     } else {
         thema = props.data.contentfulTech;
-        body = thema.body.childMarkdownRemark.html
+        html = thema.body.childMarkdownRemark.html
         topic = 'ContentfulTechEdge';
     };
  
@@ -55,7 +56,7 @@ const Post = (props: {data : any, pageContext: PageContext}) => {
         <Blog>
             <Meta
                 title={thema.title + ' - ぽてログ'}
-                description={sumarrize(body, thema.description)}
+                description={sumarrize(html, thema.description)}
             />
             <div className={style.all}>
                 <div className={style.content}>
@@ -67,7 +68,7 @@ const Post = (props: {data : any, pageContext: PageContext}) => {
                                 {thema.publishedDate}
                                 <SNSDataNext title={thema.title}/>
                             </div>
-                            <div dangerouslySetInnerHTML={{ __html: body }} />
+                            <div dangerouslySetInnerHTML={{ __html: html }} />
                         </div>
                     </div>
                     <div className={style.sns}>

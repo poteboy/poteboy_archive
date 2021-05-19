@@ -2,7 +2,7 @@ import React from 'react';
 import Layout from '../../components/layout';
 import Blog from '../../components/blog';
 import Meta from '../../components/meta';
-import { Edge} from '../../entity'
+import { Edge, PostData } from '../../entity'
 import Topic from '../../components/topic/topic';
 import { Link, graphql, useStaticQuery } from 'gatsby';
 const style = require("../../styles/blog-index.module.scss");
@@ -52,13 +52,13 @@ const BlogList = () => {
   let allPost: Edge[] = _.concat(techs, poems)
 
 
-    allPost = allPost.sort(function (a, b) {
-      var dateA = new Date(a.node.publishedDate).getTime();
-      var dateB = new Date(b.node.publishedDate).getTime();
+    allPost = allPost.sort(function (a, b): number {
+      var dateA: number = new Date(a.node.publishedDate).getTime();
+      var dateB: number = new Date(b.node.publishedDate).getTime();
       return dateA - dateB;
     }).reverse()
 
-    function convertTime(s: Date) {
+    function convertTime(s: Date): string {
       var tmp = new Date(s).toLocaleDateString()
       return tmp
     }

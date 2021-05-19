@@ -3,5 +3,13 @@ export interface Node {
     publishedDate: Date,
     slug: string,
     description: string,
-    body: any;
+    body: Body;
+}
+
+export interface Body {
+    childMarkdownRemark: ChildMarkdownRemark
+}
+
+export interface ChildMarkdownRemark {
+    html: string;
 }
