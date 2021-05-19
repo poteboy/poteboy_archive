@@ -2,11 +2,11 @@ import React from 'react';
 import Blog from './blog';
 import Meta from './meta';
 import SNSDataNext from './sns-share/data-next';
-import PrevNext from './prev-next';
+import PrevNextComponent from './prev-next';
 import Topic from './topic/topic';
 import { graphql } from 'gatsby';
 import { sumarrize } from '../func/sumarrize';
-import { TypeName, Node, PostData } from '../entity';
+import { TypeName, Node, PostData, PageContext } from '../entity';
 const style = require("../styles/post.module.scss");
 
 
@@ -37,20 +37,9 @@ export const query = graphql`
 
 const Post = (props: {data : PostData, pageContext: PageContext}) => {
 
-    let thema: Node;
-    let html: string;
-    let topic: TypeName;
-    
-    if (props.data.contentfulTech === null) {
-        thema = props.data.contentfulPoem;
-        html = thema.body.childMarkdownRemark.html;
-        topic = 'ContentfulPoemEdge';
-
-    } else {
-        thema = props.data.contentfulTech;
-        html = thema.body.childMarkdownRemark.html
-        topic = 'ContentfulTechEdge';
-    };
+    const topic = props.pageContext.topic;
+    const thema: Node = (topic === 'ContentfulPoemEdge' ? props.data.contentfulPoem : props.data.contentfulTech)
+    const html: string = thema.body.childMarkdownRemark.html;  
  
     return(
         <Blog>
@@ -74,16 +63,10 @@ const Post = (props: {data : PostData, pageContext: PageContext}) => {
                     <div className={style.sns}>
                     <SNSDataNext title={thema.title}/>
                     </div>
-                    <PrevNext prev={props.pageContext.prev} next={props.pageContext.next}/>
+                    <PrevNextComponent prev={props.pageContext.prev} next={props.pageContext.next}/>
                 </div>
             </div>
         </Blog>
     )
 }
 export default Post
-
-interface PageContext {
-    slug: string,
-    next: {slug: string, title: string} | null,
-    prev: {slug: string, title: string} | null,
-}

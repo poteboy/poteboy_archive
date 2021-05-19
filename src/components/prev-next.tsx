@@ -2,9 +2,10 @@ import React, {useEffect, useState} from 'react';
 import { Link, graphql, useStaticQuery } from 'gatsby';
 import { chosePath, PathType} from '../func';
 import { query } from './post';
+import { PrevNext } from '../entity';
 const style = require("../styles/prev-next.module.scss");
 
-const PrevNext = ({prev,next}: PrevNextProps) => {
+const PrevNextComponent = ({prev,next}: PrevNext) => {
 
 
     const [path, setPathName] = useState('')
@@ -39,9 +40,4 @@ const PrevNext = ({prev,next}: PrevNextProps) => {
 
 }
 
-interface PrevNextProps {
-    next: {slug: string, title: string} | null,
-    prev: {slug: string, title: string} | null,
-}
-
-export default PrevNext
+export default PrevNextComponent
