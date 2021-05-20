@@ -1,11 +1,12 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { graphql, useStaticQuery} from 'gatsby';
+import { SiteMetaData, MetaType } from '../entity';
 import PropTypes from "prop-types"
 
-const Meta = ({title, description }: metaProps) => {
+const Meta = ({title, description }: MetaType) => {
 
-    const siteMetadata = useStaticQuery(graphql`
+    const siteMetadata: SiteMetaData = useStaticQuery(graphql`
     query {
         site {
             siteMetadata {
@@ -14,7 +15,7 @@ const Meta = ({title, description }: metaProps) => {
         }
       }
     }    
-    `).site.siteMetadata
+    `).site.siteMetadata;
 
     const seo = {
         title: title || siteMetadata.title,
@@ -35,11 +36,6 @@ const Meta = ({title, description }: metaProps) => {
             </Helmet>
         </>
     )
-}
-
-interface metaProps {
-    title?: string,
-    description?: string,
 }
 
 export default Meta
