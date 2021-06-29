@@ -28,9 +28,6 @@ const Top = () => {
         return () => document.removeEventListener('scroll', onScroll)
       })
 
-    console.log(onTop)
-
-
     const image = useStaticQuery(
         graphql`
         {

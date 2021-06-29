@@ -24,3 +24,23 @@ $tablet-size: 1194px;
 
 
 
+@media screen and (max-width: $tablet-size) {
+    .table {
+        width: auto;
+
+        .content {
+            margin-left: 5vh;
+            margin-right: 5vh;
+
+            .young-me {
+                margin: 0 auto;
+                max-width: 80%;
+                padding-top: 5vh;
+                
+                img {
+                    
+                }
+            }
+        }
+    }
+}

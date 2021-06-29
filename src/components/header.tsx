@@ -68,14 +68,14 @@ const Header = () => {
                             BLOG
                         </Link>
                     </li>
-                    <li>
+                    {/* <li>
                         <Link 
                             className={style.navItem}
                             activeClassName={style.activeNavItem}
                             to="/illustration">
                             ILLUSTRATION
                         </Link>
-                    </li>
+                    </li> */}
                 </ul>
             </nav>
             <nav className={style.sp} style={{

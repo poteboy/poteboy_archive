@@ -111,13 +111,24 @@
 }
 
 .profile-second::before{
-  /* 透過した黒を上から重ねるイメージ */
   background-color: rgba(0,0,0,0.2);
-  /* 自由に位置指定 */
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   content: ' ';
+}
+
+@media screen and (max-width: $tablet-size) {
+  .profile-second {
+    background-size:100vw;
+    .icon {
+      opacity: 0.8;
+    }
+    .about {
+      text-align: center;
+      margin: 10vh auto auto auto
+    }
+  }
 }
