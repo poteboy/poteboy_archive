@@ -8,7 +8,6 @@ import { sumarrize } from '../func';
 const style = require("../styles/about.module.scss")
 
 const About = () => {
-
     const defaultDesc = `TypeScriptが好きな新卒のソフトウェアディベロッパーです。仕事ではReactやAngular、Ruby on Rails周りをぽちぽち書いてます。大学の卒論ではPythonを使って機械学習したりしてました。`
 
     return(
@@ -42,13 +41,13 @@ const About = () => {
                     </div>
 
                     <div style={style.profile}>
-                    <h3>SKILLS</h3>
+                    <h3>Skills</h3>
                         <p>
                             言語は<code className={'language-text'}>Python</code>, <code className={'language-text'}>TypeScript</code>, <code className={'language-text'}>JavaScript</code>, <code className={'language-text'}>Ruby</code>, <code className={'language-text'}>Go</code>辺りが書けます。
                             <br/>
                             フレームワークは<code className={'language-text'}>Angular</code>, <code className={'language-text'}>Gatsbyjs</code>, <code className={'language-text'}>Nextjs</code>, <code className={'language-text'}>Ruby on Rails</code>周りを触っています。
                             <br/>
-                            他には、大学1年生の頃にTOEICで920点、2年生の頃にTOEFL iBTで96点、3年生の頃にベンチプレスで150kg(非公式ルール)を持ち上げたので、英語と筋トレもﾁｮｯﾄだけできます。
+                            他には、大学1年生の頃にTOEICで920点、2年生の頃にTOEFL iBTで96点を取得し、3年生の頃にベンチプレスで150kg(非公式ルール)を持ち上げたので、英語と筋トレもﾁｮｯﾄだけできます。
                             <br/>
                             最近お絵かきも始めたので、もっとうまく描けるようになりたいです。
                         </p>

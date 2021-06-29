@@ -8,7 +8,7 @@ const Layout = (props: {children: any}) => {
         <div id="wrapper">
             <Header/>
                 {props.children}
-            <Footer />
+            {/* <Footer /> */}
         </div>
     )
 }
