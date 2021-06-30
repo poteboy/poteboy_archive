@@ -43,6 +43,7 @@ const Top = () => {
                 <div className={style.profileFirst}>
                     <div className={style.containerFirst}>
                         <img src={image.file.publicURL} alt="keita furuse aka poteboy's icon" className={style.icon}/>
+                        <img src={image.file.publicURL} alt="keita furuse aka poteboy's icon" className={style.iconTwo}/>
                     </div>
                 </div>
 
