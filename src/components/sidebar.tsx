@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faSchool} from '@fortawesome/free-solid-svg-icons';
+import { faHome, faUser } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'gatsby';
 const style = require("../styles/sidebar.module.scss");
 
@@ -22,9 +22,9 @@ const SideBar = () => {
                     <Link 
                         className={style.navItem}
                         activeClassName={style.activeNavItem}
-                        to="/">
+                        to="/about">
                         <div className={style.fav}>
-                        <FontAwesomeIcon icon={faSchool} size="2x"/>
+                        <FontAwesomeIcon icon={faUser} size="2x"/>
                         </div>
                     </Link>
                 </li>

@@ -1,0 +1,32 @@
+@import "variable.scss";
+
+
+.profile-table {
+    transform: translateY(15vh);
+    background: transparent;
+    backdrop-filter: blur(20px);
+    border: solid 1px snow;
+    border-radius: 3px;
+
+    .content {
+        font-family: phenomena-regular;
+        padding:3vh;
+        max-width: 70vh;
+
+        p {
+            padding: 2vh;
+            text-align: center;
+        }
+
+        .bio {
+            text-align: left;
+            padding: 2vh;
+        }
+    }
+}
+
+@media screen and (max-width: $tablet-size) {
+    .profile-table {
+        width: 90%;
+    }
+}
