@@ -45,7 +45,7 @@
 
     .name {
         font-size: xx-large;
-        font-family: phenomena-bold;
+        font-family: mplus;
         text-align: center;
         margin-bottom: 0px;
         letter-spacing: 0.05em;
@@ -121,21 +121,45 @@
 // アイコンの周りを光らせる
 @keyframes lightup {
   from {
-    filter: blur(30px) brightness(1.6);
+    filter: blur(22vh) brightness(1.7);
   }
   to {
     transform: scale(1.2);
-    filter: blur(60px) brightness(1.6);
+    filter: blur(25vh) brightness(2);
   }
 }
+
+// アイコンの周りを光らせる
+@keyframes lightupPhone {
+  from {
+    filter: blur(15px) brightness(1.2);
+  }
+  to {
+    transform: scale(1.2);
+    filter: blur(30px) brightness(1.7);
+  }
+}
+
+
 // アイコンの色を回転させる
 @keyframes color-rotate {
   to { filter: hue-rotate(360deg); }  
 }
 
+@keyframes fadeIn{
+	0%{
+		visibility: hidden;
+    transform: translateY(60px);
+	}
+	100%{
+		visibility: visible;
+    transform: translateY(0px);
+	}
+}
+
 
 .table {
-  color: snow;
+  color: #dccaca;
   display: flex;
   flex-direction: row;
 
@@ -144,7 +168,7 @@
 
     .icon-box {    
       transform: translate(10em, 15em);
-      animation: 2s ease-in-out infinite color-rotate;
+      // animation: 5s ease-in-out infinite color-rotate;
   
       .icon-r,
       .icon-f {
@@ -170,21 +194,21 @@
     flex-direction: column;
 
     .myname {
-      font-family: phenomena-bold;
+      font-family: 'M PLUS Rounded 1c';
       border-right: .1em solid transparent;
       font-size: 10vh;
-      letter-spacing: 0.15em;
+      // letter-spacing: 0.1em;
       text-align: center;
       overflow: hidden;
       margin: auto;
       white-space: nowrap;
       animation: typing-name 2.5s steps(15), blink-name 0.5s step-end 5;
-      
+      // text-shadow: 0px 2px 2px $cool-pink;  
     }
     .myjob {
-      font-family: phenomena-regular;
+      font-family: 'M PLUS Rounded 1c';
       overflow: hidden;  
-      font-size: 5vh;
+      font-size: 2vh;
       white-space: pre;
       
       animation: typing-desc 3s steps(40),blink-desc 0.4s step-end;
@@ -199,15 +223,45 @@
     }
 
     .links {
+
       z-index: 100;
+      margin: 5vh auto auto auto;
+      width: 30vh;
       background: transparent;
       backdrop-filter: blur(20px);
-      border: solid 2px;
-
+      box-shadow: 3px 4px 8px 2px #dccaca;
+      border-radius: 2vh;
       .link-box {
-        padding: 3vh;
+        // padding: 3vh;
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
+
+        a {
+          text-decoration: none;
+          color: #dccaca;
+          .sns {
+            display: flex;
+            padding: 1vh;
+            border: solid 1px #dccaca;
+            border-radius: 3px;
+
+            span {
+              font-family: 'M PLUS Rounded 1c';
+              text-align: center;
+              margin: auto;
+            }
+          }
+
+          .sns:hover {
+            background-color: snow;
+            color: rgb(27 27 27 / 84%);
+            z-index: 1000;
+            transform: scale(1.03);
+            cursor: pointer;
+            border-color: snow;
+            box-shadow: 3px 5px 5px 0px $cool-pink;
+          }
+        }
       }
     }
 
@@ -216,8 +270,9 @@
 
 @media screen and (max-width: $tablet-size) {
   .table {
-    transform: translateY(30%);
+    transform: translateY(20%);
     flex-direction: column;
+    padding-bottom: 10vh;
 
     .left {
       width: 100%;
@@ -225,6 +280,10 @@
       .icon-box {
         transform: translate(-4.3em, 0);
         text-align: center;
+
+        .icon-f {
+          animation: 2s ease-in-out alternate-reverse infinite lightupPhone;
+        }
       }
     }
 
@@ -232,11 +291,20 @@
       margin-top: 20vh;
       text-align: center;
       .myname {
+        width: 80%;
+        white-space: nowrap;
+        font-size: 5vh;
         letter-spacing: 0.05em;
       }
       .myjob {
         text-align: center;
         white-space: pre-line;
+        animation: none;
+        .desc {
+          // max-height: 1vh;
+          visibility: visible;
+        // animation: typing-name 2.5s steps(15), blink-name 0.5s step-end 5;
+        }
       }
     }
   }

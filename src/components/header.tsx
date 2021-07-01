@@ -52,7 +52,7 @@ const Header = () => {
                             HOME
                         </Link>
                     </li>
-                    <li>
+                    {/* <li>
                         <Link 
                             className={style.navItem}
                             activeClassName={style.activeNavItem}
@@ -67,7 +67,7 @@ const Header = () => {
                             to="/blog">
                             BLOG
                         </Link>
-                    </li>
+                    </li> */}
                 </ul>
             </nav>
             <nav className={style.sp} style={{
@@ -83,7 +83,7 @@ const Header = () => {
                             HOME
                         </Link>
                     </li>
-                    <li>
+                    {/* <li>
                         <Link
                             className={style.spNav}
                             onClick={() => {setBool(false)}}
@@ -98,7 +98,7 @@ const Header = () => {
                             to="/blog">
                             BLOG
                         </Link>
-                    </li>
+                    </li> */}
                     <li className={style.close}><span onClick={() => {setBool(false)}}>CLOSE</span></li>
                 </ul>
             </nav>
