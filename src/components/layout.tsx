@@ -1,15 +1,28 @@
-import React from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import Footer from './footer';
-import Header from './header';
+import Enable from './enable';
 import SideBar from './sidebar';
+import { useEnableContext } from './context/enable'
 import Meta from './meta';
 
-const Layout = (props: {children: any}) => {
+interface Props {
+    children: any
+}
+
+const Layout: FC<Props> = ({children}) => {
+
+    // const { enable, setEnable } = useEnableContext()
+
+    const [enable, setEnable] = useState(true)
+
     return(
         <div id="wrapper" >
-            <SideBar/>
-                {props.children}
-            {/* <Footer /> */}
+            {enable ? <SideBar/> : <></>}
+            <span style={{marginRight: !enable ? (10 + 'vh') : ""}}>
+                {children}
+            </span>
+            <Footer />
+            <Enable setEnable={setEnable} enable={enable}/>
         </div>
     )
 }

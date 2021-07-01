@@ -1,11 +1,14 @@
 @import "variable.scss";
 
 footer {
+    font-family: phenomena-regular;
+    color: snow;
     height: 15vh;
     margin-top: auto;
-    background: linear-gradient(to right, $cool-blue, $cool-pink);
+    // background: linear-gradient(to right, $cool-blue, $cool-pink);
 
     .footer {
+        padding: 3vh;
         display: flex;
         justify-content: center;
     }

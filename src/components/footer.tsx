@@ -19,14 +19,14 @@ const Footer = () => {
     return(
         <footer>
             <div className={style.footer}>
-                <p>© 2021 {title}</p>
-                <p>
+                <p>Copyright©2021 Keita Furuse</p>
+                {/* <p>
                     <Link to="/privacy-policy"
                         className={style.link}
                     >
                     privacy policy
                     </Link>
-                    </p>
+                    </p> */}
             </div>
         </footer>
     )

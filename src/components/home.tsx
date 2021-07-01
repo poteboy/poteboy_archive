@@ -11,7 +11,12 @@ type Props =  {
 
 const Home: FC<Props> = ({children, path}) => {
 
-   const [width, setWidth] = useState(window.innerWidth)
+    const isBrowser = typeof window !== "undefined"
+
+    const [width, setWidth] = useState(
+        typeof window !== "undefined" ? window.innerWidth : 1195
+      );
+    
 
     const image = useStaticQuery(
         graphql`
@@ -23,11 +28,8 @@ const Home: FC<Props> = ({children, path}) => {
         `
     )
 
-    const updateWidth = () => {
-        setWidth(window.innerWidth)
-    }
-
     useEffect(() => {
+        const updateWidth = () => setWidth(window.innerWidth)
         window.addEventListener('resize', updateWidth);
         return(() => window.removeEventListener('resize', updateWidth))
     })
@@ -47,7 +49,6 @@ const Home: FC<Props> = ({children, path}) => {
                 {children}
             </div>
     )
-
 }
 
 export default Home
