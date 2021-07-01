@@ -3,11 +3,11 @@
 
 
 button {
-    position: absolute;
+    position: fixed;
     height: 60px;
     width: 60px;
-    top: 5%;
-    right: 0%;
+    top: 80%;
+    right: 5%;
     z-index: 101;
     border-radius: 10vh;
     border: none;
@@ -17,10 +17,14 @@ button {
     .arrow {
         font-size: 40px;
         color: snow;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin: 0;
+        padding-bottom: 3px;
     }
 }
 
 button:hover {
     cursor: pointer;
-    opacity: 0.8;
 }

@@ -27,6 +27,7 @@
 
 @media screen and (max-width: $tablet-size) {
     .profile-table {
-        width: 90%;
+        width: 100%;
+        backdrop-filter: none;
     }
 }

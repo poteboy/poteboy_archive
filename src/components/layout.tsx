@@ -6,7 +6,7 @@ import { useEnableContext } from './context/enable'
 import Meta from './meta';
 
 interface Props {
-    children: any
+    children: object
 }
 
 const Layout: FC<Props> = ({children}) => {
@@ -15,12 +15,12 @@ const Layout: FC<Props> = ({children}) => {
 
     const [enable, setEnable] = useState(true)
 
+    // style={{transform: !enable ? 'translateX(-5vh)' : ""}}
+
     return(
         <div id="wrapper" >
             {enable ? <SideBar/> : <></>}
-            <span style={{marginRight: !enable ? (10 + 'vh') : ""}}>
-                {children}
-            </span>
+                {children}    
             <Footer />
             <Enable setEnable={setEnable} enable={enable}/>
         </div>

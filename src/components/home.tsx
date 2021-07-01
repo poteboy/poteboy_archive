@@ -38,8 +38,12 @@ const Home: FC<Props> = ({children, path}) => {
         return width < 1195  && path !== 'home'
     }
 
+    const isLaptop = (): boolean => {
+        return width > 1194
+    }
+
     return(
-            <div className={style.table} style={{ borderRadius: '30px', marginLeft: '80px'}}>
+            <div className={style.table} style={{ borderRadius: '30px', marginLeft:  isLaptop() ? '80px' : '0px'}}>
                 { isMobile() ? <></> : <div className={style.left}>
                     <div className={style.iconBox}>
                         <img src={image.file.publicURL} alt="keita furuse aka poteboy's icon" className={style.iconF}/>

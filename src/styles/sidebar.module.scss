@@ -14,6 +14,7 @@ ul {
     background-image: linear-gradient(-130deg , #63bbac, #aad963);
     padding-right: 40px;
     z-index: 1;
+    transition: 1s;
 
 
     li {
@@ -62,7 +63,7 @@ aside ul li:not(.menu):hover {
         width: 50%;
 
         ul {
-            width: 50px;
+            width: 200px;
         }
     } 
 }
