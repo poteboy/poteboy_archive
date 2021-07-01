@@ -11,7 +11,8 @@ ul {
     color: #fff;
     text-align: center;
     width: 100px;
-    background-image: linear-gradient(-130deg , #63bbac, #aad963);
+    // background-image: linear-gradient(-130deg , #63bbac, #aad963);
+    background-image: linear-gradient(130deg,#00AFAC,#109978);
     padding-right: 40px;
     z-index: 1;
     transition: 1s;
@@ -30,7 +31,7 @@ ul {
     }
     li:hover {
         // opacity: 0.5;
-        box-shadow: 0 2px 4px 0px rgb(0 0 0 / 20%);
+        box-shadow: 2px 3px 5px 1px rgb(0 0 0 / 20%);
     }
 }
 

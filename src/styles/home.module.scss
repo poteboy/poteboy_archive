@@ -70,11 +70,11 @@
 // アイコンの周りを光らせる
 @keyframes lightupPhone {
   from {
-    filter: blur(15px) brightness(1.2);
+    filter: blur(30px) brightness(1.5);
   }
   to {
     transform: scale(1.2);
-    filter: blur(30px) brightness(2.3);
+    filter: blur(40px) brightness(1.6);
   }
 }
 

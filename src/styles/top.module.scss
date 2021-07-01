@@ -53,13 +53,16 @@
       margin: auto;
       white-space: nowrap;
       animation: typing-name 2.5s steps(15), blink-name 0.5s step-end 5;
-      // text-shadow: 0px 2px 2px $cool-pink;  
+      color: snow;
+      text-shadow: 0px 3px 5px #00AFAC; 
     }
     .myjob {
       font-family: 'M PLUS Rounded 1c';
       overflow: hidden;  
       font-size: 2vh;
       white-space: pre;
+      color: snow;
+      text-shadow: 0px 3px 3px #00AFAC; 
       
       animation: typing-desc 3s steps(40),blink-desc 0.4s step-end;
       animation-delay: 2.7s;
@@ -104,12 +107,12 @@
 
           .sns:hover {
             background-color: snow;
-            color: rgb(27 27 27 / 84%);
+            color: #00AFAC;
             z-index: 1000;
             transform: scale(1.03);
             cursor: pointer;
             border-color: snow;
-            box-shadow: 3px 5px 5px 0px $cool-pink;
+            box-shadow: 3px 5px 5px 0px #00AFAC;
           }
         }
       }

@@ -11,7 +11,8 @@ button {
     z-index: 101;
     border-radius: 10vh;
     border: none;
-    background: linear-gradient(-130deg , #63bbac, #aad963);
+    // background: linear-gradient(-130deg , #63bbac, #aad963);
+    background-image: linear-gradient(#00AFAC,#109978);
     box-shadow: none;
 
     .arrow {
