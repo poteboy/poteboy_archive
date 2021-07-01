@@ -1,0 +1,68 @@
+@import "variable.scss";
+
+
+ul {
+    margin-top: 0;
+    margin-left: -4vh;
+    position: fixed;
+    min-height: 100vh;
+    list-style-type: none;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+    width: 100px;
+    background-image: linear-gradient(-130deg , #63bbac, #aad963);
+    padding-right: 40px;
+    z-index: 1;
+
+
+    li {
+        transform: translateY(10vh);
+        padding: 20px 0;
+        cursor: pointer;
+
+        .fav {
+            text-decoration: none;
+            color: snow;
+            transform: translateX(30px);
+        }
+    }
+    li:hover {
+        // opacity: 0.5;
+        box-shadow: 0 2px 4px 0px rgb(0 0 0 / 20%);
+    }
+}
+
+ul:hover {
+    width: 200px;
+    transition: 0.3s ease-out;
+}
+
+ul .menu {
+    padding: 30px 0;
+}
+
+// aside ul li {
+    
+// }
+
+
+aside ul li:not(.menu):hover {
+    border-radius: 5px;
+    // background-image: linear-gradient(-130deg , #a0e9dd, #fff);
+    color: #63bbac;
+  }
+
+
+
+@media screen and (max-width: 1194px) {
+    aside {
+        margin: 0 !important;
+        padding-top: 0 !important;
+        width: 50%;
+
+        ul {
+            width: 50px;
+        }
+    } 
+}

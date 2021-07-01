@@ -19,7 +19,7 @@ const Home = () => {
     )
 
     return(
-            <div className={style.table}>
+            <div className={style.table} style={{ borderRadius: '30px', marginLeft: '80px'}}>
                 <div className={style.left}>
                     <div className={style.iconBox}>
                         <img src={image.file.publicURL} alt="keita furuse aka poteboy's icon" className={style.iconF}/>

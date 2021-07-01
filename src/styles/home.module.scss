@@ -159,6 +159,7 @@
 
 
 .table {
+  // overflow: scroll;
   color: snow;
   display: flex;
   flex-direction: row;
@@ -195,6 +196,7 @@
 
   .right {
     
+    transform: translateY(15vh);
     display: flex;
     flex-direction: column;
 
@@ -275,11 +277,11 @@
 
 @media screen and (max-width: $tablet-size) {
   .table {
-    transform: translateY(20%);
     flex-direction: column;
     padding-bottom: 10vh;
 
     .left {
+      padding-top: 20vh;
       width: 100%;
       text-align: center;
       .icon-box {
@@ -294,7 +296,7 @@
     }
 
     .right {
-      margin-top: 20vh;
+      margin-top: 10vh;
       text-align: center;
       .myname {
         width: 80%;
