@@ -7,16 +7,20 @@
       text-shadow: 0px 0px 100px;
     }
     11% {
-      transform: scale(1.03, 1.03);
+      transform: scale(1.08, 1.08);
     }
     22% {
       transform: scale(1, 1);
     }
     33% {
-      transform: scale(1.05, 1.05);
+      transform: scale(1.1, 1.1);
     }
     44% {
       transform: scale(1, 1);
+      text-shadow: 0px 0px 100px;
+    }
+    55% {
+      transform: scale(1.07, 1.07);
       text-shadow: 0px 0px 100px;
     }
     100% {
@@ -39,14 +43,6 @@
     text-align: center;
     color: $base-font-color;
 
-    .icon {
-        width: 140px;
-        height: 140px;
-        border-radius: 80px;
-        box-shadow: 0 2px 2px 0px rgb(0 0 0 / 20%);
-        animation: beat 1.24s infinite, cycle 8s linear infinite;
-    }
-
     .name {
         font-size: xx-large;
         font-family: phenomena-bold;
@@ -55,11 +51,11 @@
         letter-spacing: 0.05em;
     }
 
-    .description {
-        font-size: larger;
-        font-family: phenomena-bold;
-        letter-spacing: 0.05em;
-    }
+    // .description {
+    //     font-size: larger;
+    //     font-family: phenomena-bold;
+    //     letter-spacing: 0.05em;
+    // }
 
     .sns {
       display: flex;
@@ -83,11 +79,165 @@
     }
 }
 
-@media screen and (max-width: $phone-size) {
 
-  .profile{
-    .description {
-      letter-spacing: 0em;
+
+@keyframes typing-name {
+  from { width: 0 }
+  to { 
+    width: 100%;
+   }
+}
+
+@keyframes blink-name {
+  50% {
+    border-right-color: currentColor;
+  }
+}
+
+@keyframes disapper {
+  to {
+    border: transparent;
+  }
+}
+
+@keyframes typing-desc {
+  from { 
+    width: 0;
+    visibility: visible;
+   }
+  to { 
+    width: 100%;
+    visibility: visible;
+   }
+}
+
+// 名前が出終わった後に、下の文字を表示
+@keyframes delayedShow {
+  to {
+    visibility: visible;
+  }
+}
+
+// アイコンの周りを光らせる
+@keyframes lightup {
+  from {
+    filter: blur(30px) brightness(1.6);
+  }
+  to {
+    transform: scale(1.2);
+    filter: blur(60px) brightness(1.6);
+  }
+}
+// アイコンの色を回転させる
+@keyframes color-rotate {
+  to { filter: hue-rotate(360deg); }  
+}
+
+
+.table {
+  color: snow;
+  display: flex;
+  flex-direction: row;
+
+  .left {
+    width: 50%;
+
+    .icon-box {    
+      transform: translate(10em, 15em);
+      animation: 2s ease-in-out infinite color-rotate;
+  
+      .icon-r,
+      .icon-f {
+        position: absolute;
+        text-align: center;
+        border-radius: 80px;
+        width: 140px;
+        height: 140px;
+        animation: beat 1.24s infinite, cycle 8s linear infinite;
+        margin: auto;
+        box-shadow: 0 2px 2px 0px rgb(0 0 0 / 20%);
+      }
+
+      .icon-f {
+        animation: 2s ease-in-out alternate-reverse infinite lightup;
+      }
+    }
+  }
+
+  .right {
+    
+    display: flex;
+    flex-direction: column;
+
+    .myname {
+      font-family: phenomena-bold;
+      border-right: .1em solid transparent;
+      font-size: 10vh;
+      letter-spacing: 0.15em;
+      text-align: center;
+      overflow: hidden;
+      margin: auto;
+      white-space: nowrap;
+      animation: typing-name 2.5s steps(15), blink-name 0.5s step-end 5;
+      
+    }
+    .myjob {
+      font-family: phenomena-regular;
+      overflow: hidden;  
+      font-size: 5vh;
+      white-space: pre;
+      
+      animation: typing-desc 3s steps(40),blink-desc 0.4s step-end;
+      animation-delay: 2.7s;
+      .desc {
+        letter-spacing: 0.1em;
+        border-right: .1em solid transparent;
+        margin-top: 0;
+        visibility: hidden;
+        animation: 0s linear 2.7s forwards delayedShow, blink-name 0.4s step-end infinite;;
+      }
+    }
+
+    .links {
+      z-index: 100;
+      background: transparent;
+      backdrop-filter: blur(20px);
+      border: solid 2px;
+
+      .link-box {
+        padding: 3vh;
+        display: flex;
+        flex-direction: row;
+      }
+    }
+
+  }
+}
+
+@media screen and (max-width: $tablet-size) {
+  .table {
+    transform: translateY(30%);
+    flex-direction: column;
+
+    .left {
+      width: 100%;
+      text-align: center;
+      .icon-box {
+        transform: translate(-4.3em, 0);
+        text-align: center;
+      }
+    }
+
+    .right {
+      margin-top: 20vh;
+      text-align: center;
+      .myname {
+        letter-spacing: 0.05em;
+      }
+      .myjob {
+        text-align: center;
+        white-space: pre-line;
+      }
     }
   }
 }
