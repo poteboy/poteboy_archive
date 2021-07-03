@@ -119,7 +119,7 @@
     }
 }
 
-@media screen and (max-width: $tablet-size) {
+@media screen and (max-width: $tablet-size) and (orientation:portrait) {
     .right {
     font-family: demilight;
     margin-top: 5vh;

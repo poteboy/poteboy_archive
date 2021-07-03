@@ -57,8 +57,13 @@
 
 
 
-@media screen and (max-width: 1194px) {
-   .ul {
-       display: none;
-   }
+@media screen and (orientation:landscape) {
+    .aside {
+        padding-top: 0 !important;
+        margin: 0;
+        .ul {
+            margin-top: 0;
+            left: 0;
+        }
+    }
 }

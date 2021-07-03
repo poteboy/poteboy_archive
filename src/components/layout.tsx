@@ -22,15 +22,34 @@ const Layout: FC<Props> = ({children}) => {
         typeof window !== "undefined" ? window.innerWidth : 1194
       );
 
+    type Orientation = "portrait" | 'landscape';
+
+    const [orientation, setOrientation] = useState<Orientation>(
+        typeof window !== "undefined" ? (window.innerWidth > window.innerHeight ? 'landscape' : 'portrait') : 'portrait'
+    );
+
     useEffect(() => {
-        const updateWidth = () => setWidth(window.innerWidth)
+        const updateWidth = () => {
+            setWidth(window.innerWidth)
+            if(window.innerHeight > window.innerWidth){
+                setOrientation('portrait')
+            } else {
+                setOrientation('landscape')
+            }
+        }
         window.addEventListener('resize', updateWidth);
         return(() => window.removeEventListener('resize', updateWidth))
     })
 
+    const isResponsive = (): boolean => {
+        return width > 1194 || orientation === 'landscape'
+    }
+
+    console.log(orientation)
+
     return(
         <div id="wrapper" >
-            {width > 1194 ? <SideBar/> : <Header/>}
+            { isResponsive()  ? <SideBar/> : <Header/>}
                 {children}    
             <Footer />
         </div>
