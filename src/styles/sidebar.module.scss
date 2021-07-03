@@ -1,7 +1,7 @@
 @import "variable.scss";
 
 
-ul {
+.ul {
     margin-top: 0;
     margin-left: -4vh;
     position: fixed;
@@ -35,12 +35,12 @@ ul {
     }
 }
 
-ul:hover {
+.ul:hover {
     width: 200px;
     transition: 0.3s ease-out;
 }
 
-ul .menu {
+.ul .menu {
     padding: 30px 0;
 }
 
@@ -49,7 +49,7 @@ ul .menu {
 // }
 
 
-aside ul li:not(.menu):hover {
+.aside ul li:not(.menu):hover {
     border-radius: 5px;
     // background-image: linear-gradient(-130deg , #a0e9dd, #fff);
     color: #63bbac;
@@ -58,13 +58,7 @@ aside ul li:not(.menu):hover {
 
 
 @media screen and (max-width: 1194px) {
-    aside {
-        margin: 0 !important;
-        padding-top: 0 !important;
-        width: 50%;
-
-        ul {
-            width: 200px;
-        }
-    } 
+   .ul {
+       display: none;
+   }
 }

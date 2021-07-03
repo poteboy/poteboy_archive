@@ -82,7 +82,7 @@
       width: 30vh;
       background: transparent;
       backdrop-filter: blur(20px);
-      box-shadow: 3px 4px 8px 2px #dccaca;
+      box-shadow: 3px 4px 8px 2px #00AFAC;
       border-radius: 3px;
       .link-box {
         // padding: 3vh;
@@ -121,23 +121,52 @@
 
 @media screen and (max-width: $tablet-size) {
     .right {
-    margin-top: 10vh;
+    font-family: demilight;
+    margin-top: 5vh;
     text-align: center;
         .myname {
+            transform: scale(1.2);
+            font-family: phenomena-bold;
             width: 80%;
             white-space: nowrap;
             font-size: 5vh;
             letter-spacing: 0.05em;
+            // text-shadow: none; 
         }
+
+        .blur {
+          filter: blur(30px) brightness(1.5);
+        }
+
+        .blur::before {
+          filter: blur(30px) brightness(1.5);
+        }
+
+        .blur::after {
+          filter: blur(30px) brightness(2);
+        }
+
         .myjob {
+          font-family: phenomena-regular;
+          transform: scale(1.2);
             text-align: center;
             white-space: pre-line;
             animation: none;
+            // text-shadow: none; 
             .desc {
             // max-height: 1vh;
             visibility: visible;
             animation: none;
             }
+        }
+
+        .links {
+          box-shadow: 3px 4px 8px 2px #00AFAC;
+          .link-box {
+            span {
+              font-family: phenomena-bold !important;
+            }
+          }
         }
     }
 }

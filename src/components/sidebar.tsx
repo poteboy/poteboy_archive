@@ -6,8 +6,8 @@ const style = require("../styles/sidebar.module.scss");
 
 const SideBar = () => {
     return(
-        <aside>
-            <ul>
+        <aside className={style.aside}>
+            <ul className={style.ul}>
                 <li>
                     <Link 
                         className={style.navItem}

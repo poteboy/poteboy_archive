@@ -4,7 +4,7 @@ const style = require("../styles/header.module.scss")
 
 const Header = () => {
 
-    let [toggle, setBool ] = useState(false);
+    let [toggle, setToggle ] = useState(false);
 
 
     const nonClickStyle = {
@@ -52,7 +52,7 @@ const Header = () => {
                             HOME
                         </Link>
                     </li>
-                    {/* <li>
+                    <li>
                         <Link 
                             className={style.navItem}
                             activeClassName={style.activeNavItem}
@@ -60,14 +60,6 @@ const Header = () => {
                             ABOUT
                         </Link>
                     </li>
-                    <li>
-                        <Link 
-                            className={style.navItem}
-                            activeClassName={style.activeNavItem}
-                            to="/blog">
-                            BLOG
-                        </Link>
-                    </li> */}
                 </ul>
             </nav>
             <nav className={style.sp} style={{
@@ -78,31 +70,23 @@ const Header = () => {
                     <li>
                         <Link
                             className={style.spNav} 
-                            onClick={() => {setBool(false)}}
+                            onClick={() => {setToggle(false)}}
                             to="/">
                             HOME
                         </Link>
                     </li>
-                    {/* <li>
+                    <li>
                         <Link
-                            className={style.spNav}
-                            onClick={() => {setBool(false)}}
+                            className={style.spNav} 
+                            onClick={() => {setToggle(false)}}
                             to="/about">
                             ABOUT
                         </Link>
                     </li>
-                    <li>
-                        <Link 
-                            className={style.spNav}
-                            onClick={() => {setBool(false)}}
-                            to="/blog">
-                            BLOG
-                        </Link>
-                    </li> */}
-                    <li className={style.close}><span onClick={() => {setBool(false)}}>CLOSE</span></li>
+                    <li className={style.close}><span onClick={() => {setToggle(false)}}>CLOSE</span></li>
                 </ul>
             </nav>
-            <div className={style.ham} onClick={() => {setBool(true)}}>
+            <div className={style.ham} onClick={() => {setToggle(true)}}>
                 <span></span>
             </div>
         </header>

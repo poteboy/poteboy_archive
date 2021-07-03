@@ -10,6 +10,7 @@ const Top = () => {
     return(
         <div className={style.right}>
             <div className={style.myname}>Keita Furuse</div>
+            <div className={style.blur}></div>
             <div className={style.myjob}>
                 <p className={style.desc}>Application Developer based in Tokyo.</p>
             </div>
