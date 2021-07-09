@@ -45,8 +45,6 @@ const Layout: FC<Props> = ({children}) => {
         return width > 1194 || orientation === 'landscape'
     }
 
-    console.log(orientation)
-
     return(
         <div id="wrapper" >
             <Header/>

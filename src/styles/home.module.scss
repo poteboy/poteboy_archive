@@ -62,7 +62,7 @@
       .icon-f {
         text-align: center;
         border-radius: 80px;
-        border: solid snow 5px;
+        // border: solid snow 5px;
         width: 140px;
         height: 140px;
         margin: auto;
@@ -72,9 +72,9 @@
   .name {
       margin: auto;
       padding: 3vh;
-      font-family: phenomena-bold;
+      font-family: 'Quicksand';
       font-size: 40px;
-      letter-spacing: 0.1em;
+      // letter-spacing: 0.05em;
     }
 
   .links {
@@ -85,24 +85,25 @@
     width: 30vh;
     background: transparent;
     backdrop-filter: blur(20px);
-    box-shadow: 3px 4px 8px 2px #2dcece;
-    border-radius: 3px;
     .link-box {
-      // padding: 3vh;
       display: flex;
       flex-direction: column;
 
       a {
         text-decoration: none;
         color: snow;
+        margin: 0.5vh;
+
         .sns {
           display: flex;
           padding: 1vh;
-          border: solid 1px snow;
-          border-radius: 3px;
+          border: solid 1px #2dcece;
+          border-radius: 15px;
+          box-shadow: 0px 1px 8px 2px #2dcece;
+          // background: #2dcece;
 
           span {
-            font-family: 'M PLUS Rounded 1c';
+            font-family: 'Quicksand';
             text-align: center;
             margin: auto;
           }

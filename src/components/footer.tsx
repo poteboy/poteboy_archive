@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { Link } from 'gatsby';
+import styled from 'styled-components'
 const style = require('../styles/footer.module.scss');
 
 
@@ -17,19 +18,21 @@ const Footer = () => {
     `).site.siteMetadata.title
 
     return(
-        <footer>
+        <Foot>
             <div className={style.footer}>
                 <p>Copyright©2021 Keita Furuse</p>
-                {/* <p>
-                    <Link to="/privacy-policy"
-                        className={style.link}
-                    >
-                    privacy policy
-                    </Link>
-                    </p> */}
             </div>
-        </footer>
+        </Foot>
     )
 }
+
+const Foot = styled.footer`
+    margin-top: 5vh;
+    padding: 3vh;
+    display: flex;
+    justify-content: center;
+`
+
+const Text = styled.div
 
 export default Footer

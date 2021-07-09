@@ -24,13 +24,13 @@
         .bio {
             text-align: left;
             padding: 2vh;
+            font-family: 'Quicksand';
         }
     }
 }
 
 @media screen and (max-width: $tablet-size) and (orientation:portrait)  {
     .profile-table {
-        width: 100%;
         backdrop-filter: none;
     }
 }
