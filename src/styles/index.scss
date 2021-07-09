@@ -25,8 +25,9 @@
 body {
     overflow: hidden;
     margin: auto;
-    // background: $base-color;
+    // background: snow;
     background: rgb(27 27 27 / 84%);
+    background: linear-gradient(0deg, var($color-homepage-dark), var($color-homepage-light));
     overflow: scroll;
     // -webkit-font-smoothing: antialiased;
 }

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'gatsby';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome, faUser } from '@fortawesome/free-solid-svg-icons';
 const style = require("../styles/header.module.scss")
 
 const Header = () => {
@@ -39,29 +41,32 @@ const Header = () => {
     })
 
     
+    // style={{paddingBottom: onTop ? '3rem' : '1rem' }}
 
     return(
-        <header className={style.header} style={{paddingBottom: onTop ? '3rem' : '1rem' }}>
-            <nav className={style.pc}>
-                <ul className={style.navList}>
-                    <li>
-                        <Link 
-                            className={style.navItem}
-                            activeClassName={style.activeNavItem}
-                            to="/">
-                            HOME
-                        </Link>
-                    </li>
-                    <li>
-                        <Link 
-                            className={style.navItem}
-                            activeClassName={style.activeNavItem}
-                            to="/about">
-                            ABOUT
-                        </Link>
-                    </li>
-                </ul>
-            </nav>
+        <header className={style.header}>
+            <ul className={style.ul}>
+                <li>
+                    <Link 
+                        className={style.navItem}
+                        activeClassName={style.activeNavItem}
+                        to="/">
+                        <div className={style.fav}>
+                        <FontAwesomeIcon icon={faHome} size="2x"/>
+                        </div>
+                    </Link>
+                </li>
+                <li>
+                    <Link 
+                        className={style.navItem}
+                        activeClassName={style.activeNavItem}
+                        to="/about/">
+                        <div className={style.fav}>
+                        <FontAwesomeIcon icon={faUser} size="2x"/>
+                        </div>
+                    </Link>
+                </li>
+            </ul>
             <nav className={style.sp} style={{
                 opacity: toggle ? 1 : 0,
                 transform: toggle ? "translateY(0)" : "translateY(-100%)",

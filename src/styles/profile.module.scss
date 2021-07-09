@@ -7,17 +7,18 @@
     backdrop-filter: blur(20px);
     border: solid 1px snow;
     border-radius: 3px;
-    box-shadow: 3px 5px 8px 4px #00AFAC;
+    box-shadow: 3px 5px 8px 4px #2dcece;
 
     .content {
         font-family: phenomena-regular;
+        // -webkit-font-smoothing: antialiased;
         padding:3vh;
         max-width: 70vh;
 
         p {
             padding: 2vh;
             text-align: center;
-            box-shadow: 0px 1px 1px 1px #00AFAC;
+            box-shadow: 0px 1px 1px 1px #2dcece;
         }
 
         .bio {

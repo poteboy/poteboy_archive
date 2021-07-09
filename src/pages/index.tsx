@@ -10,7 +10,7 @@ const IndexPage = () => {
   return (
     <Layout>
       <Meta/>
-      <Home path='home'><Top/></Home>
+      <Home path='home'><></></Home>
     </Layout>
   )
 }

@@ -1,42 +1,5 @@
 @import "variable.scss";
 
-@keyframes typing-name {
-  from { width: 0 }
-  to { 
-    width: 100%;
-   }
-}
-
-@keyframes blink-name {
-    50% {
-      border-right-color: currentColor;
-    }
-  }
-  
-  @keyframes disapper {
-    to {
-      border: transparent;
-    }
-  }
-  
-  @keyframes typing-desc {
-    from { 
-      width: 0;
-      visibility: visible;
-     }
-    to { 
-      width: 100%;
-      visibility: visible;
-     }
-  }
-  
-  // 名前が出終わった後に、下の文字を表示
-  @keyframes delayedShow {
-    to {
-      visibility: visible;
-    }
-  }
-
 .right {
     
     transform: translateY(15vh);
@@ -54,7 +17,7 @@
       white-space: nowrap;
       animation: typing-name 2.5s steps(15), blink-name 0.5s step-end 5;
       color: snow;
-      text-shadow: 0px 3px 5px #00AFAC; 
+      text-shadow: 7px 8px 3px #141414; 
     }
     .myjob {
       font-family: 'M PLUS Rounded 1c';
@@ -72,49 +35,6 @@
         margin-top: 0;
         visibility: hidden;
         animation: 0s linear 2.7s forwards delayedShow, blink-name 0.4s step-end infinite;;
-      }
-    }
-
-    .links {
-
-      z-index: 100;
-      margin: 5vh auto auto auto;
-      width: 30vh;
-      background: transparent;
-      backdrop-filter: blur(20px);
-      box-shadow: 3px 4px 8px 2px #00AFAC;
-      border-radius: 3px;
-      .link-box {
-        // padding: 3vh;
-        display: flex;
-        flex-direction: column;
-
-        a {
-          text-decoration: none;
-          color: snow;
-          .sns {
-            display: flex;
-            padding: 1vh;
-            border: solid 1px snow;
-            border-radius: 3px;
-
-            span {
-              font-family: 'M PLUS Rounded 1c';
-              text-align: center;
-              margin: auto;
-            }
-          }
-
-          .sns:hover {
-            background-color: snow;
-            color: #00AFAC;
-            z-index: 1000;
-            transform: scale(1.03);
-            cursor: pointer;
-            border-color: snow;
-            box-shadow: 3px 5px 5px 0px #00AFAC;
-          }
-        }
       }
     }
 }

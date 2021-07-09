@@ -49,7 +49,7 @@ const Layout: FC<Props> = ({children}) => {
 
     return(
         <div id="wrapper" >
-            { isResponsive()  ? <SideBar/> : <Header/>}
+            <Header/>
                 {children}    
             <Footer />
         </div>

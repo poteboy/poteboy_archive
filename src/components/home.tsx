@@ -1,5 +1,8 @@
 import React, { FC, useEffect, useState } from 'react'
 import { useStaticQuery, graphql, Link } from 'gatsby';
+import { faGithub, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faPaintBrush, faPalette } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Path } from 'src/entity/path';
 
 const style = require('../styles/home.module.scss');
@@ -53,12 +56,50 @@ const Home: FC<Props> = ({children, path}) => {
     }
 
     return(
-            <div className={style.table} style={{ borderRadius: '30px', marginLeft:  isLaptop() ? '80px' : '0px'}}>
+            <div className={style.table}>
                 { isMobile() ? <></> : <div className={style.left}>
                     <div className={style.iconBox}>
                         <img src={image.file.publicURL} alt="keita furuse aka poteboy's icon" className={style.iconF}/>
-                        <img src={image.file.publicURL} alt="keita furuse aka poteboy's icon" className={style.iconR}/>
                     </div>
+                    <div className={style.name}>Keita Furuse</div>
+                    <div className={style.links}>
+                            <div className={style.linkBox}>
+                                <a href="https://github.com/poteboy" title="GitHub" target="_blank" rel="noopener">
+                                    <div className={style.sns}>
+                                        <FontAwesomeIcon icon={faGithub}
+                                        size="2x"
+                                        />
+                                        <span>GitHub</span>
+                                    </div>
+                                </a>
+                                <a href="https://www.linkedin.com/in/keitafuruse/" title="LinkedIn" target="_blank" rel="noopener">
+                                    <div className={style.sns}>
+                                        <FontAwesomeIcon icon={faLinkedin} 
+                                        size="2x"
+                                        />
+                                        <span>LinkedIn</span>
+                                    </div>
+                                </a>
+                                <a href="https://twitter.com/_poteboy_" title="Twitter" target="_blank" rel="noopener">
+                                    <div className={style.sns}>
+                                        
+                                        <FontAwesomeIcon icon={faTwitter} 
+                                        size="2x"
+                                        />
+                                        <span>Twitter</span>
+                                    </div>
+                                </a>
+                                <a href="https://www.pixiv.net/users/59139347" title="Twitter" target="_blank" rel="noopener">
+                                    <div className={style.sns}>
+                                        
+                                        <FontAwesomeIcon icon={faPalette} 
+                                        size="2x"
+                                        />
+                                        <span>Pixiv</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div> 
                 </div>}
                 {children}
             </div>
