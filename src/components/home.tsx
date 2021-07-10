@@ -1,7 +1,8 @@
 import React, { FC, useEffect, useState } from 'react'
 import { useStaticQuery, graphql, Link } from 'gatsby';
-import { faGithub, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faLinkedin, faTwitter, IconDefinition } from '@fortawesome/free-brands-svg-icons';
 import { faPaintBrush, faPalette } from '@fortawesome/free-solid-svg-icons';
+import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Path } from 'src/entity/path';
 
@@ -56,54 +57,134 @@ const Home: FC<Props> = ({children, path}) => {
     }
 
     return(
-            <div className={style.table}>
-                { isMobile() ? <></> : <div className={style.left}>
-                    <div className={style.iconBox}>
-                        <img src={image.file.publicURL} alt="keita furuse aka poteboy's icon" className={style.iconF}/>
-                    </div>
-                    <div className={style.name}>Keita Furuse</div>
-                    <div className={style.links}>
-                            <div className={style.linkBox}>
-                                <a href="https://github.com/poteboy" title="GitHub" target="_blank" rel="noopener">
-                                    <div className={style.sns}>
-                                        <FontAwesomeIcon icon={faGithub}
+            <Table>
+                <Left>
+                    <IconBox>
+                        <IconImage src={image.file.publicURL} alt="keita furuse aka poteboy's icon"/>
+                    </IconBox>
+                    <Name>Keita Furuse</Name>
+                    <Links>
+                            <LinkBox>
+                                {SnsLinks.map( (r) => <SNS href={r.link} title={r.name} target="_blank" rel="noopener">
+                                    <SnsIcon>
+                                        <FontAwesomeIcon icon={r.iconName}
                                         size="2x"
                                         />
-                                        <span>GitHub</span>
-                                    </div>
-                                </a>
-                                <a href="https://www.linkedin.com/in/keitafuruse/" title="LinkedIn" target="_blank" rel="noopener">
-                                    <div className={style.sns}>
-                                        <FontAwesomeIcon icon={faLinkedin} 
-                                        size="2x"
-                                        />
-                                        <span>LinkedIn</span>
-                                    </div>
-                                </a>
-                                <a href="https://twitter.com/_poteboy_" title="Twitter" target="_blank" rel="noopener">
-                                    <div className={style.sns}>
-                                        
-                                        <FontAwesomeIcon icon={faTwitter} 
-                                        size="2x"
-                                        />
-                                        <span>Twitter</span>
-                                    </div>
-                                </a>
-                                <a href="https://www.pixiv.net/users/59139347" title="Twitter" target="_blank" rel="noopener">
-                                    <div className={style.sns}>
-                                        
-                                        <FontAwesomeIcon icon={faPalette} 
-                                        size="2x"
-                                        />
-                                        <span>Pixiv</span>
-                                    </div>
-                                </a>
-                            </div>
-                        </div> 
-                </div>}
+                                        <SnsName>{r.name}</SnsName>
+                                    </SnsIcon>
+                                </SNS>)}
+                            </LinkBox>
+                        </Links> 
+                </Left>
                 {children}
-            </div>
+            </Table>
     )
 }
 
 export default Home
+
+const Table = styled.div`
+    color: snow;
+    display: flex;
+    flex-direction: row;
+    margin-left: 80px;
+`
+
+const Left = styled.div`
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+`
+
+const IconBox = styled.div`
+    margin: 5em auto 0 auto;
+    transform: translateX(0.5em);
+    padding: 5vh 5vh 0 5vh;
+`
+
+const IconImage = styled.img`
+    text-align: center;
+    border-radius: 80px;
+    width: 140px;
+    height: 140px;
+    margin: auto;
+    box-shadow: 2px 3px 7px #2dcece;
+`
+
+const Name = styled.div`
+    margin: auto;
+    padding: 3vh;
+    font-family: 'Quicksand';
+    font-size: 40px;
+`
+
+const Links = styled.div`
+    z-index: 100;
+    margin: 1em auto auto auto;
+    width: 30vh;
+    background: transparent;
+    backdrop-filter: blur(20px);
+`
+
+const LinkBox = styled.div`
+    display: flex;
+    flex-direction: column;
+`
+
+const SNS = styled.a`
+    text-decoration: none;
+    color: snow;
+    margin: 0.5vh;
+`
+
+const SnsIcon = styled.div`
+    display: flex;
+    padding: 1vh;
+    border: solid 1px #2dcece;
+    border-radius: 15px;
+    box-shadow: 0px 1px 8px 2px #2dcece;
+    &:hover {
+        background-color: snow;
+        color: #2dcece;
+        z-index: 1000;
+        transform: scale(1.03);
+        cursor: pointer;
+        border-color: snow;
+        box-shadow: 3px 5px 5px 0px #2dcece;
+    }
+`
+
+const SnsName = styled.span`
+    font-family: 'Quicksand';
+    text-align: center;
+    margin: auto;
+`
+
+interface SnsLink  {
+    link: string,
+    name: string,
+    iconName: IconDefinition
+}
+
+const SnsLinks: SnsLink[] = [
+    {
+        link: "https://github.com/poteboy",
+        name: 'GitHub',
+        iconName: faGithub
+    },
+    {
+        link: "https://www.linkedin.com/in/keitafuruse/",
+        name: 'LinkedIn',
+        iconName: faLinkedin
+    },
+    {
+        link: "https://twitter.com/_poteboy_",
+        name: 'Twitter',
+        iconName: faTwitter
+    },
+    {
+        link: "https://www.pixiv.net/users/59139347",
+        name: 'Pixiv',
+        iconName: faPalette
+    }
+]
