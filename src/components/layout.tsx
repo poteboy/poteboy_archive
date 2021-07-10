@@ -4,6 +4,7 @@ import Enable from './enable';
 import SideBar from './sidebar';
 import Header from './header';
 import { useEnableContext } from './context/enable'
+import Particles from 'react-particles-js';
 import Meta from './meta';
 
 interface Props {
@@ -11,8 +12,6 @@ interface Props {
 }
 
 const Layout: FC<Props> = ({children}) => {
-
-    // const { enable, setEnable } = useEnableContext()
 
     const [enable, setEnable] = useState(false)
 
@@ -48,8 +47,25 @@ const Layout: FC<Props> = ({children}) => {
     return(
         <div id="wrapper" >
             <Header/>
-                {children}    
-            <Footer />
+            {children}  
+                <Particles params={{
+                    "particles": {
+                        "number": {
+                            "value": width > 1195 ? 50 : (width > 640 ? 30 : 20)
+                        },
+                        "size": {
+                            "value": 3
+                        }
+                    },
+                    "interactivity": {
+                        "events": {
+                            "onhover": {
+                                "enable": true,
+                                "mode": "repulse"
+                            }
+                        }
+                }
+                }} className='particles-js'/>
         </div>
     )
 }

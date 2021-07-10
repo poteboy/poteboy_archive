@@ -45,6 +45,7 @@
     "react-dom": "^16.14.0",
     "react-helmet": "^6.1.0",
     "react-is": "^16.13.1",
+    "react-particles-js": "^3.5.3",
     "react-share": "^4.4.0",
     "rehype-parse": "^7.0.1",
     "remark-math": "^4.0.0",
