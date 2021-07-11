@@ -55,6 +55,9 @@ const Layout: FC<Props> = ({children}) => {
                         },
                         "size": {
                             "value": 3
+                        },
+                        "color": {
+                            value: ['#2dcece']
                         }
                     },
                     "interactivity": {

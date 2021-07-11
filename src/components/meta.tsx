@@ -26,9 +26,9 @@ const Meta = ({title, description }: MetaType) => {
         <>
             <Helmet>
                 <meta charSet="utf-8" />
-                <title>{seo.title}</title>
-                <meta property="og:title" content={seo.title} />
-                <meta property="og:description" content={seo.description} />
+                <title>Keita Fururse</title>
+                <meta property="og:title" content="Keita Furuse" />
+                <meta property="og:description" content="Keita Furuse's portfolio site" />
                 <meta property="og:type" content="website"/>
                 <meta name="google-site-verification" content="ThCy6ZbcWv-YFbvd_QEWvYQfBtArkhVqnutTomqPaUs" />
                 <meta name="twitter:card" content="summary" />

@@ -5,7 +5,7 @@ const Error = () => {
 
     return(
         <Layout>
-        存在しないページだよ
+        <>存在しないページだよ</>
         </Layout>
     )
 }

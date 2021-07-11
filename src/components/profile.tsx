@@ -1,51 +1,56 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components'
-const style = require("../styles/profile.module.scss")
-
 
 const Profile = () => {
     return(
-        <ProfileTable>
+        <Table>
             <Content>
                 <AboutMe>ABOUT ME</AboutMe>
                 <Bio>
-                    2021年4月より医療系スタートアップに新卒で入社し、アプリケーション開発者として働いています。
-                    <br/>
-                    モノづくりが好きで、早稲田大学国際教養学部在学時からアプリケーションの実務開発業務に携わりReact、Angular、Ruby on Railsなどを用いたアプリケーション開発の経験を摘みました。
-                    <br/>
-                    また、卒業論文では「機械学習を用いたパワーリフティングスコアの回帰予測」をテーマに取り組みました。
-                    <br/>
-                    Human-Computer InteractionやUXデザインなど、デザインとテクノロジーの融合に興味を持っています。
-                    <br/>
-                    絵を描くことも好きで、休日は専らイラストやアニメーションの作成に費やしています。
+                    都内を拠点に活動するプログラマー。
+                    <br />
+                    2021年4月に新卒で医療系スタートアップに入社し、
+                    React (Next.js), React Native、Angular, Ruby on Railsなどを用いたアプリケーション開発に携わる。
+                    <br />
+                    TypeScripを用いたアプリケーション開発を得意とし、大学在学中から長期インターン生として実務アプリケーション開発に携わる。また、卒業論文では「機械学習を用いたパワーリフティングスコアの回帰予測」をテーマに取り組む。
+                    <br />
+                    Human-Computer InteractionやUI/UXデザインなど、デザインとテクノロジーの結びつきに関心を持つ。
+                    <br />
+                    最近は趣味はiOS開発とお絵かき。TOEIC920点(2017年)。
                 </Bio>
             </Content>
-        </ProfileTable>
+        </Table>
     )
 }
 
-const ProfileTable = styled.div`
+export const Table = styled.div`
     transform: translateY(15vh);
-    background: transparent;
-    backdrop-filter: blur(5px);
-    border: solid 1px snow;
-    border-radius: 3px;
-    box-shadow: 3px 5px 8px 4px #2dcece;
+    // background: transparent;
+    background: #8484843d;
+    backdrop-filter: blur(2px);
+    // border: solid 1px snow;
+    border-radius: 20px;
+    // box-shadow: 3px 5px 8px 4px #2dcece;
+    box-shadow: 3px 5px 20px 9px #2e2f2f;
     @media (max-width: 1194px) {
         transform: translateY(-5vh) scale(0.9);
     }
 `
 
-const Content = styled.div`
+export const Content = styled.div`
     font-family: phenomena-regular;
     padding:3vh;
-    max-width: 70vh;
+    max-width: 80vh;
+    @media (max-width: 1194px) {
+        max-width: none;
+    }
 `
 
 const AboutMe = styled.p`
+    font-family: 'Quicksand';
     padding: 2vh;
     text-align: center;
-    box-shadow: 0px 1px 1px 1px #2dcece;
+    // box-shadow: 0px 1px 1px 1px #2dcece;
 `
 
 const Bio = styled.div`

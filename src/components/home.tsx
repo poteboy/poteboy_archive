@@ -2,12 +2,10 @@ import React, { FC, useEffect, useState } from 'react'
 import { useStaticQuery, graphql, Link } from 'gatsby';
 import { faGithub, faLinkedin, faTwitter, IconDefinition } from '@fortawesome/free-brands-svg-icons';
 import { faPaintBrush, faPalette } from '@fortawesome/free-solid-svg-icons';
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import Particles from 'react-particles-js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Path } from 'src/entity/path';
-
-const style = require('../styles/home.module.scss');
 
 type Props =  {
     children: any,
@@ -86,6 +84,8 @@ const Home: FC<Props> = ({children, path}) => {
         padding: 3vh;
         font-family: 'Quicksand';
         font-size: 40px;
+        background: transparent;
+        backdrop-filter: blur(5px);
         @media (max-width: 1194px) {
             margin: 0 auto 0 auto;
             padding: 0;
@@ -95,14 +95,14 @@ const Home: FC<Props> = ({children, path}) => {
     `;
 
     const Links = styled.div`
-    z-index: 100;
-    margin: 1em auto auto auto;
-    width: 30vh;
-    background: transparent;
-    backdrop-filter: blur(20px);
-    @media (max-width: 1194px) {
-        margin: 0 auto 0 auto;
-    }
+        z-index: 100;
+        margin: 1em auto auto auto;
+        width: 30vh;
+        background: transparent;
+        backdrop-filter: blur(5px);
+        @media (max-width: 1194px) {
+            margin: 0 auto 3vh auto;
+        }
     `;
 
     const LinkBox = styled.div`
@@ -124,15 +124,44 @@ const Home: FC<Props> = ({children, path}) => {
         }
     `;
 
+    const Transition = keyframes`
+        0%, 100% {
+            border-color: #2dcece;
+        }
+        25% {
+            border-color: #ce93d8;
+        }
+        50% {
+            border-color: #ffcc80;
+        }
+        75% {
+            border-color: #80deea;
+    `
+
+    const IconTransition = keyframes`
+        0%, 100% {
+            color: #2dcece;
+        }
+        25% {
+            color: #ce93d8;
+        }
+        50% {
+            color: #ffcc80;
+        }
+        75% {
+            color: #80deea;
+    `
+
     const SnsIcon = styled.div`
         display: flex;
         padding: 1vh;
-        border: solid 1px #2dcece;
+        border: solid 1px;
         border-radius: 15px;
-        box-shadow: 0px 1px 8px 2px #2dcece;
+        // animation: ${Transition} 3s ease-in-out infinite;
+        // box-shadow: 0px 0px 4px 0px #2dcece;
         &:hover {
             background-color: snow;
-            color: #2dcece;
+            animation: ${IconTransition} 3s ease-in-out infinite;
             z-index: 1000;
             transform: scale(1.03);
             cursor: pointer;

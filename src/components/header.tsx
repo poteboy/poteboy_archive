@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faUser, faPaintBrush } from '@fortawesome/free-solid-svg-icons';
 const style = require("../styles/header.module.scss")
 
 const Header = () => {
@@ -66,6 +66,16 @@ const Header = () => {
                         </div>
                     </Link>
                 </li>
+                {/* <li>
+                    <Link 
+                        className={style.navItem}
+                        activeClassName={style.activeNavItem}
+                        to="/art/">
+                        <div className={style.fav}>
+                        <FontAwesomeIcon icon={faPaintBrush} size="2x"/>
+                        </div>
+                    </Link>
+                </li> */}
             </ul>
             <nav className={style.sp} style={{
                 opacity: toggle ? 1 : 0,
@@ -88,6 +98,14 @@ const Header = () => {
                             ABOUT
                         </Link>
                     </li>
+                    {/* <li>
+                        <Link
+                            className={style.spNav} 
+                            onClick={() => {setToggle(false)}}
+                            to="/art">
+                            Art
+                        </Link>
+                    </li> */}
                     <li className={style.close}><span onClick={() => {setToggle(false)}}>CLOSE</span></li>
                 </ul>
             </nav>
