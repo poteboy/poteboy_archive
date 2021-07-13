@@ -39,14 +39,15 @@ const Home: FC<Props> = ({children, path}) => {
         color: snow;
         display: flex;
         flex-direction: row;
-        margin-left: ${(width < 1195 || path === 'home') ? 0 : 80 }px;
+        margin-left: ${path === 'home' ? "0px" : "80px" };
         @media (max-width: 1194px) {
             flex-direction: column;
+            margin-left: 0px;
         }
     `;
 
     const Left = styled.div`
-        width: ${path === 'home' ? 100 : 40}%;
+        width: ${path === 'home' ? "100%" : "40%"};
         display: flex;
         flex-direction: column;
         @media (max-width: 1194px) {
@@ -136,7 +137,8 @@ const Home: FC<Props> = ({children, path}) => {
         }
         75% {
             border-color: #80deea;
-    `
+        }
+    `;
 
     const IconTransition = keyframes`
         0%, 100% {
@@ -150,7 +152,8 @@ const Home: FC<Props> = ({children, path}) => {
         }
         75% {
             color: #80deea;
-    `
+        }
+    `;
 
     const SnsIcon = styled.div`
         display: flex;

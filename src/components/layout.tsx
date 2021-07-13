@@ -1,7 +1,5 @@
 import React, { FC, useState, useEffect } from 'react';
-import Footer from './footer';
-import Enable from './enable';
-import SideBar from './sidebar';
+import styled from 'styled-components';
 import Header from './header';
 import { useEnableContext } from './context/enable'
 import Particles from 'react-particles-js';
@@ -40,12 +38,14 @@ const Layout: FC<Props> = ({children}) => {
         return(() => window.removeEventListener('resize', updateWidth))
     })
 
-    const isResponsive = (): boolean => {
-        return width > 1194 || orientation === 'landscape'
-    }
+    const Wrapper = styled.div`
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    `
 
     return(
-        <div id="wrapper" >
+        <Wrapper>
             <Header/>
             {children}  
                 <Particles params={{
@@ -69,7 +69,7 @@ const Layout: FC<Props> = ({children}) => {
                         }
                 }
                 }} className='particles-js'/>
-        </div>
+        </Wrapper>
     )
 }
 

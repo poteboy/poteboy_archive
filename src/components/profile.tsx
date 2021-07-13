@@ -25,12 +25,9 @@ const Profile = () => {
 
 export const Table = styled.div`
     transform: translateY(15vh);
-    // background: transparent;
     background: #8484843d;
     backdrop-filter: blur(2px);
-    // border: solid 1px snow;
     border-radius: 20px;
-    // box-shadow: 3px 5px 8px 4px #2dcece;
     box-shadow: 3px 5px 20px 9px #2e2f2f;
     @media (max-width: 1194px) {
         transform: translateY(-5vh) scale(0.9);
