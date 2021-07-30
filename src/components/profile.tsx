@@ -10,7 +10,7 @@ const Profile = () => {
                     都内を拠点に活動するプログラマー。
                     <br />
                     2021年4月に新卒で医療系スタートアップに入社し、
-                    React (Next.js), React Native、Angular, Ruby on Railsなどを用いたアプリケーション開発に携わる。
+                    React (Next.js), React Native, Angular, Ruby on Railsなどを用いたアプリケーション開発に携わる。
                     <br />
                     TypeScripを用いたアプリケーション開発を中心に、大学在学中から長期インターン生として実務開発に携わる。また、卒業論文では「機械学習を用いたパワーリフティングスコアの回帰予測」をテーマに取り組む。
                     <br />

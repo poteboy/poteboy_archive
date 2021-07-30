@@ -35,25 +35,25 @@ const Home: FC<Props> = ({children, path}) => {
         return(() => window.removeEventListener('resize', updateWidth))
     })
 
-    const Table = styled.div`
+    const Table = styled.div<{path: Path}>`
         color: snow;
         display: flex;
         flex-direction: row;
-        margin-left: ${path === 'home' ? "0px" : "80px" };
+        margin-left: ${props => props.path === 'home' ? "0px" : "80px" };
         @media (max-width: 1194px) {
             flex-direction: column;
             margin-left: 0px;
         }
     `;
 
-    const Left = styled.div`
+    const Left = styled.div<{path: Path}>`
         width: ${path === 'home' ? "100%" : "40%"};
         display: flex;
         flex-direction: column;
         @media (max-width: 1194px) {
             width: 100%;
             flex-direction: column;
-            transform: ${path === 'home' ? 'translateY(15vh)' : 0}
+            transform: ${props => props.path === 'home' ? 'translateY(15vh)' : 0}
         }
     `;
 
@@ -197,8 +197,8 @@ const Home: FC<Props> = ({children, path}) => {
     )
 
     return(
-            <Table>
-                <Left>
+            <Table path={path}>
+                <Left path={path}>
                     <IconBox>
                         <IconImage src={image.file.publicURL} alt="keita furuse aka poteboy's icon"/>
                     </IconBox>
