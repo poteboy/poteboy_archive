@@ -7,7 +7,7 @@ import Meta from '../components/meta';
 
 const IndexPage = () => {
   return (
-    <Layout>
+    <Layout path={`home`}>
       <Meta/>
       <Home path='home'>{null}</Home>
     </Layout>

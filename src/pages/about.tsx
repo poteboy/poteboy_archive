@@ -7,7 +7,7 @@ import Meta from '../components/meta';
 
 const About = () => {
   return (
-    <Layout>
+    <Layout path={`about`}>
       <Meta/>
       <Home path="about"><Profile/></Home>
     </Layout>

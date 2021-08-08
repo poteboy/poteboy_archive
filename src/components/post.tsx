@@ -1,5 +1,6 @@
 import React from 'react';
-import Blog from './blog';
+import Home from './home';
+import Layout from './layout';
 import Meta from './meta';
 import SNSDataNext from './sns-share/data-next';
 import PrevNextComponent from './prev-next';
@@ -42,7 +43,8 @@ const Post = (props: {data : PostData, pageContext: PageContext}) => {
     const html: string = thema.body.childMarkdownRemark.html;  
  
     return(
-        <Blog>
+        <Layout path={`blog`}>
+        <Home path={`post`}>
             <Meta
                 title={thema.title + ' - ぽてログ'}
                 description={sumarrize(html, thema.description)}
@@ -66,7 +68,8 @@ const Post = (props: {data : PostData, pageContext: PageContext}) => {
                     <PrevNextComponent prev={props.pageContext.prev} next={props.pageContext.next}/>
                 </div>
             </div>
-        </Blog>
+        </Home>
+        </Layout>
     )
 }
 export default Post

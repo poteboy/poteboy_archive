@@ -38,7 +38,7 @@ const Home: FC<Props> = ({children, path}) => {
     const Table = styled.div<{path: Path}>`
         color: snow;
         display: flex;
-        flex-direction: row;
+        flex-direction: ${props => props.path === 'post' ? "row-reverse" : "row" };
         margin-left: ${props => props.path === 'home' ? "0px" : "80px" };
         @media (max-width: 1194px) {
             flex-direction: column;
@@ -47,8 +47,10 @@ const Home: FC<Props> = ({children, path}) => {
     `;
 
     const Left = styled.div<{path: Path}>`
-        width: ${path === 'home' ? "100%" : "40%"};
+        width: ${path === 'home' ? "100%" : path === 'post' ? '28%' : "35%"};
         display: flex;
+        position: sticky;
+        top: 0;
         flex-direction: column;
         @media (max-width: 1194px) {
             width: 100%;
@@ -81,7 +83,7 @@ const Home: FC<Props> = ({children, path}) => {
     `;
 
     const Name = styled.div`
-        margin: auto;
+        margin: 0 auto;
         padding: 3vh;
         font-family: 'Quicksand';
         font-size: 40px;

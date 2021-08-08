@@ -20,7 +20,7 @@ strong {
 
 blockquote {
     box-shadow: inset 3px 0 0 0 rgb(204, 203, 255);
-    background: rgb(245, 245, 245);
+    // background: rgb(245, 245, 245);
     padding-left: 1em;
 }
 
@@ -34,16 +34,18 @@ blockquote {
 
 .content {
     box-sizing: border-box;
-    margin: 0;
+    margin: 10vh 5vh;
     min-width: 0;
-    background-color: white;
+    // background-color: white;
+    background: #8484843d;
+    backdrop-filter: blur(2px);
     border-radius: 1rem;
-    box-shadow: 1px 1px 5px 0 rgb(1 1 1 / 5%);
+    box-shadow: 3px 5px 20px 9px #2e2f2f;
     padding: 2rem;
     line-height: 5vh;
 
     .post {
-        color: black;
+        color: snow;
         font-family: demilight;
 
         a {

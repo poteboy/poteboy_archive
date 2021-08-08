@@ -4,12 +4,14 @@ import Header from './header';
 import { useEnableContext } from './context/enable'
 import Particles from 'react-particles-js';
 import Meta from './meta';
+import { Path } from 'src/entity/path';
 
 interface Props {
-    children: object
+    children: object,
+    path?: Path
 }
 
-const Layout: FC<Props> = ({children}) => {
+const Layout: FC<Props> = ({children, path}) => {
 
     const [enable, setEnable] = useState(false)
 
@@ -46,7 +48,7 @@ const Layout: FC<Props> = ({children}) => {
 
     return(
         <Wrapper>
-            <Header/>
+            <Header path={path}/>
             {children}  
                 <Particles params={{
                     "particles": {

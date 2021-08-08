@@ -1,10 +1,12 @@
 import React from 'react';
 import Layout from '../../components/layout';
+import Home from '../../components/home';
 import Blog from '../../components/blog';
 import Meta from '../../components/meta';
 import { Edge, PostData } from '../../entity'
 import Topic from '../../components/topic/topic';
 import { Link, graphql, useStaticQuery } from 'gatsby';
+import styled, { keyframes } from 'styled-components'
 const style = require("../../styles/blog-index.module.scss");
 const _ = require("lodash");
 
@@ -64,12 +66,13 @@ const BlogList = () => {
     }
 
     return(
-      <Blog>
+      <Layout path={`blog`}>
+        <Home path={`blog`}>
           <Meta
             title="ぽてログ BLOG"
             description="新卒ソフトウェアエンジニアがプログラミングやIT技術について情報発信したり、お気持ち表明ポエムをしたりしています。"
           />
-          <ol className={style.content}>
+          <BlogTable>
           {allPost.map( (edge: Edge) => {
               return(
                   <li className={style.list}>
@@ -77,7 +80,7 @@ const BlogList = () => {
                           className={style.link}>
                       <div className={style.post}>
                           
-                            <h3>{edge.node.title}</h3>
+                            <Title>{edge.node.title}</Title>
                             <div className={style.sub}>
                               <Topic topic={edge.__typename}/>
                               <p style={{margin: "0"}}>{convertTime(edge.node.publishedDate)}</p>
@@ -89,10 +92,27 @@ const BlogList = () => {
                   </li>
               )
           })}
-          </ol>
-      </Blog>
+          </BlogTable>
+          </Home>
+      </Layout>
     )
 
 }
+
+const BlogTable = styled.ol`
+  flex: 1;
+  margin: 10vh 15vh 0 0;
+  align-items: center;
+  box-sizing: border-box;
+  list-style-type: none;
+  @media (max-width: 1194px) {
+            flex-direction: column;
+            margin: 0 5vh;
+        }
+`
+
+const Title = styled.h3`
+  color: snow;
+`
 
 export default BlogList

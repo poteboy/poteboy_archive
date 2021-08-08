@@ -1,3 +1,3 @@
 
 
-export type Path = "home" | "about" | "art";
+export type Path = "home" | "about" | "art" | "blog" | "post";

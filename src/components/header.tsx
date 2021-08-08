@@ -1,10 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import { Link } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faUser, faPaintBrush } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faUser, faPaintBrush, faBlog } from '@fortawesome/free-solid-svg-icons';
+import { Path } from 'src/entity/path';
 const style = require("../styles/header.module.scss")
 
-const Header = () => {
+
+type Props = {
+    path?: Path
+}
+const Header: FC<Props> = ({path}) => {
 
     let [toggle, setToggle ] = useState(false);
 
@@ -49,7 +54,7 @@ const Header = () => {
                 <li>
                     <Link 
                         className={style.navItem}
-                        activeClassName={style.activeNavItem}
+                        style={{color: path === 'home' ? 'snow' : '#dccaca'}}
                         to="/">
                         <div className={style.fav}>
                         <FontAwesomeIcon icon={faHome} size="2x"/>
@@ -59,23 +64,23 @@ const Header = () => {
                 <li>
                     <Link 
                         className={style.navItem}
-                        activeClassName={style.activeNavItem}
+                        style={{color: path === 'about' ? 'snow' : '#dccaca'}}
                         to="/about/">
                         <div className={style.fav}>
                         <FontAwesomeIcon icon={faUser} size="2x"/>
                         </div>
                     </Link>
                 </li>
-                {/* <li>
+                <li>
                     <Link 
                         className={style.navItem}
-                        activeClassName={style.activeNavItem}
-                        to="/art/">
+                        style={{color: path === 'blog' ? 'snow' : '#dccaca'}}
+                        to="/blog/">
                         <div className={style.fav}>
-                        <FontAwesomeIcon icon={faPaintBrush} size="2x"/>
+                        <FontAwesomeIcon icon={faBlog} size="2x"/>
                         </div>
                     </Link>
-                </li> */}
+                </li>
             </ul>
             <nav className={style.sp} style={{
                 opacity: toggle ? 1 : 0,
@@ -98,14 +103,14 @@ const Header = () => {
                             ABOUT
                         </Link>
                     </li>
-                    {/* <li>
+                    <li>
                         <Link
                             className={style.spNav} 
                             onClick={() => {setToggle(false)}}
-                            to="/art">
-                            Art
+                            to="/blog">
+                            BLOG
                         </Link>
-                    </li> */}
+                    </li>
                     <li className={style.close}><span onClick={() => {setToggle(false)}}>CLOSE</span></li>
                 </ul>
             </nav>
