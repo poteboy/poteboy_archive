@@ -1,7 +1,7 @@
 import React from 'react';
 import Layout from '../../components/layout';
 import Home from '../../components/home';
-import Blog from '../../components/blog';
+import BlogPost from '../../components/BlogList/BlogList'
 import Meta from '../../components/meta';
 import { Edge, PostData } from '../../entity'
 import Topic from '../../components/topic/topic';
@@ -72,27 +72,7 @@ const BlogList = () => {
             title="ぽてログ BLOG"
             description="新卒ソフトウェアエンジニアがプログラミングやIT技術について情報発信したり、お気持ち表明ポエムをしたりしています。"
           />
-          <BlogTable>
-          {allPost.map( (edge: Edge) => {
-              return(
-                  <li className={style.list}>
-                    <Link to={`${edge.node.slug}`}
-                          className={style.link}>
-                      <div className={style.post}>
-                          
-                            <Title>{edge.node.title}</Title>
-                            <div className={style.sub}>
-                              <Topic topic={edge.__typename}/>
-                              <p style={{margin: "0"}}>{convertTime(edge.node.publishedDate)}</p>
-                            </div>
-                            <p className={style.desc}>{edge.node.description}</p>
-                          
-                      </div>
-                    </Link>
-                  </li>
-              )
-          })}
-          </BlogTable>
+        <BlogPost edges={allPost} topic={`all`} ></BlogPost>
           </Home>
       </Layout>
     )
@@ -101,13 +81,13 @@ const BlogList = () => {
 
 const BlogTable = styled.ol`
   flex: 1;
-  margin: 10vh 15vh 0 0;
+  margin: 10vh 15vh 10vh 0;
   align-items: center;
   box-sizing: border-box;
   list-style-type: none;
   @media (max-width: 1194px) {
             flex-direction: column;
-            margin: 0 5vh;
+            margin: 0 0;
         }
 `
 
@@ -116,3 +96,25 @@ const Title = styled.h3`
 `
 
 export default BlogList
+
+{/* <BlogTable>
+{allPost.map( (edge: Edge) => {
+    return(
+        <li className={style.list}>
+          <Link to={`${edge.node.slug}`}
+                className={style.link}>
+            <div className={style.post}>
+                
+                  <Title>{edge.node.title}</Title>
+                  <div className={style.sub}>
+                    <Topic topic={edge.__typename}/>
+                    <p style={{margin: "0"}}>{convertTime(edge.node.publishedDate)}</p>
+                  </div>
+                  <p className={style.desc}>{edge.node.description}</p>
+                
+            </div>
+          </Link>
+        </li>
+    )
+})}
+</BlogTable> */}

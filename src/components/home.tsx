@@ -39,7 +39,8 @@ const Home: FC<Props> = ({children, path}) => {
         color: snow;
         display: flex;
         flex-direction: ${props => props.path === 'post' ? "row-reverse" : "row" };
-        margin-left: ${props => props.path === 'home' ? "0px" : "80px" };
+        /* margin-left: ${props => props.path === 'home' ? "0px" : "80px" }; */
+        margin-left: 80px;
         @media (max-width: 1194px) {
             flex-direction: column;
             margin-left: 0px;
@@ -53,6 +54,7 @@ const Home: FC<Props> = ({children, path}) => {
         top: 0;
         flex-direction: column;
         @media (max-width: 1194px) {
+            position: static;
             width: 100%;
             flex-direction: column;
             transform: ${props => props.path === 'home' ? 'translateY(15vh)' : 0}

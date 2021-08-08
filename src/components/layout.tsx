@@ -45,12 +45,13 @@ const Layout: FC<Props> = ({children, path}) => {
         flex-direction: column;
         min-height: 100vh;
     `
+    const animeOn: boolean = path === 'home' || path === 'about';
 
     return(
         <Wrapper>
             <Header path={path}/>
             {children}  
-                <Particles params={{
+                {animeOn && <Particles params={{
                     "particles": {
                         "number": {
                             "value": width > 1195 ? 50 : (width > 640 ? 30 : 20)
@@ -70,7 +71,7 @@ const Layout: FC<Props> = ({children, path}) => {
                             }
                         }
                 }
-                }} className='particles-js'/>
+                }} className='particles-js'/>}
         </Wrapper>
     )
 }
