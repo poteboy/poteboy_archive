@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import Layout from './layout';
 import AdSidebar from './ads/adsidebar';
 import { Link, graphql, useStaticQuery } from 'gatsby';
@@ -7,7 +7,7 @@ import { faGithub, faLinkedin,faTwitter } from '@fortawesome/free-brands-svg-ico
 const style = require("../styles/blog-index.module.scss");
 
 
-const Blog = (props: {children: any}) => {
+const Blog = (props: {children: Partial<ReactNode>}) => {
 
     const image = useStaticQuery(
         graphql`

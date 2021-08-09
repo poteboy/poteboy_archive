@@ -14,7 +14,6 @@ type Props = {
 
 const BlogList: React.FC<Props> = ({topic, edges}) => {
 
-
   function convertTime(s: Date): string {
     var tmp = new Date(s).toLocaleDateString()
     return tmp
@@ -30,7 +29,7 @@ const BlogList: React.FC<Props> = ({topic, edges}) => {
         {edges.map( (edge: Edge) => {
             return(
                 <PostList>
-                  <Link to={`${edge.node.slug}`}
+                  <Link to={`/blog/${edge.node.slug}`}
                         className={style.link}>
                     <Post>
                         

@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC, useEffect, useState, ReactNode } from 'react'
 import { useStaticQuery, graphql, Link } from 'gatsby';
 import { faGithub, faLinkedin, faTwitter, IconDefinition } from '@fortawesome/free-brands-svg-icons';
 import { faPaintBrush, faPalette } from '@fortawesome/free-solid-svg-icons';
@@ -8,13 +8,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Path } from 'src/entity/path';
 
 type Props =  {
-    children: any,
+    children: Partial<ReactNode>,
     path: Path
 }
 
 const Home: FC<Props> = ({children, path}) => {
 
-    const [width, setWidth] = useState(
+    const [width, setWidth] = useState<number>(
         typeof window !== "undefined" ? window.innerWidth : 1195
       );
     type Orientation = "portrait" | 'landscape';

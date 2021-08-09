@@ -96,25 +96,3 @@ const Title = styled.h3`
 `
 
 export default BlogList
-
-{/* <BlogTable>
-{allPost.map( (edge: Edge) => {
-    return(
-        <li className={style.list}>
-          <Link to={`${edge.node.slug}`}
-                className={style.link}>
-            <div className={style.post}>
-                
-                  <Title>{edge.node.title}</Title>
-                  <div className={style.sub}>
-                    <Topic topic={edge.__typename}/>
-                    <p style={{margin: "0"}}>{convertTime(edge.node.publishedDate)}</p>
-                  </div>
-                  <p className={style.desc}>{edge.node.description}</p>
-                
-            </div>
-          </Link>
-        </li>
-    )
-})}
-</BlogTable> */}
