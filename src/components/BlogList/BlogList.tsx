@@ -23,9 +23,9 @@ const BlogList: React.FC<Props> = ({topic, edges}) => {
   return (
       <ListTable>
         <Tabs>
-          <Tab activated={true}>ALL</Tab>
-          <Tab activated={false}>TECH</Tab>
-          <Tab activated={false}>POEM</Tab>
+          <Link to="/blog" className={style.link}><Tab activated={topic === 'all' ? true : false }>ALL</Tab></Link>
+          <Link to="/blog/tech" className={style.link}><Tab activated={topic === 'tech' ? true : false }>TECH</Tab></Link>
+          <Link to="/blog/poem" className={style.link}><Tab activated={topic === 'poem' ? true : false }>POEM</Tab></Link>
         </Tabs>
         {edges.map( (edge: Edge) => {
             return(
@@ -79,6 +79,10 @@ const Tab = styled.div<{activated: Boolean}>`
   border: solid 0.5px;
   border-bottom: none;
   border-color: #8484843d;
+  &:hover {
+    color: ${props => props.activated ? 'snow' : '#4cf5a676' };
+    border-color: ${props => props.activated ? 'snow' : '#4cf5a676' };;
+  }
 `
 
 const PostList = styled.li`
@@ -89,8 +93,10 @@ const PostList = styled.li`
   margin-bottom: 15px;
   // transition: all 1s;
   &:hover, &:focus {
-      transition: all 0.3s;
-      transform: translate(-5px,-5px);;
+      /* transition: all 0.3s; */
+      /* transform: translate(-5px,-5px); */
+      border: solid 1px;
+      border-color: #4cf5a676;
       box-shadow: 0 5px 5px 0px rgb(0 0 0 / 10%);
   }
 `

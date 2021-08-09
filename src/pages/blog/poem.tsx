@@ -6,11 +6,11 @@ import Meta from '../../components/meta';
 import { Edge, PostData } from '../../entity'
 import BlogPost from '../../components/BlogList/BlogList'
 
-const TechBlog = () => {
+const PoemBlog = () => {
 
     const posts = useStaticQuery(graphql`
   query {
-    allContentfulTech (
+    allContentfulPoem (
       sort: {
         fields: publishedDate
         order: DESC
@@ -29,9 +29,9 @@ const TechBlog = () => {
   }
   `);
 
-    let techs: Edge[] = posts.allContentfulTech.edges;
+    let poems: Edge[] = posts.allContentfulPoem.edges;
 
-    techs = techs.sort(function (a, b): number {
+    poems = poems.sort(function (a, b): number {
         var dateA: number = new Date(a.node.publishedDate).getTime();
         var dateB: number = new Date(b.node.publishedDate).getTime();
         return dateA - dateB;
@@ -44,10 +44,10 @@ const TechBlog = () => {
             title="ぽてログ BLOG"
             description="新卒ソフトウェアエンジニアがプログラミングやIT技術について情報発信したり、お気持ち表明ポエムをしたりしています。"
           />
-        <BlogPost edges={techs} topic={`tech`} ></BlogPost>
+        <BlogPost edges={poems} topic={`poem`} ></BlogPost>
           </Home>
       </Layout>
     )
 }
 
-export default TechBlog;
+export default PoemBlog;

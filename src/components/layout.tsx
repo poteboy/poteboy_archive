@@ -51,7 +51,7 @@ const Layout: FC<Props> = ({children, path}) => {
         <Wrapper>
             <Header path={path}/>
             {children}  
-                {animeOn && <Particles params={{
+                {<Particles params={{
                     "particles": {
                         "number": {
                             "value": width > 1195 ? 50 : (width > 640 ? 30 : 20)
@@ -61,12 +61,15 @@ const Layout: FC<Props> = ({children, path}) => {
                         },
                         "color": {
                             value: ['#2dcece']
+                        }, 
+                        "move": {
+                            enable: animeOn ? true : false
                         }
                     },
                     "interactivity": {
                         "events": {
                             "onhover": {
-                                "enable": true,
+                                "enable": false,
                                 "mode": "repulse"
                             }
                         }
