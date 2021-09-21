@@ -5,6 +5,7 @@ import { StaticImage, GatsbyImage } from 'gatsby-plugin-image';
 type Props = {
   filename: string;
   className?: string;
+  style?: React.CSSProperties;
 };
 
 const Image: React.FC<Props> = props => {

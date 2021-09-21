@@ -1,8 +1,8 @@
 import React, { FC, useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Header from './header';
-import { useEnableContext } from './context/enable';
-import Particles from 'react-particles-js';
+import { useStaticQuery, graphql, Link } from 'gatsby';
+import SideBar from './SideBar/Sidebar';
 import Meta from './meta';
 import { Path } from 'src/entity';
 
@@ -12,13 +12,14 @@ interface Props {
   side: boolean;
 }
 
-const Layout: FC<Props> = ({ children, path }) => {
-  const [enable, setEnable] = useState(false);
-
+const Layout: FC<Props> = ({ children, path, side }) => {
   return (
     <Wrapper>
       <Header path={path} />
-      {children}
+      <Contetnt>
+        {children}
+        {!!side && <SideBar />}
+      </Contetnt>
     </Wrapper>
   );
 };
@@ -27,6 +28,11 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+`;
+
+const Contetnt = styled.div`
+  display: flex;
+  flex-direction: row;
 `;
 
 export default Layout;
