@@ -64,3 +64,15 @@ module.exports.createPages = async ({ graphql, actions }) => {
           })
       });
 }
+
+const resolve = require('path').resolve
+
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      alias: {
+        '@src': resolve(__dirname, 'src')
+      }
+    }
+  })
+}   

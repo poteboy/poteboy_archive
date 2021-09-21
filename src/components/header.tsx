@@ -123,7 +123,9 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
 import { Path } from 'src/entity';
+import { Link } from 'gatsby';
 import { Button, Drawer, IconButton } from '@material-ui/core';
+import MenuRoundedIcon from '@material-ui/icons/MenuRounded';
 
 type Props = {
   path?: Path;
@@ -133,16 +135,28 @@ const Header: FC<Props> = props => {
   return (
     <Wrapper>
       <Home>
-        <HomeButton
-          style={{
-            borderRadius: 5,
-            backgroundColor: '#bb6cec',
-            color: 'snow',
-          }}
-        >
-          HOME
-        </HomeButton>
+        <Link to="/" style={{ textDecoration: 'none' }}>
+          <HomeButton
+            style={{
+              borderRadius: 5,
+              backgroundColor: '#0de0ba',
+              color: 'snow',
+              fontFamily: 'phenomena-bold',
+              fontSize: 18,
+            }}
+          >
+            HOME
+          </HomeButton>
+        </Link>
       </Home>
+      <IconButton>
+        <MenuIcon
+          style={{
+            width: 32,
+            height: 32,
+          }}
+        />
+      </IconButton>
     </Wrapper>
   );
 };
@@ -169,9 +183,18 @@ const Home = styled.div`
 const HomeButton = styled(Button)`
   border-radius: 4px;
   border: 2px solid #8484843d;
-  /* box-shadow: 0px 4px 8px rgb(0 0 0 / 9%); */
-  box-shadow: 0 0 5px #bb6cec;
-  padding: 5px;
+  :hover {
+    /* fill: rebeccapurple; */
+    box-shadow: 0 0 5px #3affdb;
+  }
+`;
+
+const MenuIcon = styled(MenuRoundedIcon)`
+  width: 32px;
+  height: 32px;
 `;
 
 export default Header;
+
+// #acb6e5
+// #86fde8

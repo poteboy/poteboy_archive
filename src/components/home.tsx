@@ -1,135 +1,193 @@
-import React, { FC, useEffect, useState, ReactNode } from 'react'
+import React, { FC, useEffect, useState, ReactNode } from 'react';
 import { useStaticQuery, graphql, Link } from 'gatsby';
-import { faGithub, faLinkedin, faTwitter, IconDefinition } from '@fortawesome/free-brands-svg-icons';
+import {
+  faGithub,
+  faLinkedin,
+  faTwitter,
+  IconDefinition,
+} from '@fortawesome/free-brands-svg-icons';
 import { faPaintBrush, faPalette } from '@fortawesome/free-solid-svg-icons';
-import styled, { keyframes } from 'styled-components'
-import Particles from 'react-particles-js';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Path } from 'src/entity/path';
+import styled, { keyframes } from 'styled-components';
+import { size } from '@src/constants/size';
+import { Path } from '@src/entity/path';
+import { Spacer } from '@src/components/Lib/Spacer';
+import Image from '@src/components/Lib/Image';
+import { projects, illustrations } from '@src/entity';
+import ProjectCard from '@src/components/Card/ProjectCard';
+import IllustrationCard from '@src/components/Card/IllustrationCard';
+import { TiArrowForward } from 'react-icons/ti';
 
-type Props =  {
-    children: Partial<ReactNode>,
-    path: Path
-}
+type Props = {
+  children: Partial<ReactNode>;
+  path: Path;
+};
 
-const Home: FC<Props> = ({children, path}) => {
+const Home: FC<Props> = ({ children, path }) => {
+  // animation: ${IconTransition} 3s ease-in-out infinite;
 
-    const [width, setWidth] = useState<number>(
-        typeof window !== "undefined" ? window.innerWidth : 1195
-      );
-    type Orientation = "portrait" | 'landscape';
-
-    const [orientation, setOrientation] = useState<Orientation>(
-        typeof window !== "undefined" ? (window.innerWidth > window.innerHeight ? 'landscape' : 'portrait') : 'portrait'
-    );
-    useEffect(() => {
-        const updateWidth = () => {
-            setWidth(window.innerWidth)
-            if(window.innerHeight > window.innerWidth){
-                setOrientation('portrait')
-            } else {
-                setOrientation('landscape')
-            }
+  const image = useStaticQuery(
+    graphql`
+      {
+        file(name: { eq: "poteicon" }) {
+          publicURL
         }
-        window.addEventListener('resize', updateWidth);
-        return(() => window.removeEventListener('resize', updateWidth))
-    })
+      }
+    `,
+  );
 
-    const Table = styled.div<{path: Path}>`
-        color: snow;
-        display: flex;
-        flex-direction: ${props => props.path === 'post' ? "row-reverse" : "row" };
-        /* margin-left: ${props => props.path === 'home' ? "0px" : "80px" }; */
-        margin-left: 80px;
-        @media (max-width: 1194px) {
-            flex-direction: column;
-            margin-left: 0px;
-        }
-    `;
+  return (
+    <Wrapper>
+      <Table path={path}>
+        <IconBox>
+          <IconImage
+            src={image.file.publicURL}
+            alt="keita furuse aka poteboy's icon"
+          />
+        </IconBox>
+        <Profile>
+          <Myname>Keita Furuse</Myname>
+          <AboutMe>Front-End Developer　|　iOS Developer</AboutMe>
+        </Profile>
+      </Table>
+      <Spacer size={40} />
+      <Header>
+        <Title>PROJECTS</Title>
+        <SeeAll>
+          SEE ALL
+          <TiArrowForward style={{ paddingLeft: 10 }} />
+        </SeeAll>
+      </Header>
+      <Projects>
+        {projects.map(v => {
+          return <ProjectCard project={v} key={v.slug} />;
+        })}
+      </Projects>
+      <Spacer size={30} />
+      <Header>
+        <Title>ILLUSTRATIONS</Title>
+        <SeeAll>
+          SEE ALL
+          <TiArrowForward style={{ paddingLeft: 10 }} />
+        </SeeAll>
+      </Header>
+      <Projects>
+        {illustrations.map(v => {
+          return <IllustrationCard illustration={v} key={v.slug} />;
+        })}
+      </Projects>
+      <Spacer size={50} />
+      {children}
+    </Wrapper>
+  );
+};
 
-    const Left = styled.div<{path: Path}>`
-        width: ${path === 'home' ? "100%" : path === 'post' ? '28%' : "35%"};
-        display: flex;
-        position: sticky;
-        top: 0;
-        flex-direction: column;
-        @media (max-width: 1194px) {
-            position: static;
-            width: 100%;
-            flex-direction: column;
-            transform: ${props => props.path === 'home' ? 'translateY(15vh)' : 0}
-        }
-    `;
+export default Home;
 
-    const IconBox = styled.div`
-        margin: 5em auto 0 auto;
-        transform: translateX(0.5em);
-        padding: 5vh 5vh 0 5vh;
-        @media (max-width: 1194px) {
-            margin: 0 auto 0 auto;
-            padding: 0;
-        }
-    `;
+const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 800px;
+  align-self: center;
+`;
 
-    const IconImage = styled.img`
-        text-align: center;
-        border-radius: 80px;
-        width: 140px;
-        height: 140px;
-        margin: auto;
-        // box-shadow: 2px 3px 7px #2dcece;
-        @media (max-width: 600px) {
-            width: 90px;
-            height: 90px;
-        }
-    `;
+const Table = styled.div<{ path: Path }>`
+  min-width: 600px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 20px;
+  @media (max-width: ${size.device.tablet}) {
+    width: auto;
+    flex-direction: column;
+    margin-left: 0px;
+  }
+`;
 
-    const Name = styled.div`
-        margin: 0 auto;
-        padding: 3vh;
-        font-family: 'Quicksand';
-        font-size: 40px;
-        background: transparent;
-        backdrop-filter: blur(5px);
-        @media (max-width: 1194px) {
-            margin: 0 auto 0 auto;
-            padding: 0;
-            padding-top: 1vh;
-            font-size: 25px;
-        }
-    `;
+const IconBox = styled.div`
+  padding: 5vh;
+  border-radius: 20px;
+  @media (max-width: 1194px) {
+    margin: 0 auto 0 auto;
+    padding: 0;
+  }
+`;
+// background: linear-gradient(to right, #acb6e5, #86fde8);
 
-    const Links = styled.div`
-        z-index: 100;
-        margin: 1em auto auto auto;
-        width: 30vh;
-        background: transparent;
-        backdrop-filter: blur(5px);
-        @media (max-width: 1194px) {
-            margin: 0 auto 3vh auto;
-        }
-    `;
+const IconImage = styled.img`
+  text-align: center;
+  border-radius: 80px;
+  width: 140px;
+  height: 140px;
+  margin: auto;
+  // box-shadow: 2px 3px 7px #2dcece;
+  @media (max-width: 600px) {
+    width: 90px;
+    height: 90px;
+  }
+`;
 
-    const LinkBox = styled.div`
-        display: flex;
-        flex-direction: column;
-        @media (max-width: 1194px) {
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-        }
-    `;
+const Profile = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 30px;
+  height: 50%;
+  align-self: center;
+  box-shadow: 18px 18px 36px #d5d8e0, -18px -18px 36px #ffffff;
+  margin: 0 auto;
+`;
 
-    const SNS = styled.a`
-        text-decoration: none;
-        color: snow;
-        margin: 0.5vh;
-        @media (max-width: 1194px) {
-            transform: scale(0.7);
-        }
-    `;
+const Myname = styled.div`
+  font-weight: 600;
+  text-align: center;
+  align-items: center;
+  padding: 10px 20px;
+  color: gray;
+  font-size: 40px;
+  font-family: phenomena-bold;
+`;
 
-    const Transition = keyframes`
+const AboutMe = styled.div`
+  padding: 10px 20px;
+  color: gray;
+  font-size: x-large;
+  font-family: phenomena-regular;
+`;
+
+const Projects = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-self: flex-start;
+`;
+
+const Header = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+`;
+
+const Title = styled.h3`
+  text-align: left;
+  align-self: flex-start;
+  font-family: phenomena-bold;
+  font-size: 30px;
+  letter-spacing: 1.5px;
+  box-shadow: 18px 18px 36px #d5d8e0, -18px -18px 36px #ffffff;
+  padding: 20px;
+  border-radius: 20px;
+`;
+
+const SeeAll = styled.div`
+  font-size: 30px;
+  font-family: phenomena-bold;
+  align-self: center;
+`;
+
+const Transition = keyframes`
         0%, 100% {
             border-color: #2dcece;
         }
@@ -144,115 +202,31 @@ const Home: FC<Props> = ({children, path}) => {
         }
     `;
 
-    const IconTransition = keyframes`
-        0%, 100% {
-            color: #2dcece;
-        }
-        25% {
-            color: #ce93d8;
-        }
-        50% {
-            color: #ffcc80;
-        }
-        75% {
-            color: #80deea;
-        }
-    `;
-
-    const SnsIcon = styled.div`
-        display: flex;
-        padding: 1vh;
-        border: solid 1px;
-        border-radius: 15px;
-        // animation: ${Transition} 3s ease-in-out infinite;
-        // box-shadow: 0px 0px 4px 0px #2dcece;
-        &:hover {
-            background-color: snow;
-            animation: ${IconTransition} 3s ease-in-out infinite;
-            z-index: 1000;
-            transform: scale(1.03);
-            cursor: pointer;
-            border-color: snow;
-            box-shadow: 3px 5px 5px 0px #2dcece;
-        }
-        @media (max-width: 1194px) {
-            border: none;
-            box-shadow: none;
-        }
-    `;
-
-    const SnsName = styled.span`
-        font-family: 'Quicksand';
-        text-align: center;
-        margin: auto;
-        @media (max-width: 1194px) {
-            display: none;
-        }
-    `;
-
-    const image = useStaticQuery(
-        graphql`
-        {
-            file(name: { eq: "poteicon" }) {
-                publicURL
-            }
-        }
-        `
-    )
-
-    return(
-            <Table path={path}>
-                <Left path={path}>
-                    <IconBox>
-                        <IconImage src={image.file.publicURL} alt="keita furuse aka poteboy's icon"/>
-                    </IconBox>
-                    <Name>Keita Furuse</Name>
-                    <Links>
-                            <LinkBox>
-                                {SnsLinks.map( (r) => <SNS href={r.link} title={r.name} target="_blank" rel="noopener">
-                                    <SnsIcon>
-                                        <FontAwesomeIcon icon={r.iconName}
-                                        size="2x"
-                                        />
-                                        <SnsName>{r.name}</SnsName>
-                                    </SnsIcon>
-                                </SNS>)}
-                            </LinkBox>
-                        </Links> 
-                </Left>
-                {children}
-            </Table>
-    )
-}
-
-export default Home
-
-
-interface SnsLink  {
-    link: string,
-    name: string,
-    iconName: IconDefinition
+interface SnsLink {
+  link: string;
+  name: string;
+  iconName: IconDefinition;
 }
 
 const SnsLinks: SnsLink[] = [
-    {
-        link: "https://github.com/poteboy",
-        name: 'GitHub',
-        iconName: faGithub
-    },
-    {
-        link: "https://www.linkedin.com/in/keitafuruse/",
-        name: 'LinkedIn',
-        iconName: faLinkedin
-    },
-    {
-        link: "https://twitter.com/_poteboy_",
-        name: 'Twitter',
-        iconName: faTwitter
-    },
-    {
-        link: "https://www.pixiv.net/users/59139347",
-        name: 'Pixiv',
-        iconName: faPalette
-    }
-]
+  {
+    link: 'https://github.com/poteboy',
+    name: 'GitHub',
+    iconName: faGithub,
+  },
+  {
+    link: 'https://www.linkedin.com/in/keitafuruse/',
+    name: 'LinkedIn',
+    iconName: faLinkedin,
+  },
+  {
+    link: 'https://twitter.com/_poteboy_',
+    name: 'Twitter',
+    iconName: faTwitter,
+  },
+  {
+    link: 'https://www.pixiv.net/users/59139347',
+    name: 'Pixiv',
+    iconName: faPalette,
+  },
+];

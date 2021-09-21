@@ -8,7 +8,8 @@
     "module": "commonjs",                     /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', 'es2020', or 'ESNext'. */
     "baseUrl": "./",
     "paths": {
-      "app/*": ["src/app/*"]
+      "app/*": ["src/app/*"],
+      "@src/*": ["src/*"],
     },
     // "lib": [],                             /* Specify library files to be included in the compilation. */
     // "allowJs": true,                       /* Allow javascript files to be compiled. */

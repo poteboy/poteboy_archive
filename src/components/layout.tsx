@@ -9,6 +9,7 @@ import { Path } from 'src/entity';
 interface Props {
   children: object;
   path?: Path;
+  side: boolean;
 }
 
 const Layout: FC<Props> = ({ children, path }) => {
