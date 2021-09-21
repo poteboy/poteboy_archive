@@ -112,12 +112,37 @@ const IconBox = styled.div`
 `;
 // background: linear-gradient(to right, #acb6e5, #86fde8);
 
+const Beat = keyframes`
+  0% {
+    transform: scale(1, 1, 1);
+    text-shadow: 0px 0px 100px;
+  }
+  11% {
+    transform: scale(1.03, 1.03);
+  }
+  22% {
+    transform: scale(1, 1);
+  }
+  33% {
+    transform: scale(1.05, 1.05);
+  }
+  44% {
+    transform: scale(1, 1);
+    text-shadow: 0px 0px 100px;
+  }
+  100% {
+    transform: scale(1, 1);
+    text-shadow: 0px 0px 100px;
+  }
+`;
+
 const IconImage = styled.img`
   text-align: center;
   border-radius: 80px;
   width: 140px;
   height: 140px;
   margin: auto;
+  animation: 1.24s infinite ${Beat};
   // box-shadow: 2px 3px 7px #2dcece;
   @media (max-width: ${size.device.tablet}px) {
     width: 90px;
@@ -188,21 +213,6 @@ const SeeAll = styled.div`
     cursor: pointer;
   }
 `;
-
-const Transition = keyframes`
-        0%, 100% {
-            border-color: #2dcece;
-        }
-        25% {
-            border-color: #ce93d8;
-        }
-        50% {
-            border-color: #ffcc80;
-        }
-        75% {
-            border-color: #80deea;
-        }
-    `;
 
 interface SnsLink {
   link: string;

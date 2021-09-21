@@ -120,44 +120,58 @@
 
 // export default Header
 
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import styled from 'styled-components';
 import { Path } from 'src/entity';
 import { Link } from 'gatsby';
 import { Button, Drawer, IconButton } from '@material-ui/core';
 import MenuRoundedIcon from '@material-ui/icons/MenuRounded';
+import Menu from '@src/components/Menu/Menu';
 
 type Props = {
   path?: Path;
 };
 
 const Header: FC<Props> = props => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  console.log(isOpen)
+
   return (
-    <Wrapper>
-      <Home>
-        <Link to="/" style={{ textDecoration: 'none' }}>
-          <HomeButton
-            style={{
-              borderRadius: 5,
-              backgroundColor: '#0de0ba',
-              color: 'snow',
-              fontFamily: 'phenomena-bold',
-              fontSize: 18,
-            }}
-          >
-            HOME
-          </HomeButton>
-        </Link>
-      </Home>
-      <IconButton>
-        <MenuIcon
-          style={{
-            width: 32,
-            height: 32,
+    <>
+      <Wrapper>
+        <Home>
+          <Link to="/" style={{ textDecoration: 'none' }}>
+            <HomeButton
+              style={{
+                borderRadius: 5,
+                backgroundColor: '#0de0ba',
+                color: 'snow',
+                fontFamily: 'phenomena-bold',
+                fontSize: 18,
+              }}
+            >
+              HOME
+            </HomeButton>
+          </Link>
+        </Home>
+        <IconButton
+          onClick={() => {
+            setIsOpen(!isOpen);
           }}
-        />
-      </IconButton>
-    </Wrapper>
+        >
+          <MenuIcon
+            style={{
+              width: 32,
+              height: 32,
+            }}
+          />
+        </IconButton>
+      </Wrapper>
+      <Drawer anchor="right" open={isOpen}>
+        <Menu setIsOpen={setIsOpen} />
+      </Drawer>
+    </>
   );
 };
 
@@ -169,6 +183,7 @@ const Wrapper = styled.header`
   flex-shrink: 0;
   flex-direction: row;
   justify-content: space-between;
+  z-index: 1000;
   height: 56px;
   width: 100vw;
   /* box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15); */
