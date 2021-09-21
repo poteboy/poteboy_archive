@@ -24,14 +24,13 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-shadow: 18px 18px 23px #c9ccd4, -18px -18px 23px #ffffff;
+  border-radius: 20px;
+  padding: 15px;
+  width: 200px;
 `;
 
 const Card = styled.div`
-  background: white;
-  background: rgba(255, 255, 255, 0.6);
-  box-shadow: 0px 4px 8px rgb(0 0 0 / 9%);
-  border-radius: 20px;
-  width: 180px;
   display: flex;
   justify-content: center;
   align-items: center;

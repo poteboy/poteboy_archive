@@ -11,6 +11,7 @@ import styled, { keyframes } from 'styled-components';
 import { size } from '@src/constants/size';
 import { Path } from '@src/entity/path';
 import { Spacer } from '@src/components/Lib/Spacer';
+import { ContentContainer } from '@src/components/Lib/ContentContainer';
 import Image from '@src/components/Lib/Image';
 import { projects, illustrations } from '@src/entity';
 import ProjectCard from '@src/components/Card/ProjectCard';
@@ -36,73 +37,68 @@ const Home: FC<Props> = ({ children, path }) => {
   );
 
   return (
-    <Wrapper>
-      <Table path={path}>
-        <IconBox>
-          <IconImage
-            src={image.file.publicURL}
-            alt="keita furuse aka poteboy's icon"
-          />
-        </IconBox>
-        <Profile>
-          <Myname>Keita Furuse</Myname>
-          <AboutMe>Front-End Developer　|　iOS Developer</AboutMe>
-        </Profile>
-      </Table>
-      <Spacer size={40} />
-      <Header>
-        <Title>PROJECTS</Title>
-        <SeeAll>
-          SEE ALL
-          <TiArrowForward style={{ paddingLeft: 10 }} />
-        </SeeAll>
-      </Header>
-      <Projects>
-        {projects.map(v => {
-          return <ProjectCard project={v} key={v.slug} />;
-        })}
-      </Projects>
-      <Spacer size={30} />
-      <Header>
-        <Title>ILLUSTRATIONS</Title>
-        <SeeAll>
-          SEE ALL
-          <TiArrowForward style={{ paddingLeft: 10 }} />
-        </SeeAll>
-      </Header>
-      <Projects>
-        {illustrations.map(v => {
-          return <IllustrationCard illustration={v} key={v.slug} />;
-        })}
-      </Projects>
-      <Spacer size={50} />
-      {children}
-    </Wrapper>
+    <ContentContainer>
+      <Wrapper>
+        <Table path={path}>
+          <IconBox>
+            <IconImage
+              src={image.file.publicURL}
+              alt="keita furuse aka poteboy's icon"
+            />
+          </IconBox>
+          <Profile>
+            <Myname>Keita Furuse</Myname>
+            <AboutMe>Front-End / iOS Developer</AboutMe>
+          </Profile>
+        </Table>
+        <Spacer size={40} />
+        <Header>
+          <Title>PROJECTS</Title>
+          <SeeAll>
+            SEE ALL
+            <TiArrowForward style={{ paddingLeft: 10 }} />
+          </SeeAll>
+        </Header>
+        <Projects>
+          {projects.map(v => {
+            return <ProjectCard project={v} key={v.slug} />;
+          })}
+        </Projects>
+        <Spacer size={30} />
+        <Header>
+          <Title>ILLUSTRATIONS</Title>
+          <SeeAll>
+            SEE ALL
+            <TiArrowForward style={{ paddingLeft: 10 }} />
+          </SeeAll>
+        </Header>
+        <Projects>
+          {illustrations.map(v => {
+            return <IllustrationCard illustration={v} key={v.slug} />;
+          })}
+        </Projects>
+        <Spacer size={50} />
+        {children}
+      </Wrapper>
+    </ContentContainer>
   );
 };
 
 export default Home;
 
 const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  max-width: 800px;
-  align-self: center;
+  margin: 0 auto;
 `;
 
 const Table = styled.div<{ path: Path }>`
-  min-width: 600px;
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   gap: 20px;
-  @media (max-width: ${size.device.tablet}) {
+  @media (max-width: ${size.device.tablet}px) {
     width: auto;
     flex-direction: column;
-    margin-left: 0px;
   }
 `;
 
@@ -123,7 +119,7 @@ const IconImage = styled.img`
   height: 140px;
   margin: auto;
   // box-shadow: 2px 3px 7px #2dcece;
-  @media (max-width: 600px) {
+  @media (max-width: ${size.device.tablet}px) {
     width: 90px;
     height: 90px;
   }
@@ -133,10 +129,8 @@ const Profile = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border-radius: 30px;
   height: 50%;
   align-self: center;
-  box-shadow: 18px 18px 36px #d5d8e0, -18px -18px 36px #ffffff;
   margin: 0 auto;
 `;
 
@@ -152,39 +146,47 @@ const Myname = styled.div`
 
 const AboutMe = styled.div`
   padding: 10px 20px;
-  color: gray;
+  color: white;
   font-size: x-large;
   font-family: phenomena-regular;
+  background: linear-gradient(to right, #acb6e5, #86fde8);
+  box-shadow: 0 0 5px #acb6e5;
+  border-radius: 20px;
 `;
 
 const Projects = styled.div`
   display: flex;
   flex-direction: row;
   align-self: flex-start;
+  @media (max-width: ${size.device.tablet}px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const Header = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 100%;
 `;
 
 const Title = styled.h3`
   text-align: left;
   align-self: flex-start;
   font-family: phenomena-bold;
-  font-size: 30px;
   letter-spacing: 1.5px;
-  box-shadow: 18px 18px 36px #d5d8e0, -18px -18px 36px #ffffff;
-  padding: 20px;
-  border-radius: 20px;
+  padding: 15px;
 `;
 
 const SeeAll = styled.div`
-  font-size: 30px;
   font-family: phenomena-bold;
   align-self: center;
+  padding: 10px;
+  :hover {
+    border-radius: 20px;
+    box-shadow: 18px 18px 36px #d5d8e0, -18px -18px 36px #ffffff;
+    cursor: pointer;
+  }
 `;
 
 const Transition = keyframes`

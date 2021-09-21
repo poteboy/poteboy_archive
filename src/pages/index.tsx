@@ -12,6 +12,7 @@ const IndexPage = () => {
       <Meta />
       <Spacer size={30} />
       <Home path="home">{null}</Home>
+      <Spacer size={30} />
     </Layout>
   );
 };

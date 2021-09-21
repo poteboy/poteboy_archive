@@ -13,18 +13,7 @@ const _ = require('lodash');
 const BlogList = () => {
   const posts = useStaticQuery(graphql`
     query {
-      allContentfulPoem(sort: { fields: publishedDate, order: DESC }) {
-        edges {
-          node {
-            title
-            publishedDate
-            slug
-            description
-          }
-          __typename
-        }
-      }
-      allContentfulTech(sort: { fields: publishedDate, order: DESC }) {
+      allContentfulBlog(sort: { fields: publishedDate, order: DESC }) {
         edges {
           node {
             title
@@ -38,9 +27,7 @@ const BlogList = () => {
     }
   `);
 
-  const techs: Edge[] = posts.allContentfulTech.edges;
-  const poems: Edge[] = posts.allContentfulPoem.edges;
-  let allPost: Edge[] = _.concat(techs, poems);
+  let allPost: Edge[] = posts.allContentfulBlog.edges;
 
   allPost = allPost
     .sort(function (a, b): number {
@@ -56,12 +43,12 @@ const BlogList = () => {
   }
 
   return (
-    <Layout path={`blog`}>
+    <Layout path={`blog`} side={true}>
       <Meta
         title="ぽてログ BLOG"
         description="新卒ソフトウェアエンジニアがプログラミングやIT技術について情報発信したり、お気持ち表明ポエムをしたりしています。"
       />
-      <BlogPost edges={allPost} topic={`all`}></BlogPost>
+      <BlogPost edges={allPost} topic={`all`} />
     </Layout>
   );
 };

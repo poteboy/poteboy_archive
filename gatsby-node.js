@@ -8,7 +8,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
 
     const res = await graphql(`
     query {
-        allContentfulTech(
+        allContentfulBlog(
           sort: {
             fields: publishedDate
             order: DESC
@@ -24,26 +24,10 @@ module.exports.createPages = async ({ graphql, actions }) => {
             __typename
           }
         }
-        allContentfulPoem (
-          sort: {
-            fields: publishedDate
-            order: DESC
-          }
-        )
-         {
-          edges {
-            node {
-              slug
-              title
-              publishedDate
-            }
-            __typename
-          }
-        }
       }
     `)
 
-      const allPost = _.concat(res.data.allContentfulPoem.edges, res.data.allContentfulTech.edges).sort(function (a, b) {
+      const allPost = res.data.allContentfulBlog.edges.sort(function (a, b) {
         var dateA = new Date(a.node.publishedDate).getTime();
         var dateB = new Date(b.node.publishedDate).getTime();
         return dateA - dateB;

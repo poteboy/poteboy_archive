@@ -12,17 +12,7 @@ const style = require('../styles/post.module.scss');
 
 export const query = graphql`
   query($slug: String) {
-    contentfulTech(slug: { eq: $slug }) {
-      title
-      publishedDate(formatString: "MMMM Do, YYYY")
-      description
-      body {
-        childMarkdownRemark {
-          html
-        }
-      }
-    }
-    contentfulPoem(slug: { eq: $slug }) {
+    contentfulBlog(slug: { eq: $slug }) {
       title
       publishedDate(formatString: "MMMM Do, YYYY")
       description
@@ -37,14 +27,11 @@ export const query = graphql`
 
 const Post = (props: { data: PostData; pageContext: PageContext }) => {
   const topic = props.pageContext.topic;
-  const thema: Node =
-    topic === 'ContentfulPoemEdge'
-      ? props.data.contentfulPoem
-      : props.data.contentfulTech;
+  const thema: Node = props.data.contentfulBlog;
   const html: string = thema.body.childMarkdownRemark.html;
 
   return (
-    <Layout path={`blog`}>
+    <Layout path={`blog`} side={true}>
       <Home path={`post`}>
         <Meta
           title={thema.title + ' - ぽてログ'}

@@ -170,6 +170,7 @@ const Wrapper = styled.header`
   flex-direction: row;
   justify-content: space-between;
   height: 56px;
+  width: 100vw;
   /* box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15); */
   box-shadow: rgb(176 186 197 / 20%) 0px 6px 20px;
 `;
