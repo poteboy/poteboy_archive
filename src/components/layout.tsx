@@ -2,8 +2,9 @@ import React, { FC, useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Header from './header';
 import { useStaticQuery, graphql, Link } from 'gatsby';
-import SideBar from './SideBar/Sidebar';
+import SideBar from '@src/components/SideBar';
 import Meta from './meta';
+import { size } from '@src/constants/size';
 import { Path } from 'src/entity';
 
 interface Props {
@@ -17,7 +18,7 @@ const Layout: FC<Props> = ({ children, path, side }) => {
     <Wrapper>
       <Header path={path} />
       <Contetnt>
-        {children}
+        <Child side={side}>{children}</Child>
         {!!side && <SideBar />}
       </Contetnt>
     </Wrapper>
@@ -33,6 +34,18 @@ const Wrapper = styled.div`
 const Contetnt = styled.div`
   display: flex;
   flex-direction: row;
+  min-width: 100%;
+  justify-content: normal;
+  @media (max-width: ${size.device.tablet}px) {
+    flex-direction: column;
+  }
+`;
+
+const Child = styled.div<{ side?: boolean }>`
+  width: ${props => (props.side ? '65%' : '100%')};
+  @media (max-width: ${size.device.tablet}px) {
+    width: 100%;
+  }
 `;
 
 export default Layout;

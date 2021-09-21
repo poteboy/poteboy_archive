@@ -23,13 +23,13 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 20px;
+  margin: 0 15px;
   box-shadow: 18px 18px 23px #c9ccd4, -18px -18px 23px #ffffff;
   border-radius: 20px;
   padding: 15px;
   width: 200px;
   @media (max-width: ${size.device.tablet}px) {
-    margin: 20px 0;
+    margin: 15px 0;
   }
 `;
 

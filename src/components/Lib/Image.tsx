@@ -32,6 +32,7 @@ const Image: React.FC<Props> = props => {
   );
 
   const edges: Edge[] = data.images.edges;
+  console.log(props, edges)
   const image = edges.find(n => {
     return n.node.relativePath === props.filename;
   });

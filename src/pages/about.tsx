@@ -10,6 +10,7 @@ const About = () => {
   return (
     <Layout path={`about`} side={true}>
       <Meta />
+      <Spacer size={50} />
       <Profile />
     </Layout>
   );

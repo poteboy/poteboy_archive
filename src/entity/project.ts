@@ -4,6 +4,7 @@ export interface Project {
   createdAt: Date;
   fileName: string;
   description: string;
+  tags: string[];
 }
 
 export const projects: Project[] = [
@@ -13,6 +14,7 @@ export const projects: Project[] = [
     createdAt: new Date(),
     fileName: 'app/bigsur.png',
     description:
-      'React Nativeで作ったiOSアプリの処女作。シンプルな筋トレ記録ノートアプリ',
+      'シンプルな筋トレ記録ノートアプリ。React Nativeで作ったiOSアプリ処女作',
+    tags: ['iOS'],
   },
 ];
