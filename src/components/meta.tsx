@@ -25,12 +25,9 @@ const Meta = ({ title, description }: MetaType) => {
     <>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>Poteboy - Keita Fururse</title>
+        <title>{seo.title}</title>
         <meta property="og:title" content="Keita Furuse" />
-        <meta
-          property="og:description"
-          content="Keita Furuse's portfolio site"
-        />
+        <meta property="og:description" content={seo.description} />
         <meta property="og:type" content="website" />
         <meta
           name="google-site-verification"

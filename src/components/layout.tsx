@@ -1,6 +1,7 @@
 import React, { FC, useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Header from './header';
+import Footer from './footer';
 import { useStaticQuery, graphql, Link } from 'gatsby';
 import SideBar from '@src/components/SideBar';
 import Meta from './meta';
@@ -21,6 +22,7 @@ const Layout: FC<Props> = ({ children, path, side }) => {
         <Child side={side}>{children}</Child>
         {!!side && <SideBar />}
       </Contetnt>
+      <Footer />
     </Wrapper>
   );
 };

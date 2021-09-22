@@ -72,6 +72,8 @@ const Tags = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  font-family: phenomena-regular;
+  letter-spacing: 2px;
 `;
 
 const Tag = styled.div`

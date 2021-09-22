@@ -32,34 +32,32 @@ const Post = (props: { data: PostData; pageContext: PageContext }) => {
 
   return (
     <Layout path={`blog`} side={true}>
-      <Home path={`post`}>
-        <Meta
-          title={thema.title + ' - ぽてログ'}
-          description={sumarrize(html, thema.description)}
-        />
-        <div className={style.all}>
-          <div className={style.content}>
-            <div className={style.post}>
-              <h1>{thema.title}</h1>
-              <div>
-                <div className={style.data}>
-                  <Topic topic={topic} />
-                  {thema.publishedDate}
-                  <SNSDataNext title={thema.title} />
-                </div>
-                <div dangerouslySetInnerHTML={{ __html: html }} />
+      <Meta
+        title={thema.title + ' - ぽてログ'}
+        description={sumarrize(html, thema.description)}
+      />
+      <div className={style.all}>
+        <div className={style.content}>
+          <div className={style.post}>
+            <h1>{thema.title}</h1>
+            <div>
+              <div className={style.data}>
+                <Topic topic={topic} />
+                {thema.publishedDate}
+                <SNSDataNext title={thema.title} />
               </div>
+              <div dangerouslySetInnerHTML={{ __html: html }} />
             </div>
-            <div className={style.sns}>
-              <SNSDataNext title={thema.title} />
-            </div>
-            <PrevNextComponent
-              prev={props.pageContext.prev}
-              next={props.pageContext.next}
-            />
           </div>
+          <div className={style.sns}>
+            <SNSDataNext title={thema.title} />
+          </div>
+          <PrevNextComponent
+            prev={props.pageContext.prev}
+            next={props.pageContext.next}
+          />
         </div>
-      </Home>
+      </div>
     </Layout>
   );
 };

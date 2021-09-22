@@ -23,7 +23,6 @@ const Profile = () => {
           </Bio>
         </Content>
       </Table>
-      <Spacer size={100} />
     </Wrapper>
   );
 };
@@ -36,9 +35,12 @@ const Wrapper = styled.div`
 
 export const Table = styled.div`
   align-self: flex-end;
-  width: 80%;
+  width: 70%;
   background: white;
-  border-radius: 20px;
+  /* box-shadow: 14px 14px 28px #d5d8e0, -14px -14px 28px #ffffff; */
+  border-radius: 15px;
+  border: solid 2px #d5d8e0;
+  /* box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15); */
   @media (max-width: 1194px) {
     width: 100%;
   }
@@ -47,17 +49,26 @@ export const Table = styled.div`
 export const Content = styled.div`
   font-family: phenomena-regular;
   padding: 3vh;
-  max-width: 80vh;
+  margin: 0 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   @media (max-width: 1194px) {
     max-width: none;
+    margin: auto;
   }
 `;
 
 const AboutMe = styled.p`
-  font-family: 'Quicksand';
-  padding: 2vh;
+  padding: 10px 20px;
+  color: white;
+  font-size: x-large;
+  font-family: phenomena-regular;
+  background: linear-gradient(to right, #acb6e5, #86fde8);
+  box-shadow: 0 0 5px #acb6e5;
+  border-radius: 20px;
+  width: 200px;
   text-align: center;
-  // box-shadow: 0px 1px 1px 1px #2dcece;
 `;
 
 const Bio = styled.div`

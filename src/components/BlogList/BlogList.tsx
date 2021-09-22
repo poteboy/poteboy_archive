@@ -1,118 +1,107 @@
 import React, { FC } from 'react';
-import { Edge, PostData } from '../../entity'
-import  styled  from 'styled-components';
+import { Edge, PostData } from '../../entity';
+import styled from 'styled-components';
 import { Link, graphql, useStaticQuery } from 'gatsby';
+import { Spacer } from '@src/components/Lib/Spacer';
 import Topic from '../topic/topic';
-const style = require("./BlogList.module.scss")
+import { size } from '@src/constants/size';
 
 type Topic = 'all' | 'tech' | 'poem';
 
 type Props = {
-    topic: Topic
-    edges: Edge[]
-}
+  topic: Topic;
+  edges: Edge[];
+};
 
-const BlogList: React.FC<Props> = ({topic, edges}) => {
-
+const BlogList: React.FC<Props> = ({ topic, edges }) => {
   function convertTime(s: Date): string {
-    var tmp = new Date(s).toLocaleDateString()
-    return tmp
+    var tmp = new Date(s).toLocaleDateString();
+    return tmp;
   }
 
   return (
-      <ListTable>
-        <Tabs>
-          <Link to="/blog" className={style.link}><Tab activated={topic === 'all' ? true : false }>ALL</Tab></Link>
-          <Link to="/blog/tech" className={style.link}><Tab activated={topic === 'tech' ? true : false }>TECH</Tab></Link>
-          <Link to="/blog/poem" className={style.link}><Tab activated={topic === 'poem' ? true : false }>POEM</Tab></Link>
-        </Tabs>
-        {edges.map( (edge: Edge) => {
-            return(
-                <PostList>
-                  <Link to={`/blog/${edge.node.slug}`}
-                        className={style.link}>
-                    <Post>
-                        
-                          <PostTitle>{edge.node.title}</PostTitle>
-                          <SubTitle>
-                            <Topic topic={edge.__typename}/>
-                            <p style={{margin: "0"}}>{convertTime(edge.node.publishedDate)}</p>
-                          </SubTitle>
-                          <p style={{color: 'rgb(204, 204, 204)'}}>{edge.node.description}</p>
-                        
-                    </Post>
-                  </Link>
-                </PostList>
-            )
-        })}
-      </ListTable>
-  )
-}
+    <ListTable>
+      {edges.map((edge: Edge, index) => {
+        return (
+          <PostList key={index}>
+            <Post>
+              <PostLeft> {edge.node.emoji ? edge.node.emoji : ''}</PostLeft>
+              <PostRight>
+                <SubTitle>{convertTime(edge.node.publishedDate)}</SubTitle>
+                <Spacer size={10} />
+                <Link
+                  to={`/blog/${edge.node.slug}`}
+                  style={{ textDecoration: 'none' }}
+                >
+                  <PostTitle>{edge.node.title}</PostTitle>
+                </Link>
+              </PostRight>
+            </Post>
+          </PostList>
+        );
+      })}
+    </ListTable>
+  );
+};
 
 const ListTable = styled.ol`
   flex: 1;
-  margin: 10vh 15vh 10vh 0;
+  margin: 0 0 0 auto;
+  width: 75%;
   align-items: center;
   box-sizing: border-box;
   list-style-type: none;
-  @media (max-width: 1194px) {
-            flex-direction: column;
-            margin: 0 0;
-        }
-`
-
-const Tabs = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-`
-
-const Tab = styled.div<{activated: Boolean}>`
-  background: ${props => props.activated ? '#8484843d' : 'none' };
-  color: ${props => props.activated ? 'snow' : '#fff7f776' };
-  padding: 1vh 2vh;
-  border-radius: 10px 10px 0 0;
-  margin-right: 1vh;
-  font-size: large;
-  transform: translateX(2vh);
-  border: solid 0.5px;
-  border-bottom: none;
-  border-color: #8484843d;
-  &:hover {
-    color: ${props => props.activated ? 'snow' : '#4cf5a676' };
-    border-color: ${props => props.activated ? 'snow' : '#4cf5a676' };;
+  @media (max-width: ${size.device.tablet}px) {
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
   }
-`
+`;
 
 const PostList = styled.li`
-  background: #8484843d;
-  backdrop-filter: blur(2px);
-  border-radius: 1rem;
+  background: white;
+  border-radius: 10px;
   box-shadow: 1px 1px 1px 0 rgb(1 1 1 / 5%);
   margin-bottom: 15px;
-  // transition: all 1s;
-  &:hover, &:focus {
-      /* transition: all 0.3s; */
-      /* transform: translate(-5px,-5px); */
-      border: solid 1px;
-      border-color: #4cf5a676;
-      box-shadow: 0 5px 5px 0px rgb(0 0 0 / 10%);
+  @media (max-width: ${size.device.tablet}px) {
+    width: 100%;
   }
-`
+`;
 
-const PostTitle = styled.h3`
-  color: snow;
-`
+const PostLeft = styled.h3`
+  justify-content: center;
+  text-decoration: none;
+  margin-left: 10px;
+`;
 
-const Post = styled.div`
-  padding-top: 1em;
-  padding-bottom: 1em;
-  margin: 0 auto;
-  max-width: 80%;
-`
+const PostRight = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+`;
 
 const SubTitle = styled.div`
-  display: -webkit-inline-box;
-`
+  color: gray;
+  font-size: 15px;
+`;
+
+const PostTitle = styled.div`
+  color: black;
+  font-size: 18px;
+  font-weight: 600;
+  :hover {
+    color: #255eda;
+  }
+`;
+
+const Post = styled.div`
+  padding: 15px 0;
+  margin: 0 auto;
+  max-width: 90%;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+`;
 
 export default BlogList;

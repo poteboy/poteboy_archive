@@ -5,6 +5,8 @@ import { size } from '@src/constants/size';
 import { Path } from '@src/entity/path';
 import { Spacer } from '@src/components/Lib/Spacer';
 import Image from '@src/components/Lib/Image';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons';
 
 type Props = {};
 
@@ -20,7 +22,19 @@ const SideBar: FC<Props> = () => {
         <Profile>
           <Myname>Keita Furuse</Myname>
           <AboutMe>Front-End / iOS Developer</AboutMe>
+          <SocialNetworks>
+            <a href="https://twitter.com/_poteboy_" target="_blank">
+              <SnsIcon icon={faTwitter} size="2x" />
+            </a>
+            <a href="https://github.com/poteboy" target="_blank">
+              <SnsIcon icon={faGithub} size="2x" />
+            </a>
+          </SocialNetworks>
         </Profile>
+        <Introduction>
+          MedTech系スタートアップで主にフロントエンドを書いているプログラマー🤖
+          絵も描きます🎨
+        </Introduction>
       </Container>
     </Wrapper>
   );
@@ -31,18 +45,21 @@ const Wrapper = styled.div`
   padding: 0 0 0 30px;
   justify-content: flex-end;
   @media (max-width: ${size.device.tablet}px) {
-    width: 80%;
+    width: 90%;
     margin-top: 50px;
+    align-self: center;
+    padding: 0 0 0 0px;
   }
 `;
 
 const Container = styled.div`
-  margin: 0px 15px;
+  margin: 0px 20px;
   padding: 20px;
   display: flex;
   flex-direction: column;
   border-radius: 20px;
   background: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   @media (max-width: ${size.device.tablet}px) {
     margin: 10px 0px;
   }
@@ -74,18 +91,40 @@ const Myname = styled.div`
   align-items: center;
   padding: 10px 20px;
   color: gray;
-  font-size: 40px;
+  font-size: 30px;
   font-family: phenomena-bold;
 `;
 
 const AboutMe = styled.div`
   padding: 10px 20px;
   color: white;
-  font-size: x-large;
+  font-size: large;
   font-family: phenomena-regular;
   background: linear-gradient(to right, #acb6e5, #86fde8);
   box-shadow: 0 0 5px #acb6e5;
   border-radius: 20px;
+`;
+
+const SocialNetworks = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 15px 0;
+  width: 80%;
+  align-self: center;
+`;
+
+const SnsIcon = styled(FontAwesomeIcon)`
+  color: gray;
+  :hover {
+    color: #3affdb;
+    cursor: pointer;
+  }
+`;
+
+const Introduction = styled.p`
+  align-self: center;
+  width: 90%;
 `;
 
 export default SideBar;

@@ -7,6 +7,7 @@ import { Edge, PostData } from '../../entity';
 import Topic from '../../components/topic/topic';
 import { Link, graphql, useStaticQuery } from 'gatsby';
 import styled, { keyframes } from 'styled-components';
+import { Spacer } from '@src/components/Lib/Spacer';
 const style = require('../../styles/blog-index.module.scss');
 const _ = require('lodash');
 
@@ -20,6 +21,7 @@ const BlogList = () => {
             publishedDate
             slug
             description
+            emoji
           }
           __typename
         }
@@ -48,25 +50,10 @@ const BlogList = () => {
         title="ぽてログ BLOG"
         description="新卒ソフトウェアエンジニアがプログラミングやIT技術について情報発信したり、お気持ち表明ポエムをしたりしています。"
       />
+      <Spacer size={50} />
       <BlogPost edges={allPost} topic={`all`} />
     </Layout>
   );
 };
-
-const BlogTable = styled.ol`
-  flex: 1;
-  margin: 10vh 15vh 10vh 0;
-  align-items: center;
-  box-sizing: border-box;
-  list-style-type: none;
-  @media (max-width: 1194px) {
-    flex-direction: column;
-    margin: 0 0;
-  }
-`;
-
-const Title = styled.h3`
-  color: snow;
-`;
 
 export default BlogList;

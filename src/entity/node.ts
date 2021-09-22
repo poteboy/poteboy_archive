@@ -4,6 +4,7 @@ export interface Node {
   slug: string;
   description: string;
   body: Body;
+  emoji: string;
 }
 
 export interface Body {
