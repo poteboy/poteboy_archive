@@ -12,11 +12,11 @@ type Props = {
 const IllustrationCard: FC<Props> = ({ illustration }) => {
   return (
     <ExternalLink href={illustration.url} target="__blank">
-      <Wrapper>
-        <Card>
-          <AppImg filename={illustration.fileName} />
-        </Card>
-      </Wrapper>
+      {/* <Wrapper>
+        <Card> */}
+      <AppImg filename={illustration.fileName} />
+      {/* </Card>
+      </Wrapper> */}
     </ExternalLink>
   );
 };
@@ -47,14 +47,22 @@ const Card = styled.div`
 
 const AppImg = styled(Image)`
   object-fit: cover;
-  height: 180px;
-  width: 180px;
+  height: 200px;
+  width: 200px;
   border-radius: 20px;
-  border: solid 5px white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.1s linear;
+  :hover {
+    transform: translateY(-6px);
+  }
 `;
 
 const ExternalLink = styled.a`
   text-decoration: none;
+  margin: 0 10px;
+  @media (max-width: ${size.device.tablet}px) {
+    margin: 15px 0;
+  }
 `;
 
 export default IllustrationCard;

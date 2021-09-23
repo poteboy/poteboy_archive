@@ -51,7 +51,7 @@ const BlogList = () => {
         description="新卒ソフトウェアエンジニアがプログラミングやIT技術について情報発信したり、お気持ち表明ポエムをしたりしています。"
       />
       <Spacer size={50} />
-      <BlogPost edges={allPost} topic={`all`} />
+      <BlogPost edges={allPost} />
     </Layout>
   );
 };

@@ -6,14 +6,11 @@ import { Spacer } from '@src/components/Lib/Spacer';
 import Topic from '../topic/topic';
 import { size } from '@src/constants/size';
 
-type Topic = 'all' | 'tech' | 'poem';
-
 type Props = {
-  topic: Topic;
   edges: Edge[];
 };
 
-const BlogList: React.FC<Props> = ({ topic, edges }) => {
+const BlogList: React.FC<Props> = ({ edges }) => {
   function convertTime(s: Date): string {
     var tmp = new Date(s).toLocaleDateString();
     return tmp;
