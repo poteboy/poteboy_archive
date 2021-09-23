@@ -24,4 +24,12 @@ export const illustrations: Illustration[] = [
     description: '',
     url: 'https://www.pixiv.net/artworks/92371319',
   },
+  {
+    slug: 'yukata',
+    name: '浴衣',
+    createdAt: new Date(),
+    fileName: 'art/yukata.jpeg',
+    description: '',
+    url: 'https://www.pixiv.net/artworks/92371319',
+  },
 ];

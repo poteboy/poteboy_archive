@@ -55,6 +55,7 @@ const AppImg = styled(Image)`
   height: 200px;
   width: 200px;
   border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   transition: transform 0.1s linear;
   :hover {
     transform: translateY(-6px);

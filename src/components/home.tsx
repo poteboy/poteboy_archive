@@ -82,12 +82,14 @@ const Home: FC<Props> = ({ children, path }) => {
         <Header>
           <Title>ILLUSTRATIONS</Title>
           <SeeAll>
-            SEE ALL
-            <TiArrowForward style={{ paddingLeft: 10 }} />
+            <Link to={`/illustration`} style={{ textDecoration: 'none' }}>
+              SEE ALL
+              <TiArrowForward style={{ paddingLeft: 10 }} />
+            </Link>
           </SeeAll>
         </Header>
         <Projects>
-          {illustrations.map(v => {
+          {illustrations.slice(0, 2).map(v => {
             return <IllustrationCard illustration={v} key={v.slug} />;
           })}
         </Projects>
@@ -211,6 +213,7 @@ const Projects = styled.div`
   display: flex;
   flex-direction: row;
   align-self: flex-start;
+  justify-content: center;
   @media (max-width: ${size.device.tablet}px) {
     flex-direction: column;
     align-items: center;
