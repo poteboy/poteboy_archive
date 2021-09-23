@@ -33,8 +33,8 @@ module.exports = {
         name: `ぽてログ`,
         short_name: `ぽてログ`,
         start_url: `/`,
-        background_color: `rgb(253, 250, 247)`,
-        theme_color: `#663399`,
+        background_color: `rgb(242 246 255)`,
+        theme_color: `#acb6e5`,
         display: `standalone`,
         icon: `src/assets/images/icon.png`, // This path is relative to the root of the site.
       },

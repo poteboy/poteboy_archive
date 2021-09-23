@@ -4,6 +4,7 @@ export interface Illustration {
   createdAt: Date;
   fileName: string;
   description: string;
+  url?: string;
 }
 
 export const illustrations: Illustration[] = [
@@ -13,6 +14,7 @@ export const illustrations: Illustration[] = [
     createdAt: new Date(),
     fileName: 'art/just-a-boy.jpg',
     description: '',
+    url: 'https://www.pixiv.net/artworks/90836146',
   },
   {
     slug: 'end-of-summer',
@@ -20,5 +22,6 @@ export const illustrations: Illustration[] = [
     createdAt: new Date(),
     fileName: 'art/end-of-summer.jpg',
     description: '',
+    url: 'https://www.pixiv.net/artworks/92371319',
   },
 ];

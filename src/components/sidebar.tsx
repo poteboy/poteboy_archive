@@ -60,6 +60,8 @@ const Container = styled.div`
   border-radius: 20px;
   background: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 80px;
   @media (max-width: ${size.device.tablet}px) {
     margin: 10px 0px;
   }

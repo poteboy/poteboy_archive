@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
-import { Illustration } from '@src/entity';
+import { Illustration, illustrations } from '@src/entity';
 import { useStaticQuery, graphql, Link } from 'gatsby';
 import { size } from '@src/constants/size';
 import Image from '@src/components/Lib/Image';
@@ -11,11 +11,13 @@ type Props = {
 
 const IllustrationCard: FC<Props> = ({ illustration }) => {
   return (
-    <Wrapper>
-      <Card>
-        <AppImg filename={illustration.fileName} />
-      </Card>
-    </Wrapper>
+    <ExternalLink href={illustration.url} target="__blank">
+      <Wrapper>
+        <Card>
+          <AppImg filename={illustration.fileName} />
+        </Card>
+      </Wrapper>
+    </ExternalLink>
   );
 };
 
@@ -28,8 +30,12 @@ const Wrapper = styled.div`
   border-radius: 20px;
   padding: 15px;
   width: 200px;
+  transition: transform 0.1s linear;
   @media (max-width: ${size.device.tablet}px) {
     margin: 15px 0;
+  }
+  :hover {
+    transform: translateY(-10px);
   }
 `;
 
@@ -44,6 +50,11 @@ const AppImg = styled(Image)`
   height: 180px;
   width: 180px;
   border-radius: 20px;
+  border: solid 5px white;
+`;
+
+const ExternalLink = styled.a`
+  text-decoration: none;
 `;
 
 export default IllustrationCard;

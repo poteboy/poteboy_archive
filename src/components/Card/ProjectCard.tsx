@@ -11,17 +11,19 @@ type Props = {
 
 const ProjectCard: FC<Props> = ({ project }) => {
   return (
-    <Wrapper>
-      <Card>
-        <AppImg filename={project.fileName} />
-      </Card>
-      <Tags>
-        {project.tags.map((v, index) => {
-          return <Tag key={index}>{v}</Tag>;
-        })}
-      </Tags>
-      <Title>{project.name}</Title>
-    </Wrapper>
+    <ExternalLink href={project.url} target="__blank">
+      <Wrapper>
+        <Card>
+          <AppImg filename={project.fileName} />
+        </Card>
+        <Tags>
+          {project.tags.map((v, index) => {
+            return <Tag key={index}>{v}</Tag>;
+          })}
+        </Tags>
+        <Title>{project.name}</Title>
+      </Wrapper>
+    </ExternalLink>
   );
 };
 
@@ -35,6 +37,10 @@ const Wrapper = styled.div`
   width: 200px;
   gap: 10px;
   margin: 0 15px;
+  transition: transform 0.1s linear;
+  :hover {
+    transform: translateY(-10px);
+  }
 `;
 
 const Card = styled.div`
@@ -85,6 +91,10 @@ const Tag = styled.div`
   font-size: x-small;
   align-self: flex-start;
   margin-right: 10px;
+`;
+
+const ExternalLink = styled.a`
+  text-decoration: none;
 `;
 
 export default ProjectCard;

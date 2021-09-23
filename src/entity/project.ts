@@ -5,6 +5,7 @@ export interface Project {
   fileName: string;
   description: string;
   tags: string[];
+  url: string;
 }
 
 export const projects: Project[] = [
@@ -16,5 +17,6 @@ export const projects: Project[] = [
     description:
       'シンプルな筋トレ記録ノートアプリ。React Nativeで作ったiOSアプリ処女作',
     tags: ['iOS'],
+    url: 'https://apps.apple.com/jp/app/muscle-note/id1585741817',
   },
 ];
