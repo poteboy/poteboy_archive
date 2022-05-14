@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
-import { Illustration } from '@src/entity';
+import { Illustration, illustrations } from '@src/entity';
 import { useStaticQuery, graphql, Link } from 'gatsby';
 import { size } from '@src/constants/size';
 import Image from '@src/components/Lib/Image';
@@ -11,11 +11,13 @@ type Props = {
 
 const IllustrationCard: FC<Props> = ({ illustration }) => {
   return (
-    <Wrapper>
-      <Card>
-        <AppImg filename={illustration.fileName} />
-      </Card>
-    </Wrapper>
+    <ExternalLink href={illustration.url} target="__blank">
+      {/* <Wrapper>
+        <Card> */}
+      <AppImg filename={illustration.fileName} />
+      {/* </Card>
+      </Wrapper> */}
+    </ExternalLink>
   );
 };
 
@@ -28,8 +30,12 @@ const Wrapper = styled.div`
   border-radius: 20px;
   padding: 15px;
   width: 200px;
+  transition: transform 0.1s linear;
   @media (max-width: ${size.device.tablet}px) {
     margin: 15px 0;
+  }
+  :hover {
+    transform: translateY(-10px);
   }
 `;
 
@@ -41,9 +47,22 @@ const Card = styled.div`
 
 const AppImg = styled(Image)`
   object-fit: cover;
-  height: 180px;
-  width: 180px;
+  height: 200px;
+  width: 200px;
   border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.1s linear;
+  :hover {
+    transform: translateY(-6px);
+  }
+`;
+
+const ExternalLink = styled.a`
+  text-decoration: none;
+  margin: 0 10px;
+  @media (max-width: ${size.device.tablet}px) {
+    margin: 15px 0;
+  }
 `;
 
 export default IllustrationCard;

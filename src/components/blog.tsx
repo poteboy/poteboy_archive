@@ -33,7 +33,7 @@ const Blog = (props: { children: Partial<ReactNode> }) => {
                   src={image.file.publicURL}
                   alt="keita furuse aka poteboy's icon"
                   className={style.icon}
-                ></img>
+                />
               </Link>
             </div>
             <div className={style.myName}>Keita Furuse</div>

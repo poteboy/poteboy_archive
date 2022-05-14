@@ -71,11 +71,13 @@ const AboutMe = styled.p`
   text-align: center;
 `;
 
-const Bio = styled.div`
+const Bio = styled.p`
   text-align: left;
   padding: 2vh;
   font-family: 'Quicksand';
-  line-height: 2;
+  line-height: 2.5;
+  letter-spacing: 1.5px;
+  font-weight: 300;
   @media (max-width: 1194px) {
     line-height: 3;
   }

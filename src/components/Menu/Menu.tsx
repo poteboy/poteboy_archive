@@ -27,6 +27,10 @@ const menus = [
     name: 'BLOG',
     path: '/blog',
   },
+  {
+    name: 'ILLUSTRATION',
+    path: '/illustration',
+  },
 ];
 
 const Menu: FC<Props> = props => {

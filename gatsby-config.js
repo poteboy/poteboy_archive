@@ -4,7 +4,7 @@ module.exports = {
   siteMetadata: {
     title: `ぽてログ`,
     pathPrefix: `/poteboy`,
-    description: `新卒ソフトウェアエンジニアが気ままに運営する個人サイト。プログラミングやIT関連の技術について情報発信したり、技術ポエムや日常の出来事に対してお気持ち表明しています。`,
+    description: `新卒ソフトウェアエンジニアが気ままに運営する個人サイト。プログラミングやIT関連の技術について情報発信したり、絵を描いて載せたりします。`,
     author: `Keita Furuse`,
     siteUrl: `https://poteboy.com`,
   },
@@ -33,8 +33,8 @@ module.exports = {
         name: `ぽてログ`,
         short_name: `ぽてログ`,
         start_url: `/`,
-        background_color: `rgb(253, 250, 247)`,
-        theme_color: `#663399`,
+        background_color: `rgb(242 246 255)`,
+        theme_color: `#acb6e5`,
         display: `standalone`,
         icon: `src/assets/images/icon.png`, // This path is relative to the root of the site.
       },

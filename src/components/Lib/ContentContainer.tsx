@@ -5,8 +5,10 @@ export const ContentContainer = styled.div`
   width: 100%;
   max-width: 600px;
   padding: 16px;
-  margin: 0 auto;
+  /* margin: 0 auto; */
+  margin-left: auto;
   @media (max-width: ${size.device.tablet}px) {
     width: auto;
+    margin: auto;
   }
 `;

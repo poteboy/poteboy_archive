@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Project, projects } from '@src/entity';
 import { useStaticQuery, graphql, Link } from 'gatsby';
 import { Spacer } from '@src/components/Lib/Spacer';
+import { size } from '@src/constants/size';
 import Image from '@src/components/Lib/Image';
 
 type Props = {
@@ -11,17 +12,19 @@ type Props = {
 
 const ProjectCard: FC<Props> = ({ project }) => {
   return (
-    <Wrapper>
-      <Card>
-        <AppImg filename={project.fileName} />
-      </Card>
-      <Tags>
-        {project.tags.map((v, index) => {
-          return <Tag key={index}>{v}</Tag>;
-        })}
-      </Tags>
-      <Title>{project.name}</Title>
-    </Wrapper>
+    <ExternalLink href={project.url} target="__blank">
+      {/* <Wrapper>
+        <Card> */}
+      <AppImg filename={project.fileName} />
+      {/* </Card>
+        <Tags>
+          {project.tags.map((v, index) => {
+            return <Tag key={index}>{v}</Tag>;
+          })}
+        </Tags>
+        <Title>{project.name}</Title>
+      </Wrapper> */}
+    </ExternalLink>
   );
 };
 
@@ -35,6 +38,10 @@ const Wrapper = styled.div`
   width: 200px;
   gap: 10px;
   margin: 0 15px;
+  transition: transform 0.1s linear;
+  :hover {
+    transform: translateY(-10px);
+  }
 `;
 
 const Card = styled.div`
@@ -45,9 +52,14 @@ const Card = styled.div`
 
 const AppImg = styled(Image)`
   object-fit: contain;
-  max-width: 95%;
-  max-height: 90%;
+  height: 200px;
+  width: 200px;
   border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.1s linear;
+  :hover {
+    transform: translateY(-6px);
+  }
 `;
 
 const Title = styled.div`
@@ -85,6 +97,15 @@ const Tag = styled.div`
   font-size: x-small;
   align-self: flex-start;
   margin-right: 10px;
+`;
+
+const ExternalLink = styled.a`
+  text-decoration: none;
+  text-decoration: none;
+  margin: 0 10px;
+  @media (max-width: ${size.device.tablet}px) {
+    margin: 15px 0;
+  }
 `;
 
 export default ProjectCard;

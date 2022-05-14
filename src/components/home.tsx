@@ -9,13 +9,14 @@ import {
 import { faPaintBrush, faPalette } from '@fortawesome/free-solid-svg-icons';
 import styled, { keyframes } from 'styled-components';
 import { size } from '@src/constants/size';
-import { Path } from '@src/entity/path';
+import { Path, Edge } from '@src/entity';
 import { Spacer } from '@src/components/Lib/Spacer';
 import { ContentContainer } from '@src/components/Lib/ContentContainer';
 import Image from '@src/components/Lib/Image';
 import { projects, illustrations } from '@src/entity';
 import ProjectCard from '@src/components/Card/ProjectCard';
 import IllustrationCard from '@src/components/Card/IllustrationCard';
+import BlogList from '@src/components/BlogList/BlogList';
 import { TiArrowForward } from 'react-icons/ti';
 
 type Props = {
@@ -26,9 +27,20 @@ type Props = {
 const Home: FC<Props> = ({ children, path }) => {
   // animation: ${IconTransition} 3s ease-in-out infinite;
 
-  const image = useStaticQuery(
+  const data = useStaticQuery(
     graphql`
-      {
+      query {
+        allContentfulBlog(sort: { fields: publishedDate, order: DESC }) {
+          edges {
+            node {
+              slug
+              title
+              publishedDate
+              emoji
+            }
+            __typename
+          }
+        }
         file(name: { eq: "poteicon" }) {
           publicURL
         }
@@ -36,13 +48,15 @@ const Home: FC<Props> = ({ children, path }) => {
     `,
   );
 
+  const posts = data.allContentfulBlog.edges.slice(0, 3) as Edge[];
+
   return (
     <ContentContainer>
       <Wrapper>
         <Table path={path}>
           <IconBox>
             <IconImage
-              src={image.file.publicURL}
+              src={data.file.publicURL}
               alt="keita furuse aka poteboy's icon"
             />
           </IconBox>
@@ -51,7 +65,7 @@ const Home: FC<Props> = ({ children, path }) => {
             <AboutMe>Front-End / iOS Developer</AboutMe>
           </Profile>
         </Table>
-        <Spacer size={40} />
+        {/* <Spacer size={40} /> */}
         <Header>
           <Title>PROJECTS</Title>
           <SeeAll>
@@ -68,14 +82,29 @@ const Home: FC<Props> = ({ children, path }) => {
         <Header>
           <Title>ILLUSTRATIONS</Title>
           <SeeAll>
-            SEE ALL
-            <TiArrowForward style={{ paddingLeft: 10 }} />
+            <Link to={`/illustration`} style={{ textDecoration: 'none' }}>
+              SEE ALL
+              <TiArrowForward style={{ paddingLeft: 10 }} />
+            </Link>
           </SeeAll>
         </Header>
         <Projects>
-          {illustrations.map(v => {
+          {illustrations.slice(0, 2).map(v => {
             return <IllustrationCard illustration={v} key={v.slug} />;
           })}
+        </Projects>
+        <Spacer size={30} />
+        <Header>
+          <Title>Blog</Title>
+          <SeeAll>
+            <Link to={`/blog`} style={{ textDecoration: 'none' }}>
+              SEE ALL
+              <TiArrowForward style={{ paddingLeft: 10 }} />
+            </Link>
+          </SeeAll>
+        </Header>
+        <Projects>
+          <BlogList edges={posts} />
         </Projects>
         <Spacer size={50} />
         {children}
@@ -92,13 +121,14 @@ const Wrapper = styled.div`
 
 const Table = styled.div<{ path: Path }>`
   width: 100%;
-  display: flex;
   flex-direction: row;
   justify-content: flex-start;
   gap: 20px;
+  display: none;
   @media (max-width: ${size.device.tablet}px) {
     width: auto;
     flex-direction: column;
+    display: flex;
   }
 `;
 
@@ -183,6 +213,7 @@ const Projects = styled.div`
   display: flex;
   flex-direction: row;
   align-self: flex-start;
+  justify-content: center;
   @media (max-width: ${size.device.tablet}px) {
     flex-direction: column;
     align-items: center;

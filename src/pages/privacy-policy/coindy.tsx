@@ -8,13 +8,13 @@ const PrivacyPolicy = () => {
   return (
     <Layout side={true}>
       <Meta
-        title="Muscle Note プライバシーポリシー"
-        description="Muscle Note のプライバシーポリシー"
+        title="Coindy プライバシーポリシー"
+        description="Coindy のプライバシーポリシー"
       />
       <div className={style.all}>
         <div className={style.content}>
           <div className={style.post}>
-            <h1 style={{ textAlign: 'center' }}>Muscle Note</h1>
+            <h1 style={{ textAlign: 'center' }}>Coindy</h1>
             <h3 style={{ textAlign: 'center' }}>プライバシーポリシー</h3>
             <h2>利用者情報の取得</h2>
             <p>本アプリが利用者の個人情報を取得することはありません。</p>
