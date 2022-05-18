@@ -5,12 +5,13 @@ import { size } from '@src/constants/size';
 import { Path } from '@src/entity/path';
 import { Spacer } from '@src/components/Lib/Spacer';
 import Image from '@src/components/Lib/Image';
+import { ZennIcon } from '@src/components/icons/zenn';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons';
 
 type Props = {};
 
-const SideBar: FC<Props> = () => {
+export const SideBar: FC<Props> = () => {
   return (
     <Wrapper>
       <Spacer size={50} />
@@ -21,7 +22,7 @@ const SideBar: FC<Props> = () => {
         <Spacer size={40} />
         <Profile>
           <Myname>Keita Furuse</Myname>
-          <AboutMe>Front-End / iOS Developer</AboutMe>
+          <AboutMe>Design Engineer</AboutMe>
           <SocialNetworks>
             <a href="https://twitter.com/_poteboy_" target="_blank">
               <SnsIcon icon={faTwitter} size="2x" />
@@ -29,10 +30,13 @@ const SideBar: FC<Props> = () => {
             <a href="https://github.com/poteboy" target="_blank">
               <SnsIcon icon={faGithub} size="2x" />
             </a>
+            <a href="https://zenn.dev/poteboy" target="_blank">
+              <ZennIcon />
+            </a>
           </SocialNetworks>
         </Profile>
         <Introduction>
-          MedTech系スタートアップで主にフロントエンドを書いているプログラマー🤖
+          デザインエンジニア🤖 <br />I 🍑 React Native & Figma🚀 <br />
           絵も描きます🎨
         </Introduction>
       </Container>
@@ -98,6 +102,7 @@ const Myname = styled.div`
 `;
 
 const AboutMe = styled.div`
+  text-align: center;
   padding: 10px 20px;
   color: white;
   font-size: large;
@@ -127,6 +132,16 @@ const SnsIcon = styled(FontAwesomeIcon)`
 const Introduction = styled.p`
   align-self: center;
   width: 90%;
+  text-align: center;
 `;
 
-export default SideBar;
+const SVGIcon = styled(ZennIcon)`
+  background-color: gray;
+  height: 40px;
+  width: 40px;
+  color: gray;
+  :hover {
+    color: #3affdb;
+    cursor: pointer;
+  }
+`;

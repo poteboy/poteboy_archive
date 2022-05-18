@@ -62,7 +62,7 @@ const Home: FC<Props> = ({ children, path }) => {
           </IconBox>
           <Profile>
             <Myname>Keita Furuse</Myname>
-            <AboutMe>Front-End / iOS Developer</AboutMe>
+            <AboutMe>Design Engineer</AboutMe>
           </Profile>
         </Table>
         {/* <Spacer size={40} /> */}
@@ -200,6 +200,7 @@ const Myname = styled.div`
 `;
 
 const AboutMe = styled.div`
+  text-align: center;
   padding: 10px 20px;
   color: white;
   font-size: x-large;

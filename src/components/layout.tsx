@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Header from './header';
 import Footer from './footer';
 import { useStaticQuery, graphql, Link } from 'gatsby';
-import SideBar from '@src/components/SideBar';
+import { SideBar } from '@src/components/sidebar';
 import Meta from './meta';
 import { size } from '@src/constants/size';
 import { Path } from 'src/entity';
