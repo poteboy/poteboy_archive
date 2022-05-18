@@ -9,17 +9,17 @@ const Profile = () => {
         <Content>
           <AboutMe>ABOUT ME</AboutMe>
           <Bio>
-            都内在住のプログラマー。
+            都内在住のソフトウェア開発者（デザインエンジニア）です。
             <br />
-            2021年4月に新卒で医療系スタートアップに入社し、 React (Next.js),
-            React Native, Angular, Ruby on
-            Railsなどを用いたアプリケーション開発に携わる。
+            主にデザインシステム基盤構築・高速なプロトタイプ検証を得意としています。
             <br />
-            TypeScripを用いたWebフロントエンド開発を中心に、大学在学中から長期インターン生として実務アプリケーション開発に携わる。
+            技術としてはTypeScript、React
+            Native、Figmaが好物ですが、実務では他にもNext.js、Anguler、Ruby on
+            Rails、Apolloなどを触ってきました。
             <br />
-            また、卒業論文では「機械学習を用いたパワーリフティングスコアの回帰予測」をテーマに取り組む。
+            趣味で個人開発（iOSアプリ＊２）やOSS活動（npmパッケージ*1）にも取り組んでいます。
             <br />
-            最近の趣味はiOS開発とお絵かき。TOEIC920点(2017年)。ベンチプレス150kg(2019年)。
+            TOEIC920点(2017年)。ベンチプレス150kg(2019年)。
           </Bio>
         </Content>
       </Table>
@@ -77,7 +77,7 @@ const Bio = styled.p`
   font-family: 'Quicksand';
   line-height: 2.5;
   letter-spacing: 1.5px;
-  font-weight: 300;
+  font-weight: 500;
   @media (max-width: 1194px) {
     line-height: 3;
   }

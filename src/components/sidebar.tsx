@@ -36,7 +36,7 @@ export const SideBar: FC<Props> = () => {
           </SocialNetworks>
         </Profile>
         <Introduction>
-          デザインエンジニア🤖 <br />I 🍑 React Native & Figma🚀 <br />
+          I 🍑 React Native & Figma🚀 <br />
           絵も描きます🎨
         </Introduction>
       </Container>
@@ -103,7 +103,8 @@ const Myname = styled.div`
 
 const AboutMe = styled.div`
   text-align: center;
-  padding: 10px 20px;
+  padding: 7px 14px;
+  margin-bottom: 10px;
   color: white;
   font-size: large;
   font-family: phenomena-regular;
